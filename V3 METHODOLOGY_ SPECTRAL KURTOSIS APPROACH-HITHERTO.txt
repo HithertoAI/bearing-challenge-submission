@@ -1,0 +1,23 @@
+﻿V3 METHODOLOGY: SPECTRAL KURTOSIS APPROACH
+
+
+This submission uses spectral kurtosis to detect bearing degradation through impulsive impact patterns rather than overall vibration energy.
+
+
+Key Innovation:
+- Focuses on kurtosis of power spectral density (impulsive content)
+- Detects bearing impacts and early-stage faults
+- Completely different ranking than RMS or fault energy methods
+
+
+Technical Approach:
+- Calculated spectral kurtosis from vibration data
+- Files ranked by kurtosis values (range: 26 to 2640)
+- Assumes bearing impacts increase monotonically with degradation
+
+
+Rationale:
+Spectral kurtosis excels at detecting transient impacts characteristic of bearing faults, potentially capturing early degradation stages missed by energy-based methods.
+
+
+This represents a paradigm shift from energy monitoring to impact pattern analysis.
