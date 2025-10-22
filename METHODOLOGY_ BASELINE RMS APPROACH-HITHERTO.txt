@@ -1,0 +1,33 @@
+﻿METHODOLOGY: BASELINE RMS APPROACH
+
+
+Development Approach:
+- Initial data exploration of vibration signals and tachometer data
+- Extraction of RMS (Root Mean Square) vibration amplitude as primary degradation indicator
+- Assumption: bearing degradation causes monotonic increase in overall vibration energy
+- Files ranked from lowest to highest RMS values
+
+
+Modeling Approach:
+- Simple feature-based ranking using time-domain vibration characteristics
+- No complex machine learning - relies on physical understanding of bearing degradation
+- Each file processed independently, then globally sorted by RMS value
+
+
+Key Assumptions:
+1. Bearing degradation progresses monotonically (bearings don't heal)
+2. Overall vibration energy increases with degradation severity
+3. Operational variations are secondary to degradation trends
+
+
+Observations:
+- RMS values range from 24.30 to 50.41 across files, suggesting meaningful degradation progression
+- Data quality is excellent with consistent 2-second recordings at 93,750 Hz
+- Ready for more sophisticated feature extraction in subsequent submissions
+
+
+Next Steps Planned:
+- Spectral analysis of bearing fault frequencies
+- Envelope analysis for impact detection
+- Speed normalization using tachometer data
+- Multi-feature ensemble approaches
