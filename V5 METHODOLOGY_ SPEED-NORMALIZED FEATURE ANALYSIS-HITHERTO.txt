@@ -1,0 +1,24 @@
+﻿V5 METHODOLOGY: SPEED-NORMALIZED FEATURE ANALYSIS
+
+
+This submission accounts for operational speed variations using tachometer data to uncover the true degradation signal.
+
+
+Key Innovation:
+- Uses zero-crossing tachometer timestamps to calculate true RPM
+- Normalizes vibration features by actual operating conditions
+- Adjusts bearing fault frequencies based on measured shaft speed
+
+
+Technical Approach:
+- Instantaneous RPM calculation from zct data
+- RMS vibration normalized by shaft speed
+- Bearing fault frequencies scaled by actual RPM
+- Combined ranking using normalized features
+
+
+Discovery:
+Despite only 0.6% speed variation, normalization produces dramatically different rankings, suggesting operational conditions significantly impact vibration signatures.
+
+
+This approach separates true degradation from operational effects.
