@@ -1,0 +1,30 @@
+﻿V4 METHODOLOGY: ENHANCED RMS WITH FEATURE AGREEMENT WEIGHTING
+
+Building on our #5-ranked RMS approach, v4 intelligently combines multiple degradation signals through feature agreement analysis.
+
+
+Key Innovation:
+- Uses RMS as the foundational ranking (proven effective)
+- Calculates agreement scores between RMS and other features
+- Adjusts rankings for files where features strongly disagree
+- Blends complementary degradation signals intelligently
+
+
+Technical Approach:
+- Primary feature: RMS vibration energy
+- Secondary features: Spectral kurtosis, outer race energy, peak-to-peak
+- Agreement scoring: Measures consensus between features
+- Adaptive weighting: High agreement = trust RMS, Low agreement = blend features
+
+
+Feature Insights Discovered:
+- RMS & Peak-to-Peak: Strong agreement (0.93 correlation)
+- RMS & Kurtosis: Negative correlation (-0.32) - complementary signals
+- RMS & Outer Race: No correlation - independent measures
+
+
+Rationale:
+Rather than abandoning our successful RMS approach, we enhance it by identifying and intelligently handling cases where other features provide conflicting evidence of degradation progression.
+
+
+This represents a sophisticated ensemble approach that maintains robustness while incorporating multiple physical degradation mechanisms.
