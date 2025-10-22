@@ -1,0 +1,23 @@
+﻿V2 METHODOLOGY: OUTER RACE ENERGY APPROACH
+
+
+Building on our baseline RMS method, v2 uses bearing-specific fault frequency analysis.
+
+
+Key Features:
+- Energy in outer race fault frequency band (4408 Hz ±25 Hz)
+- Based on provided bearing geometry factors
+- Targets specific degradation mechanism rather than general vibration
+
+
+Rationale:
+Outer race faults are common failure modes in bearings and often produce strong, measurable frequency components. By focusing on this specific degradation signature, we aim to capture the true chronological progression more accurately than overall vibration energy.
+
+
+Assumptions:
+- Outer race degradation progresses monotonically
+- Fault frequency energy increases with degradation severity
+- Operational variations affect fault frequencies less than overall RMS
+
+
+This approach represents a shift from general vibration monitoring to targeted fault frequency analysis.
