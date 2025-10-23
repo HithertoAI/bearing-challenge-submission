@@ -1,0 +1,34 @@
+﻿V6 METHODOLOGY: EM TRANSIENT ANALYSIS WITH PEAK DETECTION
+
+
+Building on our RMS foundation, V6 introduces electromagnetic transient analysis to capture short-duration fault signatures that RMS alone may miss.
+
+
+Key Innovation:
+- Adds high-pass filtering to isolate EM transient bursts
+- Implements peak detection to count and measure impulse events
+- Combines steady-state RMS with transient energy metrics
+- Captures both continuous degradation and intermittent fault signatures
+
+
+Technical Approach:
+- Primary feature: RMS vibration energy (proven baseline)
+- EM transient detection: 1kHz high-pass Butterworth filter
+- Peak detection: Height = 2σ, Minimum distance = 100 samples
+- Combined metric: RMS + (Transient Energy × 0.1 weighting)
+
+
+Physical Rationale:
+- RMS: Measures overall vibration energy (continuous wear)
+- Transients: Capture EM bursts from early bearing faults
+- Peak counts: Quantify intermittent fault occurrences
+- Combined: More comprehensive degradation assessment
+
+
+Results:
+- Detected 61,162 transient peaks across dataset
+- Transient energy range: 4.6M to 17.8M units
+- Complements RMS with high-frequency fault signatures
+
+
+This approach maintains our robust RMS foundation while adding sensitivity to early-stage fault transients that may precede full degradation.
