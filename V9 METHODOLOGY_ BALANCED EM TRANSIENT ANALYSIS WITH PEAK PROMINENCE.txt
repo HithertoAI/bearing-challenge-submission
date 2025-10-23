@@ -1,0 +1,29 @@
+﻿V9 METHODOLOGY: BALANCED EM TRANSIENT ANALYSIS WITH PEAK PROMINENCE
+
+
+Refining our successful V6 EM transient approach with intelligent parameter balancing and quality-focused transient measurement.
+
+
+Key Innovations:
+- Balanced filter frequency (750Hz) between conservative V6 and sensitive V7
+- Optimized peak detection threshold (1.75σ) for better signal-to-noise ratio
+- Peak prominence weighting emphasizes transient quality over quantity
+- Smart distance parameter (75 samples) for closely-spaced transient groups
+
+
+Technical Refinements:
+- Filter: 750Hz high-pass Butterworth (4th order)
+- Peak detection: Height = 1.75 × standard deviation, Distance = 75 samples
+- Transient metric: Weighted sum of (peak prominence × peak height)
+- Combined score: RMS + (Weighted transients × 0.15)
+
+
+Quality Focus:
+- Detected 86,083 transient peaks (optimal middle ground)
+- Average prominence: 81.77 (high-quality transient events)
+- Emphasizes physically meaningful transients over noise
+- Maintains RMS foundation while improving transient sensitivity
+
+
+Rationale:
+V6 was conservative, V7 was oversensitive. V9 finds the optimal balance, capturing genuine fault transients while rejecting noise, using peak prominence to weight transient importance.
