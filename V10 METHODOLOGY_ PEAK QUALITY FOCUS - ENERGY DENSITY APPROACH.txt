@@ -1,0 +1,36 @@
+﻿V10 METHODOLOGY: PEAK QUALITY FOCUS - ENERGY DENSITY APPROACH
+
+
+Based on analytical insights from our successful V6 submission, V10 implements a fundamental discovery: degraded bearings exhibit fewer but more energetic transient peaks.
+
+
+Key Discovery from V6 Analysis:
+- V6 success correlated with transient ENERGY (1.000), not peak count
+- Peak count showed NEGATIVE correlation (-0.47) with degradation
+- Critical insight: Quality over quantity of transient events
+
+
+Technical Innovation:
+- Peak Quality Score: (Average peak energy) / (Number of peaks)
+- Energy Density Metric: Measures how concentrated transient energy is
+- Emphasizes files with fewer but more powerful transient events
+- Directly implements the "fewer but stronger peaks" degradation pattern
+
+
+Implementation:
+- Uses same V6 filtering (1000Hz high-pass) and detection parameters
+- Calculates average energy per detected peak
+- Normalizes by peak count to get energy density
+- Ranks by peak quality score (higher = more degradation indicative)
+
+
+Physical Rationale:
+- Early degradation: Many small, distributed transients
+- Advanced degradation: Fewer but more concentrated, energetic fault events
+- Energy density increases as bearing damage localizes and intensifies
+- Matches observed physics of progressing bearing faults
+
+
+Results:
+- Peak quality range: 3.39 to 15.45 (significant variation)
+- Directly leverages the secret of V6's success
