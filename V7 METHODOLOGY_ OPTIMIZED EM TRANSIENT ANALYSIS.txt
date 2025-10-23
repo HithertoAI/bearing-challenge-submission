@@ -1,0 +1,35 @@
+﻿V7 METHODOLOGY: OPTIMIZED EM TRANSIENT ANALYSIS
+
+
+Key Optimizations:
+
+
+    Lower filter cutoff (500Hz): Captures broader transient frequency range
+
+
+    More sensitive peak detection (1.5σ): Identifies weaker transient events
+
+
+    Higher transient weighting (0.2): Increases influence of transient energy on final score
+
+
+    Reduced peak distance (50 samples): Detects closely-spaced transient bursts
+
+
+Technical Improvements:
+
+
+    Detected 132,229 transient peaks (116% increase over V6)
+
+
+    Expanded sensitivity to early-stage fault signatures
+
+
+    Better capture of intermittent bearing faults
+
+
+    Maintains RMS foundation while emphasizing transient evidence
+
+
+Rationale:
+V6 demonstrated transient analysis potential. V7 pushes sensitivity further to capture subtle fault signatures that may be critical for optimal degradation ordering.
