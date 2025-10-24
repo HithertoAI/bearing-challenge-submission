@@ -1,0 +1,27 @@
+﻿V11 METHODOLOGY: FAULT ENERGY PROGRESSION
+
+
+
+
+
+
+PHYSICAL PARAMETERS:
+- Sample Rate: 93,750 Hz
+- Fault Frequencies: BPFO=4408Hz, BPFI=5781Hz, BSF=3781Hz, FTF=231Hz
+- Shaft Speed: 536.27 RPM
+
+
+APPROACH:
+- Calculates Power Spectral Density (PSD) using Welch's method
+- Extracts energy in ±50Hz bands around each known fault frequency
+- Ranks files by increasing total fault energy
+- Maintains RMS vibration as secondary validation
+
+
+RATIONALE:
+- Bearing degradation manifests as increasing energy at characteristic fault frequencies
+- Fault energy progression should be monotonic over bearing lifespan
+- Uses actual physical system parameters rather than estimated values
+
+
+This represents our first physics-grounded approach using the specified parameters.
