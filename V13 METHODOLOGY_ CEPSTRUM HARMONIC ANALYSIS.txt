@@ -1,0 +1,29 @@
+﻿V13 METHODOLOGY: CEPSTRUM HARMONIC ANALYSIS
+
+
+Detects bearing fault progression through harmonic pattern analysis in the cepstral domain.
+
+
+APPROACH:
+- Computes real cepstrum (inverse FFT of log power spectrum)
+- Identifies peaks at quefrencies corresponding to known fault frequencies
+- Uses maximum cepstral peak strength as degradation indicator
+- Ranks files by increasing harmonic pattern strength
+
+
+RATIONALE:
+- Bearing faults create characteristic harmonic families in vibration spectra
+- Cepstrum excels at detecting these periodic harmonic patterns
+- Harmonic strength should increase with bearing degradation
+- More robust to noise than direct spectral analysis
+
+
+PHYSICAL PARAMETERS:
+Sample Rate: 93,750 Hz
+Fault Frequencies: BPFO=4408Hz, BPFI=5781Hz, BSF=3781Hz, FTF=231Hz
+
+
+TECHNICAL DETAILS:
+- Real cepstrum computed via: cepstrum = |IFFT(log(|FFT(signal)|))|
+- Quefrency analysis windows: ±20% around expected fault frequencies
+- Feature: Maximum cepstral peak strength across all fault bands
