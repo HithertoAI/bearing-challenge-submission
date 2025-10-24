@@ -1,0 +1,29 @@
+﻿V14 METHODOLOGY: EM TRANSIENT ANALYSIS - revised
+
+
+Revisiting our successful V6 approach with corrected physical parameters.
+
+
+APPROACH:
+- RMS vibration energy (proven baseline indicator)
+- High-pass filtering (1000 Hz) to isolate EM transient bursts
+- Peak detection on filtered signal (height = 2σ, distance adapted for 93.75kHz)
+- Combined metric: RMS + (Transient Energy × 0.1 weighting)
+
+
+RATIONALE:
+- RMS captures overall vibration increase from bearing wear
+- EM transients detect early-stage fault signatures and electrical noise
+- Combined approach proven effective in V6 submission
+- Now recalculated with correct 93,750 Hz sample rate
+
+
+PHYSICAL PARAMETERS:
+Sample Rate: 93,750 Hz (corrected from previous 25,600 Hz assumption)
+High-pass cutoff: 1000 Hz for transient isolation
+Peak distance: Adapted for proper sampling frequency
+
+
+RESULTS:
+64,735 transient peaks detected across dataset
+RMS range: 24.30 to 50.41
