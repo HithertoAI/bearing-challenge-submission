@@ -1,0 +1,22 @@
+﻿V12 METHODOLOGY: COMBINED RMS + FAULT ENERGY
+
+
+Hybrid approach combining proven RMS vibration with targeted fault frequency energy.
+
+
+APPROACH:
+- RMS: Overall vibration energy (continuous wear indicator)
+- Fault Energy: Energy in known BPFO/BPFI/BSF/FTF frequency bands
+- Combined Score: RMS + scaled fault energy
+- Ranks files by increasing combined degradation score
+
+
+RATIONALE:
+- RMS alone may miss early-stage fault signatures
+- Fault energy alone may be too sensitive to operational variations  
+- Combined approach provides robustness: captures both general wear and specific fault development
+- Weighted combination balances the two indicators
+
+
+PHYSICAL BASIS:
+Uses actual system parameters: 93,750 Hz sample rate, known fault frequencies
