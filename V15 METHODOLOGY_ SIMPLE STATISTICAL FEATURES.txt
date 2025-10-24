@@ -1,0 +1,23 @@
+﻿V15 METHODOLOGY: SIMPLE STATISTICAL FEATURES
+
+
+Returns to classic bearing degradation indicators with weighted combination.
+
+
+APPROACH:
+- RMS: Overall vibration energy
+- Kurtosis: Impulsiveness indicator (increases with bearing faults)
+- Crest Factor: Peak-to-RMS ratio (indicates impact severity)
+- Combined Score: RMS + (10 × Kurtosis) + (5 × Crest Factor)
+- Ranking by increasing combined score
+
+
+RATIONALE:
+- All three features typically increase with bearing degradation
+- Kurtosis is sensitive to early-stage bearing faults
+- Crest factor detects impact events characteristic of bearing damage
+- Simple weighted combination avoids over-engineering
+
+
+INDUSTRY STANDARD:
+These are well-established bearing health indicators in condition monitoring.
