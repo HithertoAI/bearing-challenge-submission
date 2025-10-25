@@ -1,0 +1,20 @@
+﻿V16 METHODOLOGY: ENVELOPE DEMODULATION HEALTH INDEX
+APPROACH:
+Physics-informed feature extraction focusing on irreversible bearing degradation processes. Implements a Health Index combining three key vibration features derived from envelope demodulation analysis.
+CORE FEATURES:
+1. Envelope_RMS: RMS of demodulated signal after band-pass filtering (5-20 kHz resonance region). Tracks impact energy from spalling progression.
+2. BPFO_Amplitude: Amplitude of Ball Pass Frequency Outer Race (4408 Hz) in envelope spectrum. Monitors fault-specific frequency component growth.
+3. HFRMS: High-frequency RMS of raw vibration signal. Captures overall impact energy increase.
+HEALTH INDEX:
+Weighted combination: HI = 0.4 × Envelope_RMS + 0.4 × BPFO_Amplitude + 0.2 × HFRMS
+PHYSICAL BASIS:
+* Spalling Progression: Material loss creates increasing impact energy (monotonic increase in envelope features)
+* Fault Development: Growing BPFO amplitude indicates outer race defect severity
+* System Response: High-frequency energy redistribution reflects bearing structural degradation
+SIGNAL PROCESSING:
+* Band-pass filter: 5-20 kHz (bearing resonance region)
+* Hilbert transform for envelope extraction
+* FFT of envelope for fault frequency analysis
+* Files ranked by ascending Health Index (increasing damage)
+ADVANTAGE:
+Moves beyond simple statistical features to track specific physical degradation mechanisms identified in bearing failure physics.
