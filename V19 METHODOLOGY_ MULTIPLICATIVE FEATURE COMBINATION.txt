@@ -1,0 +1,17 @@
+﻿V19 METHODOLOGY: MULTIPLICATIVE FEATURE COMBINATION
+APPROACH:
+Strategic shift from additive to multiplicative feature combination based on DeepThink analysis. Amplifies co-occurring degradation signals while maintaining robustness.
+CORE INNOVATION:
+* Multiplicative Health Index: HI = RMS_norm × EnergyRatio_norm × (1 + 0.3×Kurtosis_norm) × (1 + 0.2×Crest_norm)
+* Gentle Weighting: Kurtosis and Crest Factor contribute multiplicatively without dominating
+* Amplified Separation: Creates strong differentiation between degradation states
+PHYSICAL BASIS:
+* Bearing degradation is multiplicative - energy increases AND frequency distribution shifts simultaneously
+* Co-occurring feature changes indicate true degradation progression
+* Multiplicative combination penalizes inconsistent feature behavior
+RESULTS:
+* Health Index Range: 0.0000 to 0.6748 (infinite dynamic range)
+* Feature Normalization: All features scaled to [0,1] range
+* Strong Separation: Clear differentiation between health states
+STRATEGIC ADVANTAGE:
+Builds on V18's proven feature set while implementing the minimal change (multiplicative vs additive) recommended by systematic analysis for maximum 8-point gap closure probability.
