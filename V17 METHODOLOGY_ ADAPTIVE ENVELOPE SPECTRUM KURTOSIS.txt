@@ -1,0 +1,22 @@
+﻿V17 METHODOLOGY: ADAPTIVE ENVELOPE SPECTRUM KURTOSIS
+APPROACH:
+Systematic, per-file optimization of frequency band selection using Envelope Spectrum Kurtosis (ESK) method. Adaptively finds the optimal resonance band for each degradation stage to maximize bearing fault periodicity detection.
+CORE INNOVATION:
+* Adaptive Band Selection: Each file's optimal frequency band is independently determined
+* ESK Metric: Maximizes kurtosis of envelope spectrum in low-frequency range (0-500 Hz)
+* Search Grid: Tests 40 center frequencies (1-40 kHz) × 3 bandwidths (2/4/6 kHz) per file
+PHYSICAL BASIS:
+* Resonance Tracking: Automatically finds actual bearing resonance frequencies as they evolve with degradation
+* Fault Periodicity: ESK directly maximizes the periodic impulse train characteristic of bearing faults
+* System Dynamics: Adapts to changing stiffness and resonance behavior throughout degradation
+TECHNICAL IMPLEMENTATION:
+1. For each file, test 120 frequency band combinations
+2. Select band that maximizes kurtosis of envelope spectrum
+3. Extract envelope RMS from optimal band
+4. Combine with simple RMS in Health Index (80%/20% weighting)
+RESULTS:
+* Health Index Range: 5.78 to 21.99 (3.8× dynamic range)
+* Envelope RMS Range: 1.05 to 18.58 (17.7× dynamic range - massive improvement over V16)
+* Optimal Bands: 9-38 kHz centers, predominantly 21 kHz center with 6 kHz bandwidth
+ADVANTAGE OVER V16:
+Replaces fixed band assumption with data-driven adaptive selection, resulting in significantly improved feature sensitivity to degradation progression.
