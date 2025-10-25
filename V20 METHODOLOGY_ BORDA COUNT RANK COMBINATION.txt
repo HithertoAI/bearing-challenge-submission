@@ -1,0 +1,21 @@
+﻿V20 METHODOLOGY: BORDA COUNT RANK COMBINATION
+APPROACH:
+Robust rank-based feature combination using Borda count method. Each file is ranked for each feature, and ranks are summed to create a consensus degradation sequence.
+CORE METHOD:
+* Feature Ranking: Each of 53 files ranked 1-53 for RMS, Kurtosis, Crest Factor, and Energy Ratio
+* Borda Count: Sum of ranks across all four features for each file
+* Consensus Sequencing: Files sorted by ascending Borda score (lowest = healthiest, highest = most degraded)
+FEATURES USED:
+1. RMS (overall vibration energy)
+2. Kurtosis (signal impulsiveness)
+3. Crest Factor (peak-to-RMS ratio)
+4. Energy Ratio (high/low frequency energy distribution)
+ADVANTAGES:
+* Extremely Robust: Handles non-monotonic features gracefully
+* Scale-Invariant: No normalization required - uses ranks only
+* Consensus-Based: Multiple features contribute equally to final sequence
+* Proven Method: Standard approach for ranking problems without ground truth
+RESULTS:
+* Borda Score Range: 27 to 202 (good separation across 53 files)
+* Equal Weighting: All features contribute equally to final ranking
+* Stable Output: Avoids numerical instability of multiplicative methods
