@@ -1,0 +1,17 @@
+﻿V18 METHODOLOGY: ENHANCED STATISTICAL FEATURES WITH ENERGY RATIOS
+APPROACH:
+Strategic minimal enhancement of proven statistical features. Builds on V15's success (RMS + Kurtosis + Crest Factor) by adding frequency energy ratios to capture broadband degradation patterns without over-engineering.
+CORE FEATURES:
+1. RMS: Overall vibration energy (proven performer)
+2. Kurtosis: Signal impulsiveness (proven performer)
+3. Crest Factor: Peak-to-RMS ratio (proven performer)
+4. Energy Ratio (High/Low): Ratio of high-frequency (5-20 kHz) to low-frequency (10-1000 Hz) energy
+STRATEGIC RATIONALE:
+* Builds on what works: Retains V15's successful feature foundation
+* Minimal complexity: Adds one carefully chosen feature for energy redistribution
+* Broadband sensitivity: Energy ratio captures severe, global degradation patterns
+* Numerical stability: Uses FFT-based energy calculation for robustness
+PHYSICAL INTERPRETATION:
+The energy ratio tracks the shift from low-frequency dominated healthy operation to high-frequency impact energy as bearing damage progresses, characteristic of severe degradation where traditional resonance-based methods underperform.
+HEALTH INDEX:
+Additive combination: HI = RMS + (10 × Kurtosis) + (5 × Crest Factor) + (2 × Energy_Ratio)
