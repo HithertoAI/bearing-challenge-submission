@@ -1,0 +1,27 @@
+﻿* V21 METHODOLOGY: REFINED FEATURE WEIGHTING WITH ENERGY RATIO EMPHASIS
+
+
+APPROACH:
+Strategic refinement of V18's winning approach by emphasizing the most discriminative feature (Energy Ratio) based on empirical performance analysis.
+CORE INNOVATION:
+*     Evidence-Based Weighting: Energy Ratio weight increased from 0.25 to 0.8 (3.2× emphasis)
+*     Noise Reduction: Kurtosis and Crest Factor weights reduced from 0.25 to 0.3 each
+*     Balanced Contribution: RMS maintains strong presence at 0.6 weight
+
+WEIGHTING STRATEGY:
+   *     Energy Ratio: 0.8 - Emphasized due to 4.29× dynamic range in V18
+   *     RMS: 0.6 - Maintained as fundamental degradation indicator
+   *     Kurtosis: 0.3 - Reduced due to potential non-monotonic behavior
+   *     Crest Factor: 0.3 - Reduced due to noise sensitivity
+
+PHYSICAL JUSTIFICATION:
+      *     Energy Ratio captures the critical shift from low-frequency to high-frequency    energy dominance
+      *     RMS provides the essential overall energy growth baseline
+      *     Reduced weights for Kurtosis/Crest minimize impact of their known non-monotonic  characteristics
+
+RESULTS:
+         *     Health Index Range: 0.3023 to 1.5058
+         *     Dynamic Range: 4.98× (improved from V18's composite range)
+         *     Feature Balance: Energy Ratio contributes ~40% of total weight
+STRATEGIC POSITION:
+         * Builds directly on V18's proven success while implementing data-driven weight optimization to close the 8-point gap to 2nd place.
