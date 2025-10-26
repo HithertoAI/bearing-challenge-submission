@@ -1,0 +1,21 @@
+﻿V23 METHODOLOGY: SYSTEMATIC CREST FACTOR REMOVAL TEST
+APPROACH:
+Controlled experiment to determine the value of Crest Factor in our feature set. Direct comparison against V18's winning approach with one feature removed.
+CORE HYPOTHESIS:
+Crest Factor may be adding noise rather than signal due to its known non-monotonic behavior in bearing degradation.
+EXPERIMENTAL DESIGN:
+* V18 (Control): RMS + Kurtosis + Crest Factor + Energy Ratio (4 features)
+* V23 (Test): RMS + Kurtosis + Energy Ratio (3 features - Crest Factor removed)
+* All other factors identical: Same normalization, same weighting, same features
+FEATURES RETAINED:
+1. RMS: Fundamental degradation energy indicator
+2. Kurtosis: Signal impulsiveness measure
+3. Energy Ratio: High-performance feature with 4.29x dynamic range
+FEATURE REMOVED:
+* Crest Factor: Peak-to-RMS ratio (potentially non-monotonic)
+VALIDATION METRICS:
+* Health Index Range: 0.4861 to 2.2979
+* Dynamic Range: 4.73× (comparable to V18)
+* Feature Count: Reduced from 4 to 3
+SCIENTIFIC VALUE:
+Regardless of score outcome, this submission provides critical data about feature importance for future optimization.
