@@ -1,0 +1,25 @@
+﻿V24 METHODOLOGY: OPTIMIZED ENERGY RATIO WITH VERY HIGH FREQUENCY BANDS
+APPROACH:
+Data-driven optimization of Energy Ratio frequency bands based on systematic offline analysis. Maintains V18's proven structure while implementing empirically superior frequency ranges.
+CORE OPTIMIZATION:
+* Previous (V18): High band: 5-20 kHz, Low band: 10-1000 Hz
+* Optimized (V24): High band: 10-30 kHz, Low band: 100-5000 Hz
+ANALYSIS BASIS:
+* Systematic Testing: 5 frequency band configurations analyzed offline
+* Performance Metric: Dynamic range of Energy Ratio across files
+* Winner: "Very High Frequency" configuration with 7.09x dynamic range (3× improvement over V18's 2.39x)
+PHYSICAL INTERPRETATION:
+* 10-30 kHz Band: Captures ultra-high frequency impacts and resonances from severe bearing damage
+* 100-5000 Hz Band: Represents broader low-mid frequency operational energy
+* Enhanced Contrast: Better separation between healthy and degraded states
+FEATURE SET:
+* RMS (overall energy)
+* Kurtosis (impulsiveness)
+* Crest Factor (peak-to-RMS)
+* Optimized Energy Ratio (very high vs low-mid frequency energy)
+VALIDATION:
+* Health Index Range: 0.8890 to 2.8544
+* Dynamic Range: 3.21× (composite)
+* Energy Ratio Range: 0.17 to 1.97 (11.6× individual range)
+STRATEGIC POSITION:
+First submission using empirically optimized parameters from systematic offline analysis rather than trial-and-error submissions.
