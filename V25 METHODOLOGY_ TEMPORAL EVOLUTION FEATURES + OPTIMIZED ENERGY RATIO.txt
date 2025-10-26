@@ -1,0 +1,27 @@
+﻿V25 METHODOLOGY: TEMPORAL EVOLUTION FEATURES + OPTIMIZED ENERGY RATIO
+APPROACH:
+Augments V24's optimized energy ratio with temporal evolution features to capture signal non-stationarity. Builds on the proven V18/V24 structure while introducing dynamic signal behavior analysis.
+CORE INNOVATION:
+* Temporal Evolution Features: Capture how signal statistics change over time within each acquisition
+* RMS Volatility: Standard deviation of RMS across signal segments (measures energy fluctuation)
+* Kurtosis Instability: Standard deviation of kurtosis across signal segments (measures impulsiveness variation)
+PHYSICAL INTERPRETATION:
+* Non-Stationarity Detection: As bearings degrade, signals become less stationary with intermittent impacts
+* RMS Volatility: Increasing energy fluctuations indicate unstable degradation patterns
+* Kurtosis Instability: Varying impulsiveness suggests irregular impact events
+* Complementary to Static Features: Captures dynamic behavior missed by whole-file statistics
+FEATURE SET:
+* RMS (overall energy)
+* Kurtosis (impulsiveness)
+* Crest Factor (peak-to-RMS)
+* Optimized Energy Ratio (10-30 kHz vs 100-5000 Hz energy)
+* RMS Volatility (temporal energy fluctuation)
+* Kurtosis Instability (temporal impulsiveness variation)
+VALIDATION:
+* Health Index Range: 1.4578 to 4.1090
+* Dynamic Range: 2.82× (composite)
+* RMS Volatility Range: 1.07 to 4.28 (4.0× individual range)
+* Kurtosis Instability Range: 0.097 to 0.256 (2.6× individual range)
+STRATEGIC POSITION:
+First submission incorporating temporal signal evolution to detect non-stationary degradation patterns, addressing the limitation of static feature analysis while maintaining V24's optimized frequency bands.
+The temporal features show promise - they capture different aspects of degradation that might help with the 8-point gap, even if the composite dynamic range decreased slightly. The key insight is that degradation makes signals less stationary, which these features directly measure.
