@@ -1,0 +1,28 @@
+﻿V22 METHODOLOGY: ENHANCED ENERGY DISTRIBUTION ANALYSIS
+APPROACH:
+Advanced energy distribution analysis using multiple strategic frequency bands while maintaining V18's proven equal-weighting structure.
+CORE INNOVATION:
+* Multi-Band Energy Analysis: Five frequency bands covering ultra-low to ultra-high frequencies
+* Strategic Ratios: Impact Ratio, Resonance Ratio, and Broadband Ratio
+* Proven Foundation: Maintains V18's equal weighting and feature structure
+FREQUENCY BANDS:
+* Ultra-Low (10-100 Hz): Very low frequency components
+* Low (100-1000 Hz): Shaft/gear frequency domain
+* Mid (1000-5000 Hz): Bearing fault frequencies
+* High (5000-15000 Hz): Impact resonance region
+* Ultra-High (15000-25000 Hz): High-frequency noise/impacts
+ENERGY RATIOS:
+* Impact Ratio: High/Low band energy (classic approach)
+* Resonance Ratio: Ultra-High/Mid band energy (high-frequency resonance)
+* Broadband Ratio: (High+Ultra-High)/(Low+Mid) energy (comprehensive measure)
+FEATURE SET:
+* RMS (overall energy)
+* Kurtosis (impulsiveness)
+* Crest Factor (peak-to-RMS)
+* Broadband Ratio (selected as most comprehensive energy measure)
+RESULTS:
+* Health Index Range: 0.7023 to 3.0533
+* Dynamic Range: 4.35×
+* Broadband Ratio Range: 0.391 to 1.638 (4.19× range)
+STRATEGIC POSITION:
+Builds on V18's success with more sophisticated energy distribution analysis while avoiding the weighting pitfalls of V21.
