@@ -1,0 +1,25 @@
+﻿V27 METHODOLOGY: SIGNAL ENTROPY DEGRADATION INDEX
+APPROACH:
+Radical departure from bearing-specific features to information-theoretic signal complexity measurement. Uses Shannon entropy to capture degradation-induced signal disorder.
+CORE INNOVATION:
+* Information-theoretic analysis instead of physical fault detection
+* Signal entropy computation from vibration amplitude distribution
+* Complexity-based ordering based on signal disorder progression
+TECHNICAL IMPLEMENTATION:
+1. Compute histogram of vibration signal amplitudes (50 bins)
+2. Calculate Shannon entropy: H = -Σ p(x) log p(x)
+3. Sort files by entropy values ascending
+4. Lower entropy = healthier (more ordered signal)
+5. Higher entropy = more degraded (more disordered signal)
+PHYSICAL INTERPRETATION:
+* Healthy bearings: Regular, predictable vibration patterns (low entropy)
+* Degrading bearings: Irregular, chaotic vibration patterns (high entropy)
+* Entropy increases as signal becomes less structured with fault progression
+VALIDATION:
+* Entropy Range: 0.6086 to 1.1777
+* Dynamic Range: 1.94×
+* Monotonicity Score: 0.400 (best among tested features)
+* Healthiest file: file_51.csv (0.6086 entropy)
+* Most degraded file: file_37.csv (1.1777 entropy)
+STRATEGIC POSITION:
+First submission using information-theoretic complexity measures instead of traditional vibration analysis, targeting fundamental signal disorder rather than specific fault frequencies.
