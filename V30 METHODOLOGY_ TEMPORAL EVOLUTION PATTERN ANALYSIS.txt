@@ -1,0 +1,31 @@
+﻿V30 METHODOLOGY: TEMPORAL EVOLUTION PATTERN ANALYSIS
+
+
+APPROACH:
+Dynamic analysis of bearing degradation through temporal progression patterns within each recording.
+
+
+CORE INNOVATION:
+- Temporal trend analysis within files
+- Multi-feature degradation scoring
+- Mini-timeline simulation
+- Progression-sensitive metrics
+
+
+TECHNICAL IMPLEMENTATION:
+1. Segment vibration signals into 10 temporal windows
+2. Calculate energy progression trend using linear regression
+3. Combine RMS, Kurtosis, Crest Factor, and trend slope
+4. Compute weighted degradation score
+5. Sort by comprehensive score ascending
+
+
+VALIDATION:
+- Score Range: 47.5 to 17,780.5
+- Dynamic Range: 374x
+- Healthiest: file_28.csv
+- Most Degraded: file_52.csv
+
+
+STRATEGIC POSITION:
+Evolutionary pattern analysis provides superior degradation tracking over static feature approaches.
