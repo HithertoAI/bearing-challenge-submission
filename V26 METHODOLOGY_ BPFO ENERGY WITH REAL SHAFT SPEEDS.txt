@@ -1,0 +1,30 @@
+﻿V26 METHODOLOGY: BPFO ENERGY WITH REAL SHAFT SPEEDS
+BREAKTHROUGH APPROACH:
+First submission utilizing zero-crossing tachometer (zct) data to compute exact shaft speeds and target bearing-specific fault frequencies with speed compensation.
+CORE INNOVATION:
+* Real shaft speed computation from zct timestamps (105.0-105.6 Hz range discovered)
+* Exact BPFO frequency calculation for each file (863-868 Hz range)
+* Speed-compensated feature extraction eliminating operational variation effects
+* Direct fault energy measurement at Ball Pass Frequency Outer Race
+KEY DISCOVERIES:
+* Actual shaft speeds: 105.0-105.6 Hz (vs nominal 536.27 Hz)
+* BPFO energy range: 737.0 to 2169.4 (2.94× dynamic range)
+* Speed consistency: Minimal variation (0.6 Hz range) confirms stable operation
+TECHNICAL IMPLEMENTATION:
+1. Compute shaft speed from zero-crossing intervals in zct data
+2. Calculate exact BPFO frequency: 8.22 × shaft_speed
+3. Extract vibration energy in ±5 Hz band around BPFO frequency
+4. Sort files by BPFO energy ascending (healthiest to most degraded)
+PHYSICAL INTERPRETATION:
+* Monitors outer race fault progression directly
+* Speed compensation ensures feature robustness
+* Eliminates confounding effects of operational variations
+* Captures actual degradation mechanism rather than symptoms
+VALIDATION:
+* BPFO Energy Range: 737.0 to 2169.4
+* Dynamic Range: 2.94×
+* Shaft Speed Range: 105.0 to 105.6 Hz
+* Healthiest file: file_33.csv (737.0 energy)
+* Most degraded file: file_07.csv (2169.4 energy)
+STRATEGIC POSITION:
+First submission leveraging previously unused tachometer data for precise fault frequency targeting, addressing the fundamental limitation of fixed-frequency approaches.
