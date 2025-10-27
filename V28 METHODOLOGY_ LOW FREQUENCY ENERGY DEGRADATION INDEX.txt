@@ -1,0 +1,25 @@
+﻿V28 METHODOLOGY: LOW FREQUENCY ENERGY DEGRADATION INDEX
+APPROACH:
+Focus on fundamental vibration energy in low-frequency operational range, targeting core mechanical energy changes rather than high-frequency fault signatures.
+CORE INNOVATION:
+* Low-frequency dominance: 0-1000 Hz operational energy monitoring
+* Fundamental energy tracking: Overall mechanical energy progression
+* Simplified spectral analysis: Single broad low-frequency band
+TECHNICAL IMPLEMENTATION:
+1. Compute FFT of vibration signal
+2. Extract mean amplitude in 0-1000 Hz frequency band
+3. Sort files by low-frequency energy values ascending
+4. Lower energy = healthier (smoother operation)
+5. Higher energy = more degraded (increased vibration energy)
+PHYSICAL INTERPRETATION:
+* Healthy bearings: Lower fundamental vibration energy
+* Degrading bearings: Increased low-frequency vibration as mechanical integrity declines
+* Captures overall energy increase from developing mechanical issues
+VALIDATION:
+* Low Freq Energy Range: 738.8 to 1063.6
+* Dynamic Range: 1.44×
+* Monotonicity Score: 0.349 (second-best among tested features)
+* Healthiest file: file_40.csv (738.8 energy)
+* Most degraded file: file_41.csv (1063.6 energy)
+STRATEGIC POSITION:
+Return to fundamental vibration energy analysis with simplified low-frequency focus, avoiding over-complex feature engineering that has shown limited success.
