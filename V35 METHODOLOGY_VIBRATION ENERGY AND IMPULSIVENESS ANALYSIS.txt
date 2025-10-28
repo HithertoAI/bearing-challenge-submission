@@ -1,0 +1,27 @@
+﻿V35 METHODOLOGY: VIBRATION ENERGY AND IMPULSIVENESS ANALYSIS
+
+
+1. FEATURE SELECTION:
+   - RMS Vibration Energy: Overall vibration intensity measure
+   - Kurtosis: Statistical measure of signal impulsiveness and tailedness
+   - Combined degradation metric: RMS × Kurtosis
+
+
+2. PHYSICAL INTERPRETATION:
+   - RMS Energy: Captures overall vibration magnitude and operational intensity
+   - Kurtosis: Sensitive to impact events and transient vibrations characteristic of component degradation
+   - Combined Metric: Represents both vibration intensity and the presence of impulsive damage signatures
+
+
+3. TECHNICAL IMPLEMENTATION:
+   - RMS calculation: sqrt(mean(v^2))
+   - Kurtosis calculation: mean((v - mean(v))^4) / std(v)^4
+   - Degradation score: RMS × Kurtosis
+   - Ranking: Increasing degradation scores from healthiest to most degraded
+
+
+4. VALIDATION BASIS:
+   - RMS energy provides robust baseline vibration characterization
+   - Kurtosis enhances sensitivity to bearing surface defects and impact events
+   - Multiplicative combination amplifies degradation signatures while maintaining physical interpretability
+   - Computationally efficient and suitable for real-time monitoring applications
