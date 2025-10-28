@@ -1,0 +1,25 @@
+﻿V33 METHODOLOGY: GROUP-AWARE DEGRADATION RANKING
+
+
+1. RMS-BASED CLUSTERING:
+   - Identified 6 natural operational regimes via RMS energy analysis
+   - Groups represent distinct operating conditions with internal degradation
+   - RMS ranges: Group1(24-26), Group2(27-28), Group3(28-30), Group4(30-32), Group5(32-38), Group6(38-50)
+
+
+2. WITHIN-GROUP RANKING:
+   - Used dominant frequency (smoothest progressing feature) for intra-group ordering
+   - Dominant frequency increases systematically within each operational regime
+   - Combines the benefits of discrete operational modes with continuous degradation tracking
+
+
+3. PHYSICAL INTERPRETATION:
+   - Lower RMS groups represent healthier operating conditions
+   - Higher dominant frequency indicates advanced component wear within each regime
+   - Respects the natural structure of the data rather than forcing continuous progression
+
+
+VALIDATION:
+- Based on comprehensive file relationship analysis
+- Uses the feature with smoothest progression (dominant frequency)
+- Maintains physical plausibility across operational boundaries
