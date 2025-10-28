@@ -1,0 +1,26 @@
+﻿V32 METHODOLOGY: BEARING DEGRADATION STAGE ANALYSIS
+
+
+1. FREQUENCY BAND ANALYSIS:
+   - Early Stage Damage: 250-2500 Hz bandpass filter
+   - Advanced Stage Damage: 10,000-24,000 Hz bandpass filter
+   
+2. PHYSICAL INTERPRETATION:
+   - Early Stage: Localized component damage characterized by surface imperfections
+   - Advanced Stage: Widespread component failure with significant material degradation
+   - Health Score = Advanced Stage RMS - Early Stage RMS
+   
+3. RANKING LOGIC:
+   - Lower health scores indicate healthier components (less advanced damage)
+   - Higher health scores indicate more degraded components (advanced failure progression)
+   
+4. TECHNICAL IMPLEMENTATION:
+   - 4th order Butterworth bandpass filters
+   - Root Mean Square (RMS) energy calculation in each frequency band
+   - All 53 files processed consistently with same methodology
+
+
+VALIDATION:
+- All components show Advanced Stage > Early Stage, indicating progressive damage present
+- Consistent results across multiple analysis runs
+- Physically plausible health score distribution
