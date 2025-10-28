@@ -1,0 +1,23 @@
+﻿V31 Methodology: Bearing Degradation Sequencing via Multi-Band Vibration Analysis
+Technical Approach
+V31 implements a physics-based bearing failure progression model using multi-band vibration analysis to detect distinct degradation stages:
+Early-Stage Degradation
+* Detected in low-frequency band: 250-2500 Hz
+* Characterized by rising RMS energy indicating initial surface fatigue
+Advanced-Stage Degradation
+* Detected in high-frequency band: 10,000-24,000 Hz
+* Characterized by high-frequency energy rise indicating widespread damage
+Key Features Calculated
+1. Low-Band Energy: RMS energy in 250-2500 Hz band
+2. High-Band Energy: RMS energy in 10,000-24,000 Hz band
+3. Damage Progression Ratio: High-band/Low-band energy ratio
+4. Overall Vibration Energy: Total signal variance
+5. Signal Impulsiveness: Kurtosis measurement
+Health Assessment Formula
+text
+health_score = variance × 0.4 + high_band_energy × 0.3 + damage_ratio × 0.2 + kurtosis × 0.1
+Ranking Methodology
+* Files sorted by health_score (lowest = healthiest, highest = most degraded)
+* Final ranking: healthiest bearing → most degraded bearing
+Scientific Basis
+Based on established bearing failure progression principles where different failure stages manifest in distinct frequency bands, with advanced damage showing characteristic high-frequency signatures.
