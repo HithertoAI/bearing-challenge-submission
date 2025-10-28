@@ -1,0 +1,26 @@
+﻿V34 METHODOLOGY: DOMINANT FREQUENCY DEGRADATION TRACKING
+
+
+1. FEATURE SELECTION:
+   - Dominant frequency identified as the feature with smoothest progression
+   - Shows systematic evolution from low to high frequencies
+   - Cleanest degradation signature in the dataset
+
+
+2. TECHNICAL IMPLEMENTATION:
+   - Power Spectral Density analysis via Welch's method
+   - Identification of dominant frequency component
+   - Ranking by increasing frequency values (4463 Hz to 45284 Hz)
+
+
+3. PHYSICAL INTERPRETATION:
+   - Healthiest operation: Lower dominant frequencies (~4-5 kHz)
+   - Most degraded operation: Higher dominant frequencies (~45 kHz)
+   - Systematic frequency shift indicates mechanical property changes
+
+
+KEY INSIGHTS:
+- Completely different timeline from vibration energy-based approaches
+- File 14 transitions from "most degraded" to "healthiest" 
+- Suggests fundamental frequency shifts are the true degradation signal
+- Challenges previous assumptions about vibration energy progression
