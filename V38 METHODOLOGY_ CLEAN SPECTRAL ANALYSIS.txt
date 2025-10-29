@@ -1,0 +1,23 @@
+﻿V38 METHODOLOGY: CLEAN SPECTRAL ANALYSIS
+Addressing numerical stability concerns from previous approaches, V38 implements robust feature extraction with focus on bearing frequency energy while ensuring computational reliability.
+Key Innovation:
+* Uses numerically stable calculations throughout to prevent overflow and warnings
+* Implements robust error handling for all signal processing operations
+* Maintains focus on physically meaningful bearing degradation indicators
+* Ensures reproducible results suitable for validation review
+Technical Approach:
+* Stable Kurtosis: Uses scipy.stats.kurtosis with proper error handling
+* Robust FFT Analysis: Explicit float64 precision with bounds checking
+* Clean Bandpass Filtering: Safe frequency range validation
+* Balanced Health Index: Bearing energy (primary) + RMS + Kurtosis + Ultrasonic
+Physical Rationale:
+* Bearing Frequency Energy: 1-5 kHz band captures characteristic fault frequencies
+* RMS: Overall vibration severity indicator
+* Kurtosis: Measures impulsiveness from surface defects
+* Ultrasonic Energy: Early-stage subsurface fatigue detection
+Results:
+* Health Index range: 20,729.77 to 42,484.28 units
+* Bearing Energy range: 9,873.69 to 20,766.38 units
+* RMS range: 24.30 to 50.41 units
+
+This V38 approach provides a stable, reproducible foundation for bearing degradation sequencing while maintaining sensitivity to key physical failure mechanisms.
