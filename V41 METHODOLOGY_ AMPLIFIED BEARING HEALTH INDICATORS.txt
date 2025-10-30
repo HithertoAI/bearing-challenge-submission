@@ -1,0 +1,25 @@
+﻿V41 METHODOLOGY: AMPLIFIED BEARING HEALTH INDICATORS
+Leveraging zero-crossing timing data for precise operational analysis combined with multi-band vibration energy assessment.
+
+
+Technical Approach:
+* Zero-Crossing Timing Analysis: Speed stability measurement from revolution timing intervals
+* Multi-Band Spectral Energy: High-frequency (6-8 kHz) and ultra-high-frequency (8-12 kHz) bearing energy quantification
+* Time-Domain Features: Crest factor and kurtosis for impact detection and signal characterization
+* Amplified Health Index: Weighted combination emphasizing high-frequency energy and speed instability
+
+
+Physical Rationale:
+* Speed Stability: Bearing degradation causes rotational instability detectable in timing variations
+* High-Frequency Energy: Advanced bearing faults excite ultrasonic frequency ranges
+* Crest Factor & Kurtosis: Sensitive to impulsive impacts from surface defects and spalling
+
+
+Results:
+* Health Index range: 3.76 to 7.09 units
+* Speed Stability range: 0.00014 to 0.00166
+* High-Frequency Energy range: 0.16 to 0.62 units
+* Ultra-High-Frequency Energy range: 0.24 to 0.90 units
+
+
+This approach provides enhanced discrimination through combined timing and high-frequency vibration analysis.
