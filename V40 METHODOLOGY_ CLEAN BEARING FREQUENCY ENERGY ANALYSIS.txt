@@ -1,0 +1,24 @@
+﻿V40 METHODOLOGY: CLEAN BEARING FREQUENCY ENERGY ANALYSIS
+Addressing computational stability issues from previous complex approaches, V40 implements a robust, focused analysis on bearing frequency energy content while ensuring reliable execution.
+
+
+Key Innovation:
+* Simplified, computationally stable feature extraction
+* Direct focus on bearing frequency bands (3-5 kHz and 5-7 kHz)
+
+
+Technical Approach:
+* Welch Power Spectral Density: 1024-point segments for stable frequency analysis
+* Bearing Frequency Energy: Summed energy in primary bearing fault bands (3-5 kHz and 5-7 kHz)
+* Health Index: Pure bearing energy measurement (higher energy = more severe fault)
+* Stable Ranking: Simple sorting without complex weighting schemes
+
+
+Physical Rationale:
+* Bearing Frequency Energy: Direct measurement of vibration energy in frequency ranges characteristic of bearing faults
+* Progressive Degradation: Higher energy in bearing bands indicates advancing fault severity
+
+
+Results:
+* Bearing Energy range: 0.83 to 3.66 units
+* RMS range: 24.30 to 50.41 units
