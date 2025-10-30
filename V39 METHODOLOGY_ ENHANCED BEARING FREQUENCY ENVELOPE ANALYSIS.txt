@@ -1,0 +1,34 @@
+﻿V39 METHODOLOGY: ENHANCED BEARING FREQUENCY ENVELOPE ANALYSIS
+Building on previous spectral approaches, V39 implements targeted envelope analysis at exact bearing fault frequencies combined with advanced statistical indicators for improved fault discrimination.
+
+
+Key Innovation:
+* Direct envelope analysis at known bearing fault frequencies (3781 Hz, 5781 Hz, 4408 Hz)
+* Multi-feature fusion combining envelope energy, spectral kurtosis, and time-domain statistics
+* Enhanced sensitivity to early-stage bearing degradation through high-frequency energy monitoring
+* Robust numerical implementation ensuring stable feature extraction across all test cases
+
+
+Technical Approach:
+* Bearing Frequency Envelope: Bandpass filtering around exact fault frequencies followed by Hilbert transform demodulation
+* Spectral Kurtosis: Statistical analysis of power spectrum for impact detection sensitivity
+* High-Frequency Energy: RMS calculation above 4 kHz for early fault manifestation detection
+* Crest Factor Analysis: Peak-to-RMS ratio for impulsive content quantification
+* Weighted Health Index: Optimized feature combination (60% envelope, 20% kurtosis, 10% HF energy, 10% crest factor)
+
+
+Physical Rationale:
+* Bearing Frequency Envelope: Direct measurement of energy at characteristic fault frequencies
+* Spectral Kurtosis: Superior sensitivity to transient impacts from surface defects
+* High-Frequency Energy: Captures ultrasonic emissions from subsurface fatigue initiation
+* Crest Factor: Identifies impulsive vibration patterns indicative of localized damage
+
+
+Results:
+* Health Index range: 8.49 to 70.48 units
+* Envelope Energy range: 5.66 to 8.89 units  
+* Spectral Kurtosis range: 16.85 to 333.38 units
+* RMS range: 24.30 to 50.41 units
+
+
+This approach provides enhanced fault discrimination through targeted frequency analysis and multi-indicator fusion, delivering improved sensitivity to bearing degradation progression.
