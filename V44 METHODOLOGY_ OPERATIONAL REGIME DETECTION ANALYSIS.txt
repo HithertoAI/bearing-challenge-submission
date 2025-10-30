@@ -1,0 +1,26 @@
+﻿V44 METHODOLOGY: OPERATIONAL REGIME DETECTION ANALYSIS
+Investigating bearing sequence through operational condition variations rather than pure degradation progression.
+
+
+Technical Approach:
+* Operational Intensity Assessment: RMS and peak vibration levels for load condition estimation
+* Load Distribution Analysis: Vibration amplitude distribution ratios as mechanical load indicators
+* Frequency Regime Identification: Spectral energy distribution across structural, meshing, and bearing frequency bands
+* Operational Stability Metrics: Zero-crossing timing consistency and transient detection for operational smoothness
+
+
+Physical Rationale:
+* Load Condition Variations: Different operational loads create distinct vibration signatures and energy distributions
+* Frequency Regime Shifts: Changing operational conditions excite different structural and contact frequency ranges
+* Operational Stability: Mechanical condition affects rotational consistency and transient behavior
+* Multi-Condition Sequencing: Bearing test sequence may represent progressive load steps or operational state changes
+
+
+Results:
+* Health Index range: 14.41 to 18.33 units
+* RMS Vibration range: 24.30 to 50.41 units
+* Load Indicator range: 26.19 to 31.63
+* High-Frequency Ratio range: 0.0200 to 0.3216
+
+
+This operational regime approach explores the possibility that the sequence represents varying test conditions rather than linear degradation progression.
