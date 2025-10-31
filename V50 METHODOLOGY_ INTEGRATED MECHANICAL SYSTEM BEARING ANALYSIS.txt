@@ -1,0 +1,28 @@
+﻿V50 METHODOLOGY: INTEGRATED MECHANICAL SYSTEM BEARING ANALYSIS
+
+
+Technical Approach:
+* Multi-Domain Feature Integration: Combined time-domain statistical analysis with frequency-domain bearing signature detection
+* Mechanical Context Optimization: Vibration analysis calibrated for tachometer-shaft measurement position with 5.095 gear ratio scaling
+* Statistical Severity Indicators: RMS, kurtosis, and crest factor measurements for overall degradation assessment
+* Bearing-Specific Frequency Targeting: Energy analysis at tachometer-scaled bearing fault frequencies [45.3, 742.1, 1134.6, 865.1] Hz
+* Operational Stability Monitoring: Zero-crossing timing analysis for rotational speed consistency assessment
+* Strategic Band Energy Ratios: High-to-low frequency energy ratios for impact and structural vibration characterization
+
+
+Physical Rationale:
+* Multi-Shaft Vibration Transmission: Accounts for mechanical power transfer from turbine shaft to measurement point on tachometer shaft
+* Component-Specific Degradation: Targeted frequency analysis captures evolving bearing element failure signatures
+* Impact Progression: Kurtosis and crest factor track developing localized defects and surface damage
+* Operational Integrity: Speed stability monitoring detects rotational inconsistencies from mechanical degradation
+* Energy Distribution Shifts: Frequency band ratios reveal changing vibration transmission patterns
+
+
+Results:
+* Health Index range: 11,253.19 to 95,613.47 units
+* RMS Vibration range: 24.30 to 50.41 units
+* Bearing Energy range: 0.003201 to 0.016293 units
+* Energy Ratio range: 5,589.61 to 47,763.19
+
+
+This integrated approach combines mechanical system awareness with multi-domain feature analysis for comprehensive bearing degradation assessment.
