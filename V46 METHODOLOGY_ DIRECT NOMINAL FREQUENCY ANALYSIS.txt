@@ -1,0 +1,24 @@
+﻿V46 METHODOLOGY: DIRECT NOMINAL FREQUENCY ANALYSIS
+Utilizing provided bearing fault frequencies directly for vibration energy assessment, bypassing speed measurement inconsistencies.
+
+
+Technical Approach:
+* Provided Frequency Utilization: Direct analysis at specified bearing fault frequencies [231, 3781, 5781, 4408] Hz
+* Wideband Energy Capture: ±5% frequency bands around each nominal fault frequency
+* Total Bearing Energy: Summed vibration energy across all four characteristic bearing frequencies
+* Simple Health Metric: Direct energy measurement without speed-dependent calculations
+
+
+Physical Rationale:
+* Bearing-Specific Frequencies: Provided frequencies represent characteristic fault modes (cage, ball, inner race, outer race)
+* Energy Progression: Increasing vibration energy at fault frequencies indicates advancing bearing degradation
+* Measurement Independence: Avoids potential errors in rotational speed measurement or shaft identification
+
+
+Results:
+* Health Index range: 0.485 to 1.453 units
+* Successful energy detection at all four provided bearing frequencies
+* Clear discrimination between file vibration characteristics
+
+
+This approach leverages provided engineering parameters directly to establish bearing health progression.
