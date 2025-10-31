@@ -1,0 +1,27 @@
+﻿V49 METHODOLOGY: ENSEMBLE FEATURE PROGRESSION ANALYSIS
+
+
+Technical Approach:
+* Multi-Domain Feature Fusion: Combined analysis of time-domain, frequency-domain, and signal complexity characteristics
+* Statistical Progression Indicators: RMS, kurtosis, and crest factor measurements for degradation tracking
+* Broadband Spectral Analysis: Energy distribution across low-frequency (100-1000 Hz), mid-frequency (1000-5000 Hz), and high-frequency (5000-15000 Hz) bands
+* Signal Complexity Metrics: Information entropy and zero-crossing rate for signal randomness assessment
+* Spectral Shape Characterization: Spectral centroid and spread for frequency distribution analysis
+
+
+Physical Rationale:
+* Multi-Stage Degradation: Different failure stages manifest through distinct combinations of signal properties
+* Impact Progression: Increasing kurtosis and crest factor indicate developing localized defects and impacts
+* Energy Migration: Shifting spectral centroid reveals changing dominant vibration mechanisms
+* Complexity Evolution: Entropy changes reflect transition from periodic to chaotic vibration patterns
+* Broadband Signatures: Overall energy increases capture general degradation severity
+
+
+Results:
+* Health Index range: 36.69 to 49.92 units
+* RMS Vibration range: 24.30 to 50.41 units
+* Kurtosis range: -0.56 to 0.04
+* Crest Factor range: 3.69 to 5.08
+
+
+This ensemble approach captures bearing degradation progression through complementary feature evolution across multiple signal domains.
