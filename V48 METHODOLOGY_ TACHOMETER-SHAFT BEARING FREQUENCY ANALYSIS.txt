@@ -1,0 +1,25 @@
+﻿V48 METHODOLOGY: TACHOMETER-SHAFT BEARING FREQUENCY ANALYSIS
+
+
+Technical Approach:
+* Mechanical System Modeling: Vibration analysis accounting for sensor placement on tachometer shaft with 5.095 gear ratio to turbine shaft
+* Scaled Bearing Frequencies: Bearing fault frequency analysis at tachometer-shaft equivalents [45.3, 742.1, 1134.6, 865.1] Hz derived from turbine-shaft geometry factors
+* Multi-Component Energy Tracking: Individual vibration energy measurement for cage, ball, inner race, and outer race bearing components
+* Direct Spectral Analysis: Welch power spectral density estimation with 2048-point segments for frequency-domain energy quantification
+
+
+Physical Rationale:
+* Mechanical Transmission Path: Bearing vibration signatures originate from turbine shaft and transmit through gear train to measurement point
+* Component-Specific Degradation: Different bearing elements exhibit distinct failure progression patterns and vibration characteristics
+* Speed-Scaled Frequencies: Fault frequencies scale proportionally with rotational speed through fixed gear ratio
+* Energy Progression: Increasing vibration energy at characteristic frequencies indicates advancing bearing degradation
+
+
+Results:
+* Health Index range: 0.0038 to 0.0317 units
+* Total Bearing Energy range: 0.0038 to 0.0317 units
+* Tachometer Operational Range: 105.00 to 105.59 Hz
+* Clear discrimination in bearing component energy distributions across test sequence
+
+
+This approach utilizes proper mechanical system modeling to extract bearing degradation signatures through tachometer-shaft vibration analysis.
