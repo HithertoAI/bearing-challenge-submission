@@ -1,0 +1,31 @@
+﻿V52 METHODOLOGY: TACHOMETER-BASED FAULT FREQUENCY ANALYSIS
+Technical Approach:
+
+
+Adaptive Shaft Speed Measurement: Real-time computation of instantaneous shaft speed from tachometer zero-crossing timing
+Precision Fault Frequency Targeting: Bearing fault frequencies calculated individually for each file based on measured shaft speed
+Component-Specific Energy Extraction: Spectral energy analysis at inner race (BPFI) and outer race (BPFO) characteristic frequencies
+Frequency Band Integration: Narrow-band energy summation around theoretical fault frequencies for defect signature detection
+Monotonic Fault Energy Tracking: Health index derived from progressive increase in bearing fault frequency amplitudes
+
+
+Physical Rationale:
+
+
+Shaft Speed Variability Compensation: Tachometer-based measurement accounts for operational speed variations across test duration
+Characteristic Frequency Precision: Exact fault frequency calculation ensures accurate targeting of bearing defect signatures
+Defect Energy Amplification: Localized bearing damage produces distinct spectral peaks at mathematically predictable frequencies
+Progressive Fault Severity: Energy at fault frequencies increases monotonically as bearing degradation advances from initiation to failure
+Race-Specific Detection: Separate inner and outer race analysis captures location-dependent failure progression patterns
+
+
+Results:
+
+
+Shaft speed range: 105.0 to 105.6 Hz
+Total fault energy range: 9.73e-04 to 5.89e-03 units
+Inner race energy range: 4.68e-04 to 2.14e-03 units
+Health Index range: 0.0736 to 0.8878
+
+
+This tachometer-calibrated approach targets bearing-specific fault frequencies with operational speed precision for monotonic degradation tracking.
