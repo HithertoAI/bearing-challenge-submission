@@ -1,0 +1,21 @@
+﻿V54 METHODOLOGY: TAR (THRESHOLD AUTOREGRESSION) NONLINEAR DYNAMICS ANALYSIS
+Technical Approach:
+* Regime-Switching Autoregression: TAR model fitting to detect behavioral transitions between healthy and damaged bearing states
+* Threshold Detection: Optimal threshold identification for regime separation based on variance reduction criteria
+* Parameter Divergence Measurement: Quantification of autoregressive coefficient differences between operational regimes
+* Sample Entropy Analysis: Complexity and irregularity assessment of vibration signal time-series structure
+* Nonlinearity Index Computation: Surrogate data testing to distinguish deterministic nonlinear dynamics from stochastic processes
+* Multi-Feature Nonlinear Health Index: Weighted combination of regime parameters, entropy, and nonlinearity indicators
+Physical Rationale:
+* Nonlinear Contact Mechanics: Bearing damage introduces regime-dependent behavior through load redistribution and contact stiffness changes
+* Deterministic Chaos Emergence: Progressive degradation increases system complexity measurable through entropy growth
+* Threshold Crossing Dynamics: Damaged bearings exhibit distinct behavioral regimes below and above critical amplitude thresholds
+* Nonlinear Force Transmission: Spalling and crack propagation create amplitude-dependent response characteristics invisible to linear analysis
+* Beyond Classical Diagnostics: Captures nonlinear behavioral changes that frequency-domain energy methods cannot detect
+Results:
+* Parameter difference range: 0.1219 to 0.2557
+* Variance ratio range: 0.8380 to 1.1486
+* Sample entropy range: 1.7563 to 2.7161
+* Nonlinearity index range: 0.0359 to 0.0941
+* Health Index range: 0.1794 to 0.7409
+This nonlinear dynamics approach fundamentally departs from frequency-domain methods by modeling regime-switching behavior and deterministic complexity in bearing degradation processes.
