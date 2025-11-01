@@ -1,0 +1,19 @@
+﻿V53 METHODOLOGY: ORDER ANALYSIS WITH ANGULAR RESAMPLING
+Technical Approach:
+* Angular Domain Transformation: Vibration signal resampled from time domain to angular domain using tachometer zero-crossing data
+* Speed Variation Elimination: Angular resampling normalizes rotational speed fluctuations that distort frequency-domain analysis
+* Order-Based Feature Extraction: Bearing fault signatures analyzed as constant orders relative to shaft rotation rather than varying frequencies
+* Fault Order Targeting: Energy extraction at bearing characteristic orders (cage, ball, inner race, outer race) invariant to RPM changes
+* Order Spectrum Health Index: Degradation assessment based on fault order amplitude growth in angle-synchronized domain
+Physical Rationale:
+* Rotational Invariance: Bearing fault orders remain constant regardless of shaft speed variations during operation
+* Synchronous Averaging Enhancement: Angular resampling enables coherent averaging that amplifies periodic defect signatures
+* Speed Fluctuation Immunity: Order analysis eliminates smearing and frequency spreading caused by RPM variations in time-domain analysis
+* Mechanical Causality: Bearing defects occur at fixed mechanical positions per revolution, best captured in angular reference frame
+* Research-Validated Technique: Order tracking represents state-of-the-art in rotating machinery diagnostics for variable-speed conditions
+Results:
+* Total fault energy range: 1.85e+14 to 6.21e+19 units
+* Inner race energy range: 6.46e+12 to 2.17e+18 units
+* RMS (angle domain) range: 24963.52 to 14449772.91 units
+* Health Index range: 0.0000 to 1.0000
+This angular domain approach transforms the problem into the mechanically natural reference frame where bearing faults manifest as rotationally-synchronized phenomena.
