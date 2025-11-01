@@ -1,0 +1,30 @@
+﻿V51 METHODOLOGY: SIMPLIFIED RMS-ENERGY PRODUCT APPROACH
+Technical Approach:
+
+
+Feature Reduction Strategy: Eliminated non-monotonic indicators (kurtosis, crest factor) that degrade late in bearing failure
+Core Vibration Metrics: RMS amplitude measurement for overall vibration energy assessment
+Frequency Distribution Analysis: High-to-low frequency band energy ratio for impact characterization
+Multiplicative Health Index: Direct product of normalized RMS and energy ratio without additive weighting
+Monotonic Degradation Focus: Selected only features that consistently increase throughout bearing failure progression
+
+
+Physical Rationale:
+
+
+Progressive Energy Increase: RMS vibration amplitude grows steadily as bearing damage accumulates
+Impact Signature Evolution: Energy ratio captures the shift toward high-frequency content from bearing impacts
+Non-Monotonic Feature Removal: Kurtosis and crest factor can decrease in advanced spalling, creating ranking ambiguity
+Simplified Multiplicative Model: Product formulation amplifies the combined effect of amplitude and spectral changes
+Clean Progression Tracking: Monotonic features provide unambiguous ordering across entire degradation timeline
+
+
+Results:
+
+
+RMS Vibration range: 24.30 to 50.41 units
+Energy Ratio range: 2.32 to 9.95
+Health Index range: 0.0000 to 0.4538
+
+
+This streamlined approach focuses exclusively on monotonically increasing degradation indicators to eliminate late-stage ranking ambiguities present in statistical features.
