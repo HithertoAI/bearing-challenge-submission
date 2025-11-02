@@ -1,0 +1,33 @@
+﻿V59 METHODOLOGY: ENVELOPE SPECTRUM BEARING FREQUENCY PEAK ANALYSIS
+Technical Approach:
+
+
+Band-Pass Filtering: 2-8 kHz filter isolation of bearing resonance frequency band
+Hilbert Transform Demodulation: Envelope extraction from filtered high-frequency carrier signal
+Envelope Spectrum Computation: FFT analysis of demodulated envelope signal to reveal modulation frequencies
+Bearing Frequency Peak Detection: Amplitude measurement at theoretical bearing fault frequencies (cage, ball, inner race, outer race)
+Noise Floor Normalization: Peak prominence calculation relative to median spectrum baseline
+Energy Band Concentration: Ratio analysis of bearing frequency band energy to total envelope energy
+Harmonic Analysis: Detection of 2× and 3× inner race frequency harmonics indicating advanced degradation
+Multi-Feature Degradation Score: Weighted combination of peak heights, prominences, energy ratios, and harmonic evidence
+
+
+Physical Rationale:
+
+
+Kurtosis Limitation Addressed: Time-domain impulsiveness metrics fail when faults produce continuous rather than discrete impacts
+Frequency Domain Fault Localization: Bearing defects modulate high-frequency resonances at characteristic fault frequencies regardless of signal distribution shape
+Envelope Demodulation: Lifts low-energy repetitive fault signals from high-frequency noise and masking vibration
+Peak Emergence Progression: Healthy bearings show flat noise floor; degraded bearings exhibit distinct peaks at BPFO/BPFI with increasing amplitude
+Component-Specific Diagnosis: Peak locations identify exact failing element (inner race, outer race, rolling element, cage)
+Monotonic Energy Increase: Bearing frequency band energy grows progressively as fault severity advances from initiation through failure
+
+
+Results:
+
+
+Max peak height range: 1026.74 to 9844.27 (9.6× dynamic range)
+Total prominence range: 3272.42 to 18819.43
+Bearing energy concentration: 0.019194 to 0.053388
+Harmonics evidence range: 787.76 to 4221.34
+Degradation score range: 0.0414 to 0.8682
