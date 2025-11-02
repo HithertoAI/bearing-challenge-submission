@@ -1,0 +1,22 @@
+﻿V56 METHODOLOGY: RELATIONAL RANKING VIA SPECTRAL EMBEDDING
+Technical Approach:
+* Multi-Feature Extraction: Eight features per file including RMS, kurtosis, crest factor, frequency band ratios, peak frequency, and total energy
+* Pairwise Distance Computation: Euclidean distance matrix across normalized 53-file feature space
+* Gaussian Kernel Similarity: Exponential transformation of distances into similarity weights with adaptive sigma parameter
+* Laplacian Eigenmap Construction: Graph Laplacian formulation from similarity matrix for manifold learning
+* Fiedler Vector Ordering: Second eigenvector extraction provides optimal one-dimensional embedding preserving graph structure
+* Network-Based Ranking: Files ordered by spectral coordinates rather than individual degradation scores
+Physical Rationale:
+* Relational Structure Discovery: Bearing degradation progression creates natural similarity relationships between files
+* Graph Topology Encoding: Network structure captures gradual transitions through degradation stages
+* Spectral Manifold Learning: Low-dimensional embedding reveals underlying progression sequence from high-dimensional feature space
+* Neighborhood Preservation: Spectral methods maintain local similarity relationships while finding global ordering
+* Collective Intelligence: Each file's position determined by relationships to all 52 others, not isolated measurements
+* Sequence Reconstruction: Natural ordering emerges from network connectivity patterns
+Results:
+* Distance matrix: 53×53 with range 0.5225 to 9.7130
+* Similarity range: 0.0199 to 1.0000
+* First eigenvalue: ~0 (proper Laplacian structure)
+* Second eigenvalue: 0.7606 (clear spectral gap)
+* Fiedler vector range: -0.0934 to 0.0483
+* Most similar pairs: file_16↔file_46 (0.9887), file_21↔file_30 (0.9868)
