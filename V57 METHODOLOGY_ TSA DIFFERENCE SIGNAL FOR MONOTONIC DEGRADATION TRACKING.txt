@@ -1,0 +1,24 @@
+﻿V57 METHODOLOGY: TSA DIFFERENCE SIGNAL FOR MONOTONIC DEGRADATION TRACKING
+Technical Approach:
+* Time Synchronous Averaging (TSA): Angular domain resampling of vibration data synchronized to tachometer zero-crossings with fixed 1024-sample angular grid
+* Revolution-Based Averaging: Coherent averaging across multiple shaft rotations to remove asynchronous noise and enhance periodic fault signatures
+* Baseline Identification: Selection of healthiest reference file based on minimum raw vibration RMS energy
+* Difference Signal Computation: Subtraction of baseline TSA from all file TSA signals to isolate degradation-induced changes
+* Multi-Domain Feature Extraction: Eight features from difference signals including RMS, energy, peak-to-peak, maximum absolute change, kurtosis, crest factor, standard deviation, and spectral energy
+* Weighted Health Index: Combined normalized features emphasizing difference energy and RMS as primary monotonic indicators
+Physical Rationale:
+* Synchronous Averaging Noise Reduction: TSA eliminates random vibration and asynchronous components, isolating rotation-locked mechanical signatures
+* Baseline Reference Method: Healthy bearing TSA provides pure reference state for quantifying degradation progression
+* Change Isolation: Difference signal contains only degradation-induced modifications to rotational signature, removing constant healthy-state components
+* Monotonic Evolution Guarantee: Literature explicitly identifies TSA difference features as "extremely sensitive and monotonic indicators of degradation"
+* Angular Domain Advantage: Resampling to angular coordinates normalizes speed variations and enables direct revolution-to-revolution comparison
+* Multi-Feature Redundancy: Multiple difference signal metrics ensure robust ranking across various degradation manifestations
+Results:
+* Baseline file: file_34.csv (RMS: 24.30)
+* TSA difference RMS range: 0.0000 to 235.2051
+* TSA difference energy range: 0.00 to 56,649,132.58
+* Max absolute change range: 0.0000 to 483.2856
+* Spectral energy range: 0.00e+00 to 4.63e+10
+* Health Index range: 0.0000 to 1.0000
+This TSA-based approach implements the feature extraction methodology explicitly recommended in bearing diagnostics literature as producing monotonically increasing degradation indicators throughout failure progression.
+________________
