@@ -1,0 +1,23 @@
+﻿V60 METHODOLOGY: MULTI-FEATURE STATISTICAL ANALYSIS WITH FREQUENCY BAND ENERGY RATIOS
+Technical Approach:
+* Root Mean Square (RMS) Computation: Overall vibration energy measurement as primary degradation baseline
+* Statistical Moment Analysis: Fourth-order kurtosis calculation for signal distribution impulsiveness characterization
+* Crest Factor Extraction: Peak-to-RMS ratio quantifying signal amplitude dynamics
+* FFT-Based Band Energy Decomposition: Frequency domain partitioning into shaft/gear (10-1000 Hz), bearing (1-5 kHz), and impact (5-20 kHz) domains
+* Energy Ratio Calculation: High-to-low frequency band energy ratio as spectral shift indicator
+* Composite Health Index: Weighted additive combination normalized by empirical scaling factors (RMS + kurtosis×10 + crest×5 + energy_ratio×2)
+* Chronological Ordering: Files ranked by ascending health index for degradation timeline reconstruction
+Physical Rationale:
+* Progressive Energy Increase: RMS amplitude grows monotonically as bearing damage accumulates and vibration severity intensifies
+* Impulsiveness Evolution: Kurtosis captures emergence and progression of discrete impact events from bearing defects
+* Amplitude Dynamics: Crest factor tracks peak event prominence relative to continuous vibration baseline
+* Spectral Migration: Energy concentration shifts toward higher frequencies as damage progresses from smooth wear to impact-dominated failure modes
+* Multi-Domain Integration: Combining time-domain statistics with frequency-domain energy distribution provides complementary degradation perspectives
+* Additive Stability: Linear combination of normalized features reduces sensitivity to individual metric anomalies while preserving monotonic progression
+Results:
+* Health Index range: [values from print output]
+* RMS range: [values from print output]
+* Energy Ratio (high/low) range: [values from print output]
+* Submission format: Chronological file number sequence testing alternative format interpretation
+* Format hypothesis test: Comparing performance against baseline submission to validate format specification
+This approach combines established time-domain statistical indicators with frequency-domain energy analysis for rob
