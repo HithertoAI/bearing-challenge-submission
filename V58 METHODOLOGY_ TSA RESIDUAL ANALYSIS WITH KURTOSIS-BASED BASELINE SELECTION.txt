@@ -1,0 +1,21 @@
+﻿V58 METHODOLOGY: TSA RESIDUAL ANALYSIS WITH KURTOSIS-BASED BASELINE SELECTION
+Technical Approach:
+* Kurtosis-Based Baseline Identification: Selection of healthiest file based on raw kurtosis value closest to 3.0 (Gaussian distribution indicator)
+* Time Synchronous Averaging: Angular domain resampling with 1024-sample resolution per revolution
+* Residual Signal Extraction: Subtraction of synchronous TSA pattern from raw vibration signal to isolate non-synchronous components
+* Multi-Feature Residual Analysis: Kurtosis (FM4), RMS, crest factor, and peak amplitude extraction from residual signals
+* Composite Health Index: Weighted combination emphasizing residual kurtosis (50%) as primary degradation indicator
+* Chronological Ordering: File numbers arranged by ascending health index
+Physical Rationale:
+* Gaussian Distribution Baseline: Healthy bearings produce random Gaussian vibration with kurtosis ≈ 3.0
+* Residual Fault Localization: TSA removes synchronous machinery components, isolating bearing-specific non-synchronous fault signatures
+* Kurtosis Sensitivity: Incipient bearing defects create impulsive vibration events causing kurtosis elevation above Gaussian baseline
+* Early Detection Capability: Residual kurtosis rises before broadband energy metrics, enabling early fault identification
+* Literature-Validated Approach: Industry standard methodology identifying residual kurtosis as "gold standard" early bearing fault indicator
+* Monotonic Progression: Kurtosis theoretically increases from ~3.0 to 5-10+ as faults develop from initiation to failure
+Results:
+* Baseline: file_49.csv (kurtosis: 2.9931, distance from 3.0: 0.0069)
+* Residual kurtosis range: 1.8711 to 3.6423
+* Residual RMS range: 25.30 to 222.35
+* Residual crest factor range: 2.33 to 5.03
+* Health Index range: 0.2284 to 0.6271
