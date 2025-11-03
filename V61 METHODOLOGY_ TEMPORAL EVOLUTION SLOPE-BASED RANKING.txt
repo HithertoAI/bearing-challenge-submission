@@ -1,0 +1,21 @@
+﻿V61 METHODOLOGY: TEMPORAL EVOLUTION SLOPE-BASED RANKING
+Technical Approach:
+* Within-File Segmentation: Division of each 2-second measurement into 10 temporal segments for evolution tracking
+* RMS Slope Extraction: Linear regression across segment RMS values to quantify energy trend direction and magnitude
+* Temporal Progression Hypothesis: Files exhibiting positive RMS slopes indicate active, ongoing degradation processes
+* Negative Slope Interpretation: Energy decrease during measurement suggesting late-stage failure or stabilization states
+* Consensus Validation: Cross-verification with 7 independent temporal ranking strategies achieving 6/7 agreement on extreme cases
+* Dynamic vs Static Differentiation: Ranking based on how signals evolve rather than absolute magnitude averages
+Physical Rationale:
+* Active Degradation Signature: Healthy bearings maintain stable energy; degrading bearings show rising energy as damage progresses during operation
+* Measurement-Scale Evolution: 2-second windows capture real-time degradation dynamics invisible to static feature extraction
+* Energy Trend Monotonicity: Positive slopes provide consistent degradation indicator across measurement period
+* Multi-Phase Failure Recognition: Negative slopes may represent advanced breakdown where bearing fragments cause energy dissipation
+* Temporal Context Integration: Evolution patterns reveal degradation stage more reliably than instantaneous feature snapshots
+Results:
+* RMS slope range: -0.431117 to 0.260765
+* Healthiest (rank 1): file_52 with slope -0.431117 (energy dropping)
+* Most degraded (rank 53): file_20 with slope 0.260765 (energy rising)
+* Consensus validation: file_20, file_50, file_27 confirmed as most degraded by 6/7 independent strategies
+* Temporal feature extraction from 53 files × 10 segments = 530 data points analyzed
+This temporal evolution approach fundamentally differs from all prior methods by analyzing how vibration characteristics change during each measurement rather than treating files as static snapshots.
