@@ -1,0 +1,25 @@
+﻿V64 METHODOLOGY: HYBRID TACHOMETER-TIME DOMAIN ANALYSIS
+Technical Approach:
+* Dual-Domain Feature Extraction: Integration of vibration signal time-domain characteristics with tachometer-derived rotational dynamics metrics
+* Time-Domain Vibration Features: Root mean square amplitude, statistical kurtosis, crest factor (peak-to-RMS ratio), frequency band energy distribution ratio (high-frequency to low-frequency bands)
+* Tachometer Signal Processing: RPM extraction from zero-crossing timestamps, instantaneous speed calculation, rotational variance quantification, coefficient of variation, linear speed drift detection via polynomial fitting
+* Dynamic Bearing Order Analysis: Calculation of expected bearing fault frequencies from instantaneous RPM measurements using bearing geometry orders [0.43, 7.05, 10.78, 8.22] for cage, ball, inner race, and outer race components
+* Rotational Instability Metric: Combined index incorporating RPM variance and absolute speed drift magnitude
+* Bearing Order Energy Extraction: Narrow-band spectral energy measurement at dynamically calculated fault frequencies
+* Feature Normalization and Fusion: Z-score normalization followed by weighted linear combination (30% RMS, 20% kurtosis, 10% crest factor, 10% energy ratio, 20% tachometer instability, 10% bearing order energy)
+Physical Rationale:
+* Multi-Signal Comprehensive Assessment: Bearing degradation manifests simultaneously in vibration amplitude patterns and rotational stability characteristics
+* Rotational Perturbation Theory: Degraded bearing components introduce periodic torque variations and frictional irregularities that disrupt smooth rotation
+* Order-Based Fault Tracking: Bearing fault signatures track with rotational speed rather than remaining at fixed frequencies, requiring RPM-synchronized analysis
+* Transient vs Degradation Discrimination: Startup transients may produce high RPM variance similar to degradation effects, requiring multi-feature fusion for accurate distinction
+* Complementary Information Spaces: Time-domain features capture impulsive energy from localized defects while tachometer metrics quantify systemic rotational disruption
+* Weighted Integration Strategy: Feature weights balanced to emphasize vibration amplitude and statistical distribution while incorporating rotational stability as secondary validation
+Results:
+* Combined health index range: 11.13 to 24.86 (2.23× dynamic range)
+* Operational RPM range: 6299.7 to 6335.3 Hz (tight speed regulation)
+* RPM variance range: 0.81 to 109.68 (135× spread indicating significant instability variation)
+* Tachometer instability index range: 1.81 to 144.41
+* Healthiest file: file_34 (health index 11.13, RMS 24.30 m/s², kurtosis 2.95)
+* Most degraded file: file_20 (health index 24.86, RMS 39.61 m/s², kurtosis 2.82)
+* Feature space dimensionality: 10 extracted features across temporal and rotational domains
+This integrated approach captures bearing degradation through simultaneous analysis of vibration characteristics and rotational dynamics, providing comprehensive assessment of mechanical health state.
