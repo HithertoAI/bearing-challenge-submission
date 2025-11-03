@@ -1,0 +1,20 @@
+﻿V63 METHODOLOGY: BEARING FAULT FREQUENCY BAND ENERGY RANKING
+Technical Approach:
+* Precise Fault Frequency Targeting: Energy extraction in narrow ±50 Hz bands centered on challenge-specified bearing fault frequencies (cage: 231 Hz, ball: 3781 Hz, inner race: 5781 Hz, outer race: 4408 Hz)
+* FFT-Based Spectral Analysis: Fast Fourier Transform applied to full vibration signal (187,500 samples at 93,750 Hz)
+* Multi-Band Energy Summation: Total fault energy computed as sum across all four fault frequency bands
+* Monotonic Energy Hypothesis: Cumulative fault band energy increases unidirectionally with bearing degradation progression
+* Direct Parameter Utilization: Fault frequencies sourced directly from challenge documentation bearing geometry specifications
+Physical Rationale:
+* Bearing Fault Signature Theory: Specific mechanical faults generate vibration energy at predictable frequencies determined by geometry and kinematics
+* Degradation Energy Concentration: As bearing components deteriorate, vibration energy concentrates at characteristic fault frequencies rather than spreading across spectrum
+* Multi-Component Monitoring: Tracking all four fault bands (cage, ball, inner race, outer race) captures comprehensive degradation state regardless of which component fails first
+* Frequency Precision: Narrow-band extraction (±50 Hz) isolates genuine fault signatures from broadband noise
+* Cumulative Damage Indicator: Sum of all fault energies provides single monotonic metric for chronological ordering
+Results:
+* Total fault energy range: 5.11×10¹⁰ to 2.81×10¹¹ (5.5× spread)
+* Healthiest file: file_34 (rank 1, 5.11×10¹⁰ total energy)
+* Most degraded: file_25 (rank 53, 2.81×10¹¹ total energy)
+* Dominant degradation signature: Outer race frequency band (4408 Hz) showed highest energy in degraded files (up to 2.27×10¹¹)
+* Energy distribution: All four fault bands contributed, with outer race dominating in late-stage degradation
+This approach directly applies bearing diagnostics theory using challenge-provided fault frequency parameters for monotonic degradation tracking.
