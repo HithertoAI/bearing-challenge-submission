@@ -1,0 +1,25 @@
+﻿V65 METHODOLOGY: TEMPORAL EVOLUTION OF BEARING FAULT FREQUENCY ENERGIES
+Technical Approach:
+* Temporal Segmentation: Division of each 2-second vibration recording into 10 sequential segments (18,750 samples each)
+* Segment-Level Spectral Analysis: Independent Fast Fourier Transform computed for each temporal segment
+* Bearing Fault Frequency Tracking: Energy extraction in narrow bands (±50 Hz) centered on challenge-specified fault frequencies (cage: 231 Hz, ball: 3781 Hz, inner race: 5781 Hz, outer race: 4408 Hz) for every segment
+* Evolution Quantification: Linear regression applied to fault frequency energy trajectories across 10 segments to extract temporal slope coefficients
+* Multi-Component Progression Analysis: Independent slope calculation for each bearing component (cage, ball, inner race, outer race)
+* Composite Progression Index: Weighted combination of temporal evolution metrics (40% cumulative slope rate, 30% average energy magnitude, 20% percentage change, 10% temporal variance)
+* Degradation Signature: Positive slopes indicate increasing fault energy during measurement (active degradation), negative slopes indicate stable or decreasing energy (healthy state)
+Physical Rationale:
+* Within-Measurement Degradation Dynamics: Bearing condition evolution manifests as temporal trends in fault frequency energy during individual 2-second measurements
+* Component-Specific Fault Evolution: Each bearing element (cage, ball, inner race, outer race) exhibits characteristic fault frequency that evolves independently with degradation progression
+* Monotonic Energy Growth: Degraded bearings demonstrate increasing fault frequency energy across measurement duration as damage mechanisms actively generate vibration
+* Temporal Consistency Principle: Challenge requirement for "features that evolve consistently over time" satisfied by tracking fault frequency progression within each file
+* Integrated Assessment: Combining evolution rate (slope) with absolute energy levels captures both degradation velocity and severity
+* Frequency-Time Domain Fusion: Approach synthesizes spectral analysis precision with temporal evolution tracking
+Results:
+* Progression index range: -2.17 to 3.71 (5.88 total spread)
+* Total slope range: -5.16×10⁷ to 8.40×10⁷ (negative = stable/improving, positive = degrading)
+* Average fault energy range: 5.11×10⁸ to 2.79×10⁹
+* Healthiest file: file_23 (progression -2.17, total slope -5.16×10⁷, predominantly negative component slopes)
+* Most degraded file: file_08 (progression 3.71, total slope 8.40×10⁷, all positive component slopes)
+* Dominant degradation signatures: Ball frequency (3781 Hz) and outer race frequency (4408 Hz) showed strongest temporal evolution in degraded files
+* Temporal stability: Healthy files exhibited negative or near-zero slopes indicating stable fault frequency energy across measurement duration
+This approach uniquely combines the challenge's two key requirements: temporal evolution analysis with precise bearing fault frequency monitoring, providing degradation assessment through within-file progression dynamics.
