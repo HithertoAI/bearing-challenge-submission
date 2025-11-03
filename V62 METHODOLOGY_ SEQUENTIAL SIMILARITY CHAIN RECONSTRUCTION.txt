@@ -1,0 +1,22 @@
+﻿V62 METHODOLOGY: SEQUENTIAL SIMILARITY CHAIN RECONSTRUCTION
+Technical Approach:
+* Multi-Feature Extraction: Seven-dimensional feature vector per file including RMS, standard deviation, mean, peak amplitude, and frequency band energies (10-1000 Hz, 1-5 kHz, 5-10 kHz)
+* Feature Space Normalization: Z-score standardization across all files to equalize feature contributions
+* Pairwise Distance Matrix: Euclidean distance computation in normalized feature space for all 53×53 file pairs
+* Centroid Identification: Selection of starting file based on minimum average distance to all other files
+* Greedy Nearest-Neighbor Chaining: Iterative sequence construction by selecting unvisited file with minimum distance to current position
+* Similarity-Based Ordering: Sequential ranking emerges from natural progression through feature space rather than independent scoring
+Physical Rationale:
+* Temporal Continuity Assumption: Adjacent measurements in chronological sequence exhibit greater similarity than distant measurements
+* Degradation Smoothness: Bearing condition changes gradually rather than discontinuously, creating continuous trajectory through feature space
+* Nearest-Neighbor Optimality: True chronological order minimizes cumulative inter-file distances along sequence
+* Central Starting Point: Most representative file provides stable initialization avoiding edge cases
+* Feature Space Manifold: Files lie on low-dimensional manifold representing degradation trajectory through measurement space
+* Relational vs Absolute Ranking: Order determined by similarity relationships rather than degradation severity scores
+Results:
+* Distance matrix range: 0.4780 to 9.5967
+* Starting file: file_39.csv (most central, rank 1)
+* Terminal file: file_33.csv (rank 53)
+* Chain construction: 52 sequential links via greedy nearest-neighbor selection
+* Feature dimensionality: 7 (time-domain + frequency-domain metrics)
+This relational chaining approach fundamentally differs from scoring-based methods by constructing sequence through progressive similarity links rather than independent degradation assessments.
