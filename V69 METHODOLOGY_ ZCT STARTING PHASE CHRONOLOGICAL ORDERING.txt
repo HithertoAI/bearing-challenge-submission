@@ -1,0 +1,17 @@
+﻿V69 METHODOLOGY: ZCT STARTING PHASE CHRONOLOGICAL ORDERING
+Technical Approach:
+* ZCT Initial Value Extraction: First valid (non-NaN) zero-crossing tachometer reading extracted from each 2-second measurement window
+* Starting Phase as Temporal Marker: Initial shaft rotational position at data acquisition start interpreted as capture time indicator
+* Direct Phase Ordering: Files ranked by ascending starting phase value (earliest phase = rank 1, latest phase = rank 53)
+* No Degradation Features: Approach deliberately excludes all vibration-based degradation metrics (RMS, kurtosis, frequency analysis)
+Physical Rationale:
+* Shaft Phase Progression: Continuous turbine operation results in advancing shaft rotational phase between successive measurement captures
+* Acquisition Timestamp Encoding: Starting ZCT value (ranging 0.00002 to 0.00925 radians/rotations) may encode relative temporal position within test protocol
+* Deterministic Phase Evolution: If measurements captured at regular intervals, shaft phase advances systematically between recordings
+* Independent of Degradation State: Chronological position determined by when measurement occurred, not by bearing condition at that moment
+* Natural Ordering Hypothesis: Test protocol may have captured files in sequence where shaft phase naturally increments, providing temporal signature independent of damage progression
+Results:
+* Starting phase range: 0.00002012 to 0.00925105
+* Earliest phase (rank 1): file_31.csv
+* Latest phase (rank 53): file_15.csv
+* Complete differentiation across all 53 files with no phase collisions
