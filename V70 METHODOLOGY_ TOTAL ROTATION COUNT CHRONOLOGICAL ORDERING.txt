@@ -1,0 +1,18 @@
+﻿V70 METHODOLOGY: TOTAL ROTATION COUNT CHRONOLOGICAL ORDERING
+Technical Approach:
+* Total Rotation Calculation: ZCT range (final position minus initial position) computed for each file's valid tachometer samples
+* Rotation Count as Temporal Metric: Total rotations completed during 2-second measurement window (ranging 5.0075 to 5.0238) used as ordering criterion
+* Direct Rotation Ordering: Files ranked by ascending total rotation count (fewest rotations = rank 1, most rotations = rank 53)
+* No Degradation Features: Approach excludes all vibration-based condition monitoring metrics
+Physical Rationale:
+* Operating Speed Evolution: Total rotation count reflects instantaneous shaft speed during measurement capture; variation across files (±0.016 rotations) indicates speed evolution throughout test protocol
+* RPM Progression Hypothesis: Test may have followed structured speed profile (e.g., acceleration schedule, load variations, stress testing progression) where RPM systematically increased or varied
+* Measurement Window Consistency: Nominal 2-second windows should yield identical rotation counts at constant speed; observed variation suggests either window duration differences or actual speed changes
+* Speed-Time Correlation: If operating speed evolved monotonically during test (startup protocol, progressive loading, thermal effects), rotation count provides chronological signature
+* Independent Temporal Marker: Unlike degradation-based ordering, rotation count captures operational history rather than damage accumulation
+Results:
+* Total rotation range: 5.00750833 to 5.02382782 (0.32% variation)
+* Mean rotation rate range: 0.00947077 to 0.00952425 per sample
+* Fewest rotations (rank 1): file_30.csv (5.0075 rotations)
+* Most rotations (rank 53): file_21.csv (5.0238 rotations)
+* Hypothesis: Files with lower rotation counts captured earlier in test timeline
