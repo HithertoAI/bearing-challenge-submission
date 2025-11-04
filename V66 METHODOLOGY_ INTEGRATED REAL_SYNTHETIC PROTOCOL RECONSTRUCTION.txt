@@ -1,0 +1,19 @@
+﻿V66 METHODOLOGY: INTEGRATED REAL/SYNTHETIC PROTOCOL RECONSTRUCTION
+Technical Approach:
+* Multi-Dimensional File Classification: All 53 files categorized using authenticity score (median threshold) and operating condition metrics (rpm_variance quantile thresholds at 25th and 75th percentiles)
+* Four Primary Groups: Real+startup, real+steady, synthetic+startup, synthetic+steady, plus intermediate classification for boundary cases
+* Comprehensive Degradation Index: Weighted combination (35% RMS vibration, 35% total bearing fault frequency energy from all four critical frequencies, 20% statistical kurtosis, 10% peak amplitude)
+* Bearing Fault Frequency Integration: Energy extraction in ±50 Hz bands centered on challenge-specified frequencies (cage: 231 Hz, ball: 3781 Hz, inner race: 5781 Hz, outer race: 4408 Hz)
+* Chronological Reconstruction Algorithm: Real files ordered by degradation serve as temporal anchor points; synthetic files placed near real files within ±0.1 degradation index range
+* Interleaved Sequence Building: Alternating placement of real measurements and synthetic interpolations while maintaining degradation progression
+Physical Rationale:
+* Dual Data Source Hypothesis: Real files represent sparse actual measurements collected over 150-hour test duration; synthetic files represent digital twin interpolations generated between measurement points
+* Operating Phase Awareness: Startup versus steady-state conditions reflect different bearing stress profiles requiring separate treatment within each authenticity class
+* Degradation Monotonicity: Bearing condition progresses unidirectionally; synthetic files constrained to degradation levels matching nearby real measurements
+* Test Protocol Reconstruction: Challenge objective to recover original chronological sequence requires understanding of measurement spacing and synthetic augmentation strategy
+* Multi-Parameter Degradation Assessment: Combining time-domain statistics (RMS, kurtosis, peak) with frequency-domain fault signatures provides comprehensive condition indicator
+Results:
+* File distribution: 27 real files, 26 synthetic files across four primary operating condition groups
+* Degradation index range: [to be determined upon execution]
+* Timeline structure: Real anchor measurements with synthetic interpolations distributed according to degradation similarity
+* Interleaving pattern: Real and synthetic files alternate while respecting both degradation progression and operating phase transitions
