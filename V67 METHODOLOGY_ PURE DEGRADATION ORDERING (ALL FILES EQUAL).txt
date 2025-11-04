@@ -1,0 +1,18 @@
+﻿V67 METHODOLOGY: PURE DEGRADATION ORDERING (ALL FILES EQUAL)
+Technical Approach:
+* Uniform Treatment Protocol: All 53 files processed identically without authenticity or operating condition discrimination
+* Simplified Degradation Index: Three-component weighted metric (40% RMS vibration, 40% total bearing fault frequency energy, 20% statistical kurtosis)
+* Bearing Fault Frequency Analysis: Energy summation across ±50 Hz bands centered on four critical frequencies (231, 3781, 5781, 4408 Hz)
+* Direct Ranking: Single-pass ordering by ascending degradation index values (rank 1 = lowest degradation, rank 53 = highest degradation)
+* Control Baseline Establishment: Ignores real/synthetic classification to test whether authenticity-based approaches provide measurable improvement
+Physical Rationale:
+* Occam's Razor Principle: Simplest hypothesis that bearing degradation is the sole ordering criterion, regardless of data source
+* Classification Independence Test: Determines whether real/synthetic distinction is signal or noise in chronological reconstruction
+* Pure Degradation Hypothesis: If challenge is fundamentally about bearing condition progression, authenticity may be irrelevant confounding variable
+* Performance Floor Establishment: Provides baseline score against which more complex authenticity-aware approaches can be evaluated
+* Feature Reduction: Tests whether eliminating operating condition and authenticity dimensions improves or degrades performance
+Results:
+* Degradation index range:  0.595 to 1.530
+* Ordering strategy: Purely monotonic by composite degradation metric
+* No group stratification or interleaving patterns applied
+* Healthiest files assigned ranks 1-5, most degraded assigned ranks 49-53 based solely on degradation index
