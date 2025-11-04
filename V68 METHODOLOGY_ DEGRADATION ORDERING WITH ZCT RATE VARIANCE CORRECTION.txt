@@ -1,0 +1,20 @@
+﻿V68 METHODOLOGY: DEGRADATION ORDERING WITH ZCT RATE VARIANCE CORRECTION
+Technical Approach:
+* Composite Health Index: Weighted combination of time-domain and frequency-domain features (RMS vibration + kurtosis×10 + crest_factor×5 + energy_ratio×2)
+* Energy Ratio Metric: High-frequency band energy (5000-20000 Hz) divided by low-frequency band energy (10-1000 Hz) as degradation indicator
+* ZCT Rate Variance Analysis: Zero-crossing tachometer differential (np.diff of valid samples) quantifies rotational speed stability
+* Speed Stability Detection: Variance of ZCT rate sequence identifies transient versus steady-state operating conditions
+* Operating Condition Correction: Normalized ZCT rate variance scaled by 15% of mean health index, subtracted from base health index
+* Corrected Health Ranking: Files ordered by adjusted health index accounting for operating phase artifacts
+Physical Rationale:
+* ZCT Signal Interpretation: Zero-crossing tachometer represents cumulative shaft rotations (~5 rotations over 2-second measurement window at ~150 RPM nominal speed)
+* Rate Variance as Operating Phase Indicator: High variance in rotation rate indicates acceleration/deceleration transients characteristic of startup or load change periods; low variance indicates steady-state operation
+* Transient Vibration Artifacts: Variable shaft speed during non-steady conditions creates elevated vibration metrics independent of bearing degradation state
+* Degradation Signal Isolation: Files with high speed variation receive health index reduction to prevent misclassifying transient operating signatures as bearing damage
+* Energy Ratio Stability: High-to-low frequency energy ratio captures bearing fault progression while maintaining relative insensitivity to operating speed variations
+* Chronological Ordering: Corrected health index reflects true degradation progression by compensating for measurement timing within flight cycle phases
+Results:
+* Base health index range: 79.04 to 112.85
+* ZCT rate variance range: 1.82e-12 to 2.48e-10
+* Mean rotation rate range: 0.009471 to 0.009524
+* Corrected health index range: 69.11 to 109.34
