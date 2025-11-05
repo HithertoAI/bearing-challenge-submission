@@ -1,0 +1,18 @@
+﻿V71 METHODOLOGY: APPROXIMATE ENTROPY COMPLEXITY ORDERING
+Technical Approach:
+* Signal Downsampling: 1000 evenly-spaced samples extracted from each 187,500-point vibration recording for computational efficiency
+* Approximate Entropy Calculation: ApEn(m=2, r=0.2σ) computed for downsampled signals where m=pattern length and r=tolerance threshold scaled to signal standard deviation
+* Regularity Quantification: ApEn measures signal predictability by comparing frequency of similar patterns of length m versus m+1
+* Complexity-Based Ranking: Files ordered by ascending ApEn (low entropy = rank 1, high entropy = rank 53)
+* No Amplitude Features: Approach excludes all energy-based metrics (RMS, peak, frequency band powers)
+Physical Rationale:
+* Healthy Bearing Signature: Undamaged bearings produce regular, periodic vibration patterns with high predictability (low ApEn) due to consistent contact mechanics and smooth load distribution
+* Degradation-Induced Chaos: Bearing faults (pitting, spalling, wear) introduce irregular impacts and non-periodic excitations increasing signal complexity (high ApEn)
+* Amplitude Independence: Entropy captures temporal structure independent of vibration magnitude; file with moderate RMS can exhibit high complexity if impact timing is irregular
+* Monotonic Complexity Evolution: Progressive damage accumulation systematically reduces signal predictability as fault features develop
+* Information-Theoretic Perspective: ApEn quantifies information content in vibration time series; degraded bearings carry more information due to increased variability in contact events
+Results:
+* Approximate Entropy range: 1.619922 to 1.720215 (6.2% variation across dataset)
+* Most regular/healthiest (rank 1): file_05.csv (ApEn=1.620)
+* Most complex/degraded (rank 53): file_17.csv (ApEn=1.720)
+* Entropy-RMS decorrelation observed: highest entropy file exhibits moderate RMS (32.5), demonstrating independence of complexity from amplitude metrics
