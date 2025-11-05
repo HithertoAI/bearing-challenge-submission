@@ -1,0 +1,16 @@
+﻿V72 METHODOLOGY: BI-DIRECTIONAL SIMILARITY CHAIN RECONSTRUCTION
+Technical Approach:
+* V18 Feature Extraction: Four-component feature vector calculated per file (RMS, kurtosis, crest factor, high/low frequency energy ratio)
+* Feature Space Normalization: Z-score standardization applied across all features to ensure equal weighting in distance calculations
+* Pairwise Similarity Matrix: Euclidean distance computed between all file pairs in normalized 4-dimensional feature space
+* Healthiest-First Initialization: Chain construction begins from file exhibiting lowest composite health index (minimum degradation state)
+* Greedy Nearest-Neighbor Chaining: Sequential ordering built by iteratively selecting unvisited file with minimum distance to current chain endpoint
+* Directional Verification: Final chain direction validated by comparing start/end health indices; reversed if necessary to ensure healthy→degraded progression
+Physical Rationale:
+* Temporal Adjacency Hypothesis: Chronologically consecutive measurements exhibit greater feature similarity than temporally distant recordings due to gradual degradation progression
+* Smooth Degradation Trajectory: Bearing condition evolves continuously rather than discontinuously; adjacent timepoints share similar vibration signatures
+* Feature Space Proximity as Temporal Marker: Files close in 4D feature space (RMS, kurtosis, crest factor, energy ratio) likely proximate in test timeline
+* Healthiest-First Anchor: Starting from minimum degradation state provides reliable temporal origin, assuming test began with undamaged bearing
+* Greedy Optimization Limitation: Nearest-neighbor approach trades global optimality for computational tractability; builds locally coherent progression
+* Degradation Vector Alignment: Health index gradient (79.04→112.85) confirms chain direction matches expected healthy-to-failed progression
+Results:
