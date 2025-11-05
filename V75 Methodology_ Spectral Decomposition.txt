@@ -1,0 +1,46 @@
+﻿V75 Methodology: Spectral Decomposition
+Approach Overview
+V75 employs spectral decomposition to extract physically meaningful features that evolve monotonically with bearing degradation, combining multiple frequency-domain indicators into a unified degradation score.
+Technical Implementation
+1. Spectral Feature Extraction
+* Computed Fast Fourier Transform for each vibration signal
+* Analyzed positive frequency components only (0-46.875 kHz)
+* Extracted three key degradation indicators:
+High-to-Low Frequency Energy Ratio
+   * Low-frequency band: 10-1000 Hz (structural vibrations)
+   * High-frequency band: 5000-20000 Hz (bearing impacts and faults)
+   * Ratio increases as degradation shifts energy to higher frequencies
+   * Spectral Spread
+   * Measures dispersion of spectral energy around centroid
+   * Increases as degradation creates broader frequency content
+   * Frequency-Domain Kurtosis
+   * Measures impulsiveness in frequency distribution
+   * Increases with bearing fault development
+2. Degradation Score Computation
+   * Combined features using weighted linear combination:
+   * Energy ratio: 40% weight
+   * Spectral spread: 30% weight
+   * Frequency kurtosis: 30% weight
+   * Normalized features implicitly through ratio-based measures
+3. Monotonic Sequencing
+   * Sorted files by computed degradation scores from lowest to highest
+   * Assigned ranks 1-53 based on score progression
+   * Identified natural degradation trajectory without complex optimization
+Theoretical Basis
+Bearing degradation follows predictable spectral evolution patterns:
+   * Early stage: Dominated by low-frequency structural vibrations
+   * Mid stage: Emergence of high-frequency bearing fault components
+   * Late stage: Broadband impacts and chaotic frequency content
+The combined degradation score captures this progression through physically interpretable spectral measures.
+Output Format
+Submission provides degradation ranks in correct format:
+      * Row 2: Rank of file_01.csv
+      * Row 3: Rank of file_02.csv
+      * Continuing through all 53 files with ranks 1-53
+Key Advantages
+      * Physically grounded in bearing degradation mechanics
+      * Computationally efficient with O(n) complexity
+      * Combines multiple complementary spectral indicators
+      * Naturally handles unidirectional degradation progression
+      * Provides interpretable degradation scores with clear physical meaning
+      *
