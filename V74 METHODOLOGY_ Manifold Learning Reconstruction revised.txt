@@ -1,0 +1,32 @@
+﻿V74 METHODOLOGY: Manifold Learning Reconstruction revised
+Approach Overview
+V74 employs manifold learning to discover the intrinsic one-dimensional degradation trajectory through high-dimensional feature space, ranking files from healthiest to most degraded based on their position along the discovered manifold.
+Technical Implementation
+1. Multi-Domain Feature Extraction
+* Computed 12 diverse features across temporal, spectral, and statistical domains:
+   * Temporal statistics: mean, standard deviation, skewness, kurtosis
+   * Amplitude characteristics: 95th percentile, absolute 95th percentile
+   * Spectral energy distribution: low-frequency (0-1kHz), mid-frequency (1-5kHz), high-frequency (5kHz+) bands
+   * Spectral properties: dominant frequency bin, dominant magnitude, spectral entropy
+2. Nonlinear Manifold Learning
+* Standardized all features to zero mean and unit variance
+* Applied t-SNE dimensionality reduction with 1-dimensional target space
+* Used perplexity=15 to balance local and global structure preservation
+* Discovered intrinsic manifold coordinates representing degradation progression
+3. Degradation Ranking
+* Sorted files by manifold coordinates from lowest to highest values
+* Assigned ranks 1-53 based on manifold position
+* Identified file_05.csv as healthiest state (rank 1)
+* Identified file_17.csv as most degraded state (rank 53)
+Theoretical Basis
+Bearing degradation evolves continuously through a complex, high-dimensional feature space. The underlying degradation trajectory forms a smooth 1D manifold that can be discovered through nonlinear dimensionality reduction, where position along the manifold corresponds to degradation severity.
+Output Format
+Submission provides degradation ranks for each file in original order:
+* Row 2: 40 (file_01.csv is 40th healthiest)
+* Row 3: 21 (file_02.csv is 21st healthiest)
+* Continuing through all 53 files with ranks 1-53
+Key Advantages
+* Captures nonlinear degradation patterns through manifold learning
+* Combines information from multiple feature domains
+* Provides natural handling of unidirectional degradation progression
+* Discovers intrinsic data structure without predefined degradation models
