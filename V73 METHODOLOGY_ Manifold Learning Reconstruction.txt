@@ -1,0 +1,31 @@
+﻿V73 METHODOLOGY: Manifold Learning Reconstruction
+Approach Overview
+V73 employs manifold learning to reconstruct the bearing degradation timeline by discovering the intrinsic one-dimensional progression path through high-dimensional feature space. The method assumes that bearing degradation follows a continuous trajectory that can be captured through nonlinear dimensionality reduction.
+Technical Implementation
+1. Multi-Domain Feature Extraction
+For each vibration signal, we compute 12 diverse features spanning:
+* Time Domain: Mean, standard deviation, skewness, kurtosis
+* Amplitude Statistics: 95th percentile, absolute 95th percentile
+* Frequency Domain: Low/mid/high frequency energy bands
+* Spectral Characteristics: Dominant frequency bin, magnitude, spectral entropy
+2. Manifold Learning with t-SNE
+* Standardize all features to zero mean and unit variance
+* Apply t-SNE with 1-dimensional target space (perplexity=15)
+* The algorithm nonlinearly projects 12D feature space to 1D manifold
+* Each file's position on this manifold represents its degradation state
+3. Degradation Sequence Extraction
+* Sort files by their 1D manifold coordinates
+* Assign ranks 1-53 based on manifold position
+* Lower manifold values indicate healthier states
+* Higher manifold values indicate more degraded states
+Theoretical Basis
+
+
+Key AdvantagesBearing degradation evolves continuously through a complex, high-dimensional feature space. While individual features may exhibit non-monotonic behavior, the underlying degradation trajectory forms a smooth 1D manifold. Manifold learning uncovers this intrinsic progression by preserving local neighborhood relationships while revealing global structure.
+* Captures nonlinear degradation patterns missed by linear methods
+* Combines information from multiple feature domains
+* No assumptions about specific fault frequency evolution
+* Naturally handles the unidirectional nature of degradation
+* Robust to local fluctuations in individual features
+Expected Performance
+This approach should outperform correlation-based methods by focusing on the global degradation trajectory rather than pairwise similarity. The manifold coordinates provide a physically meaningful representation of degradation state progression.
