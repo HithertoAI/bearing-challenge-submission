@@ -1,0 +1,38 @@
+﻿V80 METHODOLOGY: complementary feature combination
+
+ Approach Overview
+V80 builds upon the breakthrough energy ratio discovery by fusing it with the second-most predictive feature, spectral centroid, creating a complementary feature combination that captures both energy redistribution and frequency shift aspects of bearing degradation.
+Technical Implementation
+1. Dual-Feature Extraction
+* Energy Ratio: High-to-low frequency energy ratio (5000+ Hz / 0-1000 Hz)
+   * Range: 220.0 to 585.1 (2.66× spread)
+   * Captures energy migration from structural vibrations to fault impacts
+* Spectral Centroid: Weighted mean frequency of vibration spectrum
+   * Range: 27,790 Hz to 33,238 Hz
+   * Captures overall frequency shift toward higher bands with degradation
+2. Feature Fusion Strategy
+* Normalized both features to [0,1] range for equal weighting
+* Applied weighted combination:
+   * Energy ratio: 60% weight (primary, near-perfect monotonicity)
+   * Spectral centroid: 40% weight (complementary frequency information)
+* Created unified degradation score through linear fusion
+3. Optimized Ranking
+* Sorted files by fused degradation score
+* Assigned ranks 1-53 based on combined feature progression
+* Maintained physical consistency with v79's endpoints
+Theoretical Basis
+The feature combination captures complementary degradation mechanisms:
+* Energy ratio: Tracks the fundamental shift from low-frequency dominance (healthy) to high-frequency dominance (degraded)
+* Spectral centroid: Monitors the upward migration of vibrational energy across the frequency spectrum
+* Fusion benefit: Corrects potential local ranking errors where single features might be ambiguous
+Key Advantages
+* Leverages the near-perfect energy ratio (0.998 monotonicity)
+* Adds complementary frequency shift information
+* Robust to local feature ambiguities
+* Maintains physical interpretability
+* Builds upon proven v79 foundation
+Expected Performance
+This enhanced approach should maintain v79's strong performance while potentially correcting minor ranking errors, potentially closing the 7-point gap to reach or exceed the current leader's 126.000 score.
+Validation
+Consistent identification of file_35.csv as healthiest and file_51.csv as most degraded provides confidence in the physical plausibility of the progression.
+*
