@@ -1,0 +1,32 @@
+﻿V76: METHODOLOGY cross-correlation sequencing
+Approach Overview
+V76 employs cross-correlation sequencing to reconstruct the chronological order of bearing degradation measurements by identifying files with the most similar vibration waveforms, operating on the principle that temporally adjacent measurements exhibit higher signal correlation.
+Technical Implementation
+1. Signal Preprocessing
+* Loaded all 53 vibration signals with downsampling (1:100 ratio)
+* Applied normalization to zero mean and unit variance for each signal
+* Maintained signal integrity while reducing computational complexity
+2. Correlation Matrix Construction
+* Computed pairwise Pearson correlation coefficients between all file pairs
+* Built 53×53 symmetric correlation matrix
+* Each matrix entry represents waveform similarity between corresponding files
+3. Greedy Chain Building
+* Initialized sequence with file_01.csv as starting point
+* Iteratively appended the file with maximum correlation to current chain endpoint
+* Ensured all files were included exactly once in final sequence
+* Converted chain positions to degradation ranks (1=healthiest, 53=most degraded)
+Theoretical Basis
+The methodology operates on the physical principle that bearing degradation evolves gradually, causing minimal changes between consecutive measurements. Higher cross-correlation indicates temporal proximity in the degradation timeline, as mechanical systems typically exhibit continuous rather than discontinuous state changes.
+Output Format
+Submission provides complete ranking from healthiest to most degraded:
+* Row 2: Rank of file_01.csv
+* Row 3: Rank of file_02.csv
+* Continuing through all 53 files with ranks 1-53
+Key Advantages
+* Pure data-driven approach requiring no bearing-specific knowledge
+* Computationally efficient with O(n²) complexity
+* Naturally handles the complete dataset without feature selection
+* Based on fundamental signal processing principles
+Expected Performance
+This approach should capture local temporal relationships and provide a physically plausible degradation sequence, though global optimality is not guaranteed due to the greedy chain construction.
+*
