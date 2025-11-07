@@ -1,0 +1,37 @@
+﻿V81 Methodology:ENERGY RATIO + CAGE BAND FUSION
+Approach Overview
+V81 builds upon the proven energy ratio methodology by incorporating cage fault frequency information as an error-correction mechanism, addressing specific timing misalignments in the degradation progression identified through systematic analysis.
+Technical Implementation
+1. Dual-Feature Extraction
+* Primary Feature: High-to-low frequency energy ratio (5000+ Hz / 0-1000 Hz)
+   * Range: 220.0 to 585.1 (2.7× discrimination)
+   * Captures overall degradation energy migration
+* Secondary Feature: Cage fault band energy ratio (231±50 Hz / structural energy)
+   * Range: 0.060325 to 0.089870 (49% relative increase)
+   * Provides independent timing signal for cage fault development
+2. Optimized Feature Fusion
+* Normalized both features to [0,1] range
+* Applied weighted combination:
+   * Energy ratio: 80% weight (primary degradation indicator)
+   * Cage ratio: 20% weight (error correction signal)
+* Designed to maintain energy ratio's strong progression while correcting specific misplacements
+3. Error-Correction Ranking
+* Sorted by combined optimized score
+* Cage band influence targets files where energy ratio progression may have timing errors
+* Maintains physical degradation progression consistency
+Theoretical Basis
+Analysis revealed cage band energy as the most independent signal (0.102 correlation) from the primary energy ratio, suggesting it captures different aspects of the degradation timeline:
+* Energy ratio: Tracks global energy migration from low to high frequencies
+* Cage band: Monitors specific cage fault component development
+* Combination: Corrects instances where overall energy progression and specific component failure are temporally misaligned
+Key Advantages
+* Builds upon proven v79 foundation (133.000 score)
+* Incorporates independent physical signal for error correction
+* Maintains high discrimination power (2.7× range)
+* Targeted approach based on systematic gap analysis
+* Physically interpretable feature combination
+Expected Performance
+This approach should maintain v79's strong performance while potentially correcting the specific file placements responsible for the 7-point gap to the current leader.
+Validation
+The cage ratio's meaningful progression range (0.060 to 0.090) and independence from the primary feature provide confidence in its error-correction capability.
+*
