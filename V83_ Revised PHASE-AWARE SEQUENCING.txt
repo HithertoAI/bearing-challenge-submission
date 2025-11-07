@@ -1,0 +1,27 @@
+﻿V83 METHODOLOGY: Revised PHASE-AWARE SEQUENCING 
+Approach Overview
+V83 implements corrected phase-aware sequencing using absolute energy ratios instead of normalized percentages, fixing the fundamental physics error discovered in v82 while preserving the cascade failure phase insights.
+Technical Implementation
+1. Absolute Energy Ratio Computation
+* Computes absolute energy in each frequency band (not normalized by total energy)
+* Uses structural energy (10-500 Hz) as denominator for all ratios
+* Maintains the proven v79 ratio foundation (impact/structural energy)
+2. Phase-Aware Ratio Combination
+* v79 ratio (impact/structural): 50% weight - proven foundation
+* Ball fault ratio: 20% weight - early phase indicator
+* Outer race ratio: 15% weight - mid phase indicator
+* Cage fault ratio: 15% weight - late phase indicator
+3. Physics-Corrected Sequencing
+* Sorts by combined ratio score (lower = healthier, higher = more degraded)
+* Maintains correct degradation direction established in v79
+* Incorporates component-specific failure timing insights
+Theoretical Basis
+Corrects the normalization error where:
+* Absolute fault energies increase with degradation
+* But normalized percentages decreased due to overwhelming total energy growth
+* Ratios against structural energy provide stable degradation indicators
+Validation
+* Maintains v79's proven energy ratio foundation
+* Corrects the catastrophic direction reversal from v82
+* Preserves phase transition insights with proper implementation
+*
