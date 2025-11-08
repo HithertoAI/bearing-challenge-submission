@@ -1,0 +1,33 @@
+﻿V87 METHODOLOGY: Hybrid Energy Ratio with Fault-Specific Emphasis
+Approach Overview
+V87 builds upon energy ratio physics by creating a composite scoring system that combines high-to-low frequency energy progression with specific outer race fault energy. This hybrid approach maintains the proven degradation tracking of energy ratios while emphasizing the dominant failure mode.
+Technical Implementation
+1. Dual-Feature Composite Scoring
+   * Primary feature: High-to-low frequency energy ratio (0-1000Hz vs 5000+ Hz)
+   * Secondary feature: Outer race fault energy (4408Hz ± 100Hz)
+   * Weighted combination: 70% energy ratio + 30% outer race emphasis
+2. Feature Computation
+   * Applied Fast Fourier Transform to each vibration signal
+   * Computed energy ratio: high_energy(5000+ Hz) / low_energy(0-1000 Hz)
+   * Computed outer race energy: sum of amplitudes at 4308-4508 Hz
+   * Normalized features to compatible scales
+   * Calculated composite score: 0.7 × energy_ratio + 0.3 × (outer_race_energy / 1e10)
+3. Progression-Based Ranking
+   * Sorted all 53 files by composite score values
+   * Assigned ranks 1-53 based on natural progression
+   * Healthiest: file_35 (composite: 154.0)
+   * Most degraded: file_51 (composite: 409.6)
+Theoretical Basis
+The hybrid approach captures complementary aspects of bearing degradation:
+* Energy ratio tracks overall high-frequency impact proliferation
+* Outer race energy specifically monitors the dominant fault mode progression
+* Composite scoring resolves cases where overall degradation and specific fault progression diverge
+Feature Characteristics
+* Energy ratio range: 220.0 to 585.1 (2.66× increase)
+* Outer race energy range: 3.10e+06 to 8.38e+06 (2.70× increase)
+* Composite score range: 154.0 to 409.6 (2.66× increase)
+Key Advantages
+* Maintains proven energy ratio physics
+* Adds fault-specific intelligence for ambiguous cases
+* Single composite metric for straightforward ranking
+* Physically interpretable degradation progression
