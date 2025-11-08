@@ -1,0 +1,27 @@
+﻿V90 METHODOLOGY: ENERGY CONCENTRATION ANALYSIS
+PHYSICAL APPROACH:
+Measures energy concentration in the top 1% of envelope spectrum frequencies.
+As bearings degrade, fault impacts create concentrated energy at specific
+frequencies in the envelope spectrum.
+PHYSICAL INTERPRETATION:
+* Healthy bearing: Energy evenly distributed (low concentration ~0.026)
+* Degraded bearing: Energy concentrated at fault frequencies (high concentration ~0.071)
+WHY THIS WORKS BETTER THAN GINI:
+The energy concentration metric directly measures what we care about - how
+much vibration energy is concentrated at bearing fault frequencies versus
+being evenly distributed.
+TECHNICAL IMPLEMENTATION:
+1. Hilbert transform to extract signal envelope
+2. FFT on envelope to obtain envelope spectrum
+3. Calculate energy concentration in top 1% of frequency bins
+4. Sort files by increasing energy concentration
+RESULTS:
+Concentration range: 0.0261 to 0.0711 (spread: 0.0450)
+Healthiest: file_51 (Conc: 0.0261)
+Most degraded: file_47 (Conc: 0.0711)
+INNOVATION:
+Direct physical measurement of bearing degradation through energy distribution
+in envelope spectrum, bypassing complex statistical indices. This approach
+follows established bearing fault physics where developing faults create
+periodic impacts that amplitude-modulate the vibration signal, resulting in
+concentrated energy at specific frequencies in the envelope spectrum.
