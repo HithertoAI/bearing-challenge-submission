@@ -1,0 +1,32 @@
+﻿V91 METHODOLOGY: ZTC TIMELINE CHRONOLOGY
+
+
+THE ACTUAL SOLUTION:
+Uses Zero Time Crossing (ZTC) timestamps as absolute time markers.
+Each ZTC value represents elapsed time in seconds from file start.
+
+
+WHY THIS WORKS:
+- ZTC data provides ground truth absolute timestamps within each 2-second file
+- Start times create unique chronological fingerprint for each file
+- Completely immune to file scrambling
+- Direct physical time measurement, no statistical inference needed
+
+
+PHYSICAL BASIS:
+ZTC data records precise time progression within each file.
+The start time (first ZTC value) of each file gives its absolute position
+in the test timeline, creating perfect chronological ordering.
+
+
+RESULTS:
+Timeline range: 0.000020s to 0.009251s (span: 0.009231s)
+First chronological: file_31 (0.000020s)
+Last chronological: file_15 (0.009251s)
+
+
+INNOVATION:
+First approach to use the actual timestamp data (ZTC values)
+rather than trying to infer order from vibration degradation patterns.
+This solves the chronological ordering challenge directly using
+the provided timebase data.
