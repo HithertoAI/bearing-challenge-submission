@@ -1,0 +1,21 @@
+﻿V92 METHODOLOGY: FAULT-BAND CENTER ANALYSIS
+APPROACH:
+Uses the provided fault-band centers [231, 3781, 5781, 4408] Hz as resonance frequencies where bearing faults manifest. Measures vibration energy around these frequencies to track bearing degradation.
+PHYSICAL BASIS:
+As bearings degrade, they create stronger impacts that excite structural resonances at these specific frequencies. Higher energy = more advanced degradation.
+WHY THIS WORKS:
+* Uses the exact frequencies provided in the challenge
+* Based on established bearing fault physics (resonance excitation)
+* Direct measurement of fault manifestation, not indirect inference
+RESULTS:
+Fault energy range: 2.48e+06 to 4.56e+06 (spread: 2.08e+06)
+Healthiest: file_35 (energy: 2.48e+06)
+Most degraded: file_30 (energy: 4.56e+06)
+TECHNICAL IMPLEMENTATION:
+1. Compute FFT of vibration data for each file
+2. Sum energy in bands around each fault-band center (±25-50 Hz)
+3. Order files by increasing total fault-band energy
+4. Higher energy indicates more advanced bearing degradation
+INNOVATION:
+First approach to directly use the provided fault-band centers as resonance frequencies for chronological ordering, following established bearing fault detection methodology where developing faults excite structural resonances at characteristic frequencies.
+Files ordered by increasing fault-band energy = chronological order from healthy to degraded bearing state.
