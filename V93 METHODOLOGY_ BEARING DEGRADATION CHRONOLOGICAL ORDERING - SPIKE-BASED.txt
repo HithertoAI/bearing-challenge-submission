@@ -1,0 +1,37 @@
+﻿V93 METHODOLOGY: BEARING DEGRADATION CHRONOLOGICAL ORDERING - SPIKE-BASED
+BEARING DEGRADATION CHRONOLOGICAL ORDERING - SPIKE-BASED METHODOLOGY
+
+
+APPROACH:
+This solution uses spike/impact analysis to determine chronological order in bearing degradation. As bearings deteriorate, individual impact events become more severe, leading to higher maximum spike amplitudes in the vibration signal.
+
+
+PHYSICAL BASIS:
+- Healthy bearings: Relatively uniform vibration with moderate spikes
+- Degraded bearings: Severe individual impacts from bearing surface defects
+- Maximum spike amplitude increases monotonically with damage progression
+
+
+TECHNICAL IMPLEMENTATION:
+1. For each 2-second vibration recording, identify significant spikes (2σ threshold)
+2. Extract maximum spike amplitude as primary degradation indicator
+3. Sort files by increasing max_spike values
+4. Lowest max_spike = earliest/healthiest bearing state
+5. Highest max_spike = latest/most degraded bearing state
+
+
+KEY INSIGHTS:
+- Based on visual waveform analysis comparing early vs late files
+- Focuses on impact severity rather than overall vibration energy
+- Aligns with physical bearing failure mechanisms
+- Simple, interpretable, and physically meaningful
+
+
+VALIDATION:
+- Consistent with observed waveform patterns (File 18 > File 3 spike heights)
+- Multiple spike metrics analyzed (max_spike, count, frequency)
+- Max_spike showed clearest progression for chronological ordering
+
+
+INNOVATION VALUE:
+Provides a robust, physically-grounded method for tracking bearing degradation progression using impact severity rather than complex spectral features.
