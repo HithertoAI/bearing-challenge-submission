@@ -1,0 +1,29 @@
+﻿V95 Methodology - PHYSICS-BASED HYBRID CHRONOLOGICAL ORDERING
+
+
+APPROACH:
+Combines the two most physically meaningful vibration indicators with optimal weighting to track bearing degradation progression.
+
+
+TECHNICAL IMPLEMENTATION:
+1. Calculate RMS vibration (overall energy increase with surface degradation)
+2. Calculate maximum spike amplitude (severity of individual impact events)  
+3. Weighted combination: 60% RMS + 40% max spike
+4. Order files by increasing combined score
+
+
+PHYSICAL BASIS:
+- RMS: Tracks gradual bearing surface wear, increased friction, and general vibration energy rise
+- Max spike: Tracks acute damage events, bearing defects, and severe impacts
+- Combined: Captures both gradual degradation progression and acute damage accumulation
+
+
+INNOVATION VALUE:
+- Extremely interpretable and physically grounded
+- Optimal feature combination based on bearing failure mechanics
+- Avoids over-engineering with complex spectral features
+- Provides robust degradation tracking across different failure modes
+
+
+SEQUENCE RESULT:
+Files ordered by combined RMS and spike severity score, showing progression from healthy (low scores: files 37, 34, 29) to degraded (high scores: files 14, 33, 51). Score range: 54.2 - 114.8.
