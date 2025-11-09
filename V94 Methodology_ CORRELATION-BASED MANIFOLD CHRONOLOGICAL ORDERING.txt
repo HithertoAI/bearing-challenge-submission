@@ -1,0 +1,26 @@
+﻿V94 Methodology: CORRELATION-BASED MANIFOLD CHRONOLOGICAL ORDERING
+APPROACH:
+Uses correlation distance in multi-dimensional feature space to discover the intrinsic degradation progression. Files are ordered by their manifold distance from the central point, revealing the natural degradation trajectory.
+
+
+TECHNICAL IMPLEMENTATION:
+1. Extract 4 robust features per file (low/high frequency energy, max spike amplitude, RMS vibration)
+2. Compute correlation matrix between all file feature vectors
+3. Identify center file (most correlated with others in the manifold)
+4. Order files by increasing correlation distance from center
+5. Assumes bearing degradation follows smooth progression through feature space
+
+
+PHYSICAL BASIS:
+As bearings degrade, their vibration characteristics evolve continuously through feature space. Files with similar feature vectors are closer in time, forming a progression trajectory.
+
+
+INNOVATION VALUE:
+- Discovers intrinsic progression geometry without feature weighting assumptions
+- Robust to outliers and feature scaling
+- Based on established manifold learning and seriation principles
+- Avoids overfitting to specific degradation indicators
+
+
+SEQUENCE RESULT:
+Files ordered by manifold distance from center point, with sequence: [1, 24, 50, ...] → [...] → [7, 33, 18]
