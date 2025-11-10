@@ -1,0 +1,22 @@
+﻿V99 METHODOLOGY: PHASE COHERENCE CHRONOLOGICAL ORDERING
+
+
+Approach: This method uses phase coherence analysis between vibration signals and zero-crossing tachometer (ZCT) data to determine the chronological order of bearing degradation samples.
+
+
+Method:
+1. For each file, extract the temporally aligned 2-second windows of vibration (187,500 points) and ZCT (first 212 points) data
+2. Resample vibration data to match ZCT sampling rate (106 Hz) for direct comparison
+3. Compute magnitude-squared coherence between the aligned vibration and ZCT signals using Welch's method
+4. Use mean coherence value as the ordering feature
+5. Rank files by coherence (higher coherence = earlier/healthier bearing state)
+
+
+Rationale: As bearings degrade, the phase relationship between vibration response and operational forcing (represented by ZCT) becomes less coherent. Healthier bearings maintain stronger phase synchronization with operational cycles.
+
+
+Technical Details:
+- Vibration data: 93,750 Hz sampling rate, resampled to 106 Hz for ZCT alignment
+- ZCT data: 530 points over 5 seconds, using first 212 points for 2-second alignment
+- Coherence calculation: Welch's method with 64-point segments
+- Ranking: Higher coherence values receive lower rank numbers (1 = healthiest)
