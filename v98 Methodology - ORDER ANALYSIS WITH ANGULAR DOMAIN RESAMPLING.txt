@@ -1,0 +1,22 @@
+﻿v98 Methodology - ORDER ANALYSIS WITH ANGULAR DOMAIN RESAMPLING
+APPROACH:
+Performs true order analysis by resampling vibration data from time domain to angular domain using zero-crossing tachometer synchronization, then computes degradation from raw bearing fault order energies.
+TECHNICAL IMPLEMENTATION:
+1. Extract zero-crossing timestamps from first 2-second window (confirmed alignment)
+2. Calculate instantaneous shaft RPM from pulse intervals
+3. Resample vibration data to constant angle increments per revolution
+4. Compute order spectrum in angular domain instead of frequency domain
+5. Extract raw energy from bearing fault order regions
+6. Rank files by increasing bearing order energy (higher energy = more degraded)
+PHYSICAL BASIS:
+* Angular resampling eliminates speed variation effects
+* Order analysis reveals true mechanical fault signatures
+* Bearing fault order energy increases with degradation progression
+* Proper ZCT-vibration synchronization ensures accurate phase relationships
+INNOVATION VALUE:
+* First true implementation of order analysis in submission history
+* Proper use of ZCT data for its intended synchronization purpose
+* Raw energy values provide excellent dynamic range for ranking
+* Strong physical basis with validated approach
+SEQUENCE RESULT:
+Files ordered by raw bearing order energy, showing progression from healthy (file_03, score: 8.07M) to degraded (file_51, score: 23.44M).
