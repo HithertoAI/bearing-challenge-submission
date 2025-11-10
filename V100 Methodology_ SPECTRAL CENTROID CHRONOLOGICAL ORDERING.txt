@@ -1,0 +1,26 @@
+﻿V100 Methodology: SPECTRAL CENTROID CHRONOLOGICAL ORDERING
+
+
+Approach: This method uses spectral centroid analysis to track the evolution of vibration energy distribution across the frequency spectrum as the bearing degrades over time.
+
+
+Method:
+1. For each file, compute the Fast Fourier Transform (FFT) of the 2-second vibration signal
+2. Calculate the power spectrum (magnitude squared of FFT)
+3. Compute spectral centroid as the frequency-weighted average of the power spectrum
+4. Ignore frequencies below 100 Hz to focus on bearing-related vibrations
+5. Rank files by spectral centroid value (lower centroid = earlier/healthier state)
+
+
+Rationale: As bearings degrade, the distribution of vibration energy across frequency bands shifts systematically. The spectral centroid captures this energy migration, which evolves monotonically due to changing structural dynamics and dominant fault modes. The observed staircase progression pattern suggests discrete transitions between degradation regimes.
+
+
+Technical Details:
+- Sampling rate: 93,750 Hz
+- Analysis: Full 2-second vibration signals (187,500 samples)
+- Frequency range: 100-46,875 Hz (Nyquist)
+- Ranking: Ascending spectral centroid values (lower frequency center = healthier)
+- Feature: Captures system-level dynamic changes rather than individual fault frequencies
+
+
+Innovation: This approach moves beyond traditional fault frequency analysis to track how the entire vibration signature evolves, enabling more robust chronological ordering and prognosis capability.
