@@ -1,0 +1,19 @@
+﻿V96 Methodology - TEMPORALLY ALIGNED FREQUENCY ENERGY RATIO ORDERING
+APPROACH:
+Utilizes high-frequency to low-frequency vibration energy ratio calculated from properly temporally aligned data windows to track bearing degradation progression.
+TECHNICAL IMPLEMENTATION:
+1. Extract first 2-second window of zero-crossing tachometer timestamps (0.0-2.0 seconds)
+2. Calculate vibration energy ratio: high-frequency (≥5000 Hz) / low-frequency (<1000 Hz)
+3. Order files by increasing energy ratio score
+PHYSICAL BASIS:
+* High-frequency energy increase indicates developing bearing surface defects and impact events
+* Low-frequency energy represents baseline mechanical operation
+* Energy ratio amplifies degradation signature while normalizing operational variations
+* Temporal alignment ensures accurate rotational speed context for frequency analysis
+INNOVATION VALUE:
+* Pure physical approach focusing on fundamental bearing failure mechanics
+* Optimal temporal alignment between vibration data and tachometer reference
+* Eliminates misalignment artifacts from previous methods
+* Provides clear degradation progression from healthy to failure state
+SEQUENCE RESULT:
+Files ordered by frequency energy ratio, showing progression from healthy (low ratios: file 35) to degraded (high ratios: file 51). Ratio range: 219.99 - 585.11.
