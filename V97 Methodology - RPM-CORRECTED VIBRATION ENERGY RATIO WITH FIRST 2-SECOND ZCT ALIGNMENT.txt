@@ -1,0 +1,22 @@
+﻿V97 Methodology - RPM-CORRECTED VIBRATION ENERGY RATIO WITH FIRST 2-SECOND ZCT ALIGNMENT
+APPROACH:
+Utilizes actual shaft speed derived from the first 2-second ZCT window to calculate physically accurate bearing fault frequencies, then computes vibration energy ratio around these RPM-corrected frequency bands.
+TECHNICAL IMPLEMENTATION:
+1. Extract zero-crossing timestamps from first 2-second window (0.0-2.0 seconds)
+2. Calculate actual shaft RPM and turbine RPM from pulse intervals
+3. Scale nominal bearing fault-band centers based on measured vs nominal RPM ratio
+4. Compute vibration energy ratio: ball fault band energy / cage fault band energy
+5. Order files by increasing energy ratio score
+PHYSICAL BASIS:
+* RPM-corrected fault frequencies account for actual operating conditions
+* Ball fault band energy captures developing bearing impact events
+* Cage fault band energy represents baseline mechanical operation
+* Energy ratio amplifies degradation signature while normalizing speed variations
+* First 2-second ZCT window ensures proper temporal alignment
+INNOVATION VALUE:
+* Maintains v79 energy ratio concept while incorporating actual physics
+* Uses ZCT data for precise RPM-dependent frequency correction
+* Ensures temporal alignment between vibration analysis and tachometer reference
+* Provides physically accurate degradation progression tracking
+SEQUENCE RESULT:
+Files ordered by RPM-corrected energy ratio, showing progression from healthy (file 25, ratio: 1015.33) to degraded (file 51, ratio: 2444.39). Ratio range demonstrates clear degradation dynamic.
