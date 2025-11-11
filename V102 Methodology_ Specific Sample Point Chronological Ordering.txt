@@ -1,0 +1,17 @@
+﻿V102 Methodology: Specific Sample Point Chronological Ordering
+
+
+Approach: This method uses the vibration data value at a fixed temporal position (index 1000, approximately 0.0107 seconds into the 2-second recording) as the sole ordering feature. Files are ranked by this specific data point value.
+
+
+Rationale: In long-duration controlled tests, measurement system characteristics, environmental conditions, or signal baseline properties may evolve systematically over time. By examining a consistent temporal position across all samples, this approach captures potential systematic drifts or changes that correlate with test timeline progression.
+
+
+Technical Details:
+- Feature: Vibration amplitude at sample index 1000
+- Sampling: 93,750 Hz, so index 1000 = 0.01067 seconds
+- Ranking: Ascending values (lower amplitudes receive better ranks)
+- Data: Uses only vibration data, no ZCT processing
+
+
+Innovation: This minimal-feature approach tests whether simple, fixed-position sampling can reveal chronological patterns in long-duration test data, representing an extremely parsimonious method for temporal ordering.
