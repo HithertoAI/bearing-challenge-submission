@@ -1,0 +1,9 @@
+﻿V104 Methodology: Statistical outlier w/ multi-cluster operational regimes
+Approach Description:
+Multi-cluster energy analysis identified distinct operational regimes, with hierarchical clustering separating files into natural energy groups representing different power levels. Each cluster was ordered peak-to-decay to capture individual operational event patterns.
+Rationale for Feature Choice:
+Total vibration energy provided natural clustering of operational phases, with hierarchical clustering revealing distinct power regimes. Peak-to-decay ordering within clusters models the characteristic energy profile of individual flight cycles and operational transients.
+Technical Details:
+Ward hierarchical clustering identified 5 natural energy groups spanning idle operation to extreme transients. Files within each cluster were sorted by descending energy to represent the peak-to-decay pattern of operational events. The progression from low-energy to high-energy clusters reconstructs the degradation timeline.
+Innovation Statement:
+Combining hierarchical clustering with peak-to-decay event modeling captures both the cyclic nature of turboshaft operation and the overall degradation progression, providing a physically realistic reconstruction that respects operational variability while maintaining temporal coherence.
