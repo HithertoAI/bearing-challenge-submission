@@ -1,0 +1,17 @@
+﻿V101 Methodology: Zero-Crossing Timing Regularity Chronological Ordering
+
+
+Approach: This method uses the regularity of zero-crossing timing patterns from the tachometer data to determine chronological order. The standard deviation of time intervals between consecutive zero-crossings in the aligned 2-second window serves as the ordering feature.
+
+
+Rationale: As mechanical systems undergo controlled degradation over extended testing periods, the timing regularity of operational events systematically decreases. Components experience wear, clearance changes, and response variations that manifest as increased timing irregularity in zero-crossing patterns.
+
+
+Technical Details:
+- Uses first 212 points of ZCT data (2-second aligned window)
+- Feature: Standard deviation of time between zero-crossings
+- Ranking: Lower regularity values receive better ranks (more regular = earlier in timeline)
+- Physical Basis: Tracks degradation of timing precision in rotating systems
+
+
+Innovation: This approach focuses on operational timing patterns rather than vibration amplitudes, providing a novel method for chronological ordering based on system timing degradation.
