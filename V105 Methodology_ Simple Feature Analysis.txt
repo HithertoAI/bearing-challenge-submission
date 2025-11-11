@@ -1,0 +1,10 @@
+﻿V105 Methodology: Simple Feature Analysis
+
+Approach Description:
+Direct temporal ordering using maximum vibration amplitude as the sole criterion, based on empirical analysis showing this feature optimally positions known incident files at the timeline terminus.
+Rationale for Feature Choice:
+Maximum vibration amplitude was selected through systematic testing of ultra-simple features, demonstrating superior incident file positioning compared to energy-based and statistical approaches. This feature effectively captures extreme operational states while maintaining temporal coherence.
+Technical Details:
+The maximum value from each 2-second vibration window was extracted and used for ascending-order sorting. This approach positioned all identified incident candidates in the final segment of the timeline while establishing a physically plausible degradation progression.
+Innovation Statement:
+Our empirical feature selection process identified maximum amplitude as the most effective simple ordering criterion, demonstrating that complex feature engineering is not always necessary for robust temporal reconstruction in sparse sampling scenarios.
