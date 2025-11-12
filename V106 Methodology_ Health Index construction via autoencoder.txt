@@ -1,0 +1,10 @@
+﻿V106 Methodology: Health Index construction via autoencoder
+
+Approach Description:
+Health Index construction via autoencoder reconstruction error, implementing research-based methodology that fuses vibration RMS (structural wear), synchronous order amplitudes (rotor imbalance), rotational speed trends (efficiency degradation), and high-frequency energy (bearing wear) into a compound damage indicator.
+Rationale for Feature Choice:
+Selected condition indicators exhibit proven monotonicity with cumulative damage progression. Vibration RMS tracks structural looseness, synchronous orders capture permanent rotor imbalance, rotational speed reflects thermodynamic efficiency loss, and high-frequency energy indicates bearing/gear wear. Autoencoder fusion ensures robustness to operational transients.
+Technical Details:
+PCA-based autoencoder computes reconstruction error as Health Index, trained implicitly on healthy operational manifold. Four normalized condition indicators fused to create compound damage metric. Chronological ordering established by ascending Health Index values representing progression from healthy to degraded states.
+Innovation Statement:
+Implementation of research-validated health index methodology provides physically-grounded compound damage indicator that filters operational variability while capturing irreversible degradation across multiple damage pathways, enabling accurate temporal reconstruction from sparse random samples.
