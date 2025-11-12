@@ -1,0 +1,10 @@
+﻿V107 Methodology: Compound damage index
+
+Approach Description:
+Compound damage index combining modulation depth (bearing wear signature), high-to-low frequency ratio (damage-sensitive spectral shift), impulsive-to-continuous ratio (crack growth indicator), and vibration RMS (structural degradation) to capture irreversible cumulative damage progression.
+Rationale for Feature Choice:
+Modulation depth selected as primary indicator based on empirical analysis showing optimal incident file positioning. High-to-low frequency ratio captures spectral migration toward damage-sensitive bands. Impulsive ratio indicates increasing crack-related events. Weighted combination ensures robustness across multiple damage mechanisms.
+Technical Details:
+Features normalized to uniform scale and combined via weighted summation. Modulation depth computed via Hilbert transform envelope analysis. Frequency ratios derived from Welch power spectral density. Impulsive ratio calculated from amplitude distribution extremes.
+Innovation Statement:
+Empirically-driven feature selection prioritizes modulation depth based on proven incident detection performance, creating a compound damage index that emphasizes bearing wear signatures while incorporating complementary degradation indicators for comprehensive temporal reconstruction.
