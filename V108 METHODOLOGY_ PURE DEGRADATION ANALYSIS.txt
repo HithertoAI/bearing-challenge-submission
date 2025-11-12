@@ -1,0 +1,24 @@
+﻿V108 METHODOLOGY: PURE DEGRADATION ANALYSIS
+Data-driven approach focusing exclusively on physical degradation indicators, eliminating operational variability bias.
+Technical Approach:
+* Fault Energy Ratio: Ratio of bearing fault frequency energy (cage, ball, inner race, outer race) to total vibration energy
+* Impact Regularity: Measures periodicity of vibration impacts using coefficient of variation analysis
+* High-Frequency RMS: RMS of high-pass filtered signal (>10kHz) to detect surface damage
+* Combined Degradation Index: Weighted combination (70% fault energy, 20% impact regularity, 10% HF content)
+Physical Rationale:
+* True Degradation Focus: Bearing fault energy ratio increases with accumulating damage regardless of operational conditions
+* Impact Pattern Changes: Damaged bearings produce more regular impact patterns than healthy random variations
+* Surface Damage Detection: High-frequency content increases with surface roughness and material degradation
+* Operational Invariance: Ratios and patterns are less sensitive to flight cycle variations than absolute energy measures
+Key Innovation:
+* No Preconceived Assumptions: Complete disregard for previous "incident file" hypotheses
+* Pure Physical Signals: Exclusive focus on features that change only with material state
+* Statistical Outlier Detection: Letting the true failure file emerge naturally from degradation metrics
+* Sparse Sampling Optimization: Designed for identifying single failure event among sparse samples
+Results:
+* Degradation Index range: 0.480314 to 0.558499 units
+* Clear failure cluster: Files 33, 24, 14, 08, 51 identified as most degraded
+* Healthy baseline: Files 34, 03, 35, 37, 25 identified as least degraded
+
+
+This approach reveals the true degradation progression by filtering out operational variability and focusing on physical damage accumulation signatures.
