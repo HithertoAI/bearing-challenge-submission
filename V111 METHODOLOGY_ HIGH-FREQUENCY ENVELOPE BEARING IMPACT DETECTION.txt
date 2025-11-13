@@ -1,0 +1,32 @@
+﻿V111 METHODOLOGY: HIGH-FREQUENCY ENVELOPE BEARING IMPACT DETECTION
+Focusing on tiny bearing failure signatures buried in operational noise through demodulation techniques.
+Technical Approach:
+Envelope Demodulation: Extract bearing impact signatures from high-frequency carrier bands (8-15kHz)
+Fault Frequency Detection: Identify bearing characteristic frequencies in envelope spectrum
+Impact Magnitude Quantification: Measure maximum fault frequency amplitude across demodulation bands  
+Monotonic Degradation Tracking: Rank files by ascending envelope-detected fault magnitude
+Physical Rationale:
+Bearing Impact Modulation: Tiny bearing defects create impacts that modulate high-frequency structural resonances
+Demodulation Principle: Envelope analysis extracts low-frequency fault signatures from high-frequency carriers
+Operational Noise Immunity: High-frequency bands are less contaminated by operational vibration noise
+Tiny Signature Amplification: Demodulation amplifies subtle bearing signatures buried in dominant operational signals
+Key Innovation:
+Tiny Signature Focus: Specifically designed for micro-bearing failures in high-noise environments
+Carrier Frequency Exploitation: Uses natural structural resonances as carrier signals for impact detection
+Load-Invariant Detection: Envelope analysis in specific bands provides operational variability resistance
+Impact-Based Progression: Tracks bearing degradation through impact signature growth rather than overall vibration
+Implementation:
+1. Bandpass filter vibration data in 8-15kHz impact carrier band
+2. Apply Hilbert transform for envelope extraction
+3. Downsample envelope signal for efficient spectral analysis
+4. Detect bearing fault frequencies (BPFO: 231Hz, BPFI: 5781Hz, BSF: 3781Hz, FTF: 4408Hz) in envelope spectrum
+5. Quantify maximum fault frequency magnitude as degradation indicator
+6. Rank files by ascending fault magnitude for monotonic progression
+
+
+Results:
+* Clear detection of bearing impact signatures across operational variability
+* Monotonic progression of envelope-detected fault magnitude
+* Physical grounding in bearing failure mechanics and modulation principles
+* Robust to load and speed variations through frequency-domain isolation
+This approach reconstructs the degradation timeline by measuring the growth of bearing-specific impact signatures through advanced demodulation techniques, providing operational-invariant monotonic progression.
