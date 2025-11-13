@@ -1,0 +1,33 @@
+﻿V110 METHODOLOGY: CUMULATIVE DAMAGE ACCUMULATION
+Focusing on irreversible system property changes rather than instantaneous vibration states.
+
+
+Technical Approach:
+* Energy Distribution: Measures how vibration energy spreads across frequencies
+* Stiffness Proxy: High-frequency to low-frequency energy ratio
+* Persistent Nonlinearity: Skewness indicating irreversible system changes
+* Energy Distribution Entropy: Measures disorder in vibration energy distribution
+* Combined Cumulative Index: Weighted ensemble of irreversible damage indicators
+
+
+Physical Rationale:
+* Irreversible Changes: System properties only degrade, never improve
+* Material State: Cumulative damage changes stiffness, damping, and nonlinear behavior
+* Memory Effect: Systems "remember" previous damage through altered dynamics
+* Building Process: Focuses on what accumulates across the entire timeline
+
+
+Key Innovation:
+* Accumulation Focus: First approach to explicitly measure what builds irreversibly
+* System Properties: Tracks changes in fundamental mechanical characteristics
+* Damage Memory: Captures how systems retain evidence of previous damage
+* Timeline Reconstruction: Orders files by total accumulated damage to date
+
+
+Results:
+* Cumulative damage index showing monotonic progression
+* Focus on irreversible building blocks of degradation
+* Foundation for true prognostic health monitoring
+
+
+This approach reconstructs the damage timeline by measuring irreversible system property changes that accumulate regardless of operational cycles.
