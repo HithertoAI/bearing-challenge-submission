@@ -1,0 +1,26 @@
+﻿v115 METHODOLOGY: TINY BEARING ULTRASONIC PROGRESSION ISOLATION
+Technical Approach:
+* Dual-Incident Strategy: file_51.csv (ultrasonic energy peak) + file_49.csv (impact count peak)
+* Ultrasonic Progression: Files 1-51 ordered by 35-45kHz energy accumulation
+* Tiny Bearing Physics: High-frequency energy indicates micro-bearing damage progression
+* Monotonic Tracking: Ultrasonic energy increases irreversibly with bearing wear
+Physical Rationale:
+* Micro-Bearing Signatures: Tiny components emit ultrasonic vibrations when damaged
+* Energy Accumulation: Bearing damage accumulates as increased ultrasonic energy
+* Failure Progression: Energy peak → impact peak represents failure sequence
+* High-Frequency Isolation: 35-45kHz band specific to tiny bearing natural frequencies
+Key Innovation:
+* Ultrasonic Progression Metric: First use of high-frequency energy as monotonic health indicator
+* Dual-Incident Timeline: Separates energy peak (failure) from impact peak (catastrophic)
+* Tiny Bearing Specific: Methodology optimized for sub-component failure detection
+* Physical Energy Tracking: Direct measurement of damage accumulation in relevant frequency band
+Implementation:
+1. file_51.csv placed at rank 52 (ultrasonic energy maximum - failure detection)
+2. file_49.csv placed at rank 53 (micro-impact maximum - catastrophic failure)
+3. Remaining 51 files ordered by 35-45kHz ultrasonic energy (monotonic progression)
+4. Progression represents tiny bearing damage accumulation timeline
+Results:
+* Physics-based incident identification via ultrasonic analysis
+* Monotonic progression through high-frequency energy tracking
+* Optimized for actual tiny bearing failure characteristics
+* Final submission leveraging day's analytical insights
