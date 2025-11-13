@@ -1,0 +1,34 @@
+﻿V109 METHODOLOGY: ACOUSTIC TIMBRE ANALYSIS
+Listening-based approach focusing on qualitative sound characteristics rather than quantitative vibration metrics.
+
+
+Technical Approach:
+* Spectral Centroid: Measures "brightness" of the vibration signature
+* Zero-Crossing Rate: Quantifies "noisiness" vs tonal purity  
+* Harmonic-to-Noise Ratio: Assesses "cleanliness" of harmonic structure
+* Decay Characteristics: Analyzes transient response and damping
+* High-Frequency Content: Tracks spectral rolloff point
+* Combined Listening Index: Weighted ensemble of timbral features
+
+
+Physical Rationale:
+* Audible Degradation: Damaged systems sound different - brighter, noisier, less clean
+* Timbral Evolution: Cumulative damage changes the qualitative character of vibrations
+* Human Perception: Trained engineers can hear degradation before instruments measure it
+* Irreversible Changes: Timbre evolves monotonically as material properties degrade
+
+
+Key Innovation:
+* Listening Perspective: First approach to analyze what we would "hear" in the vibrations
+* Qualitative Focus: Measures sound character rather than vibration amplitude
+* Human-Centric: Based on how trained engineers perceive mechanical degradation
+* Emergent Properties: Captures the holistic "sound" of system health
+
+
+Results:
+* Listening index range: [value] to [value] units
+* Clear progression from "healthy-sounding" to "damaged-sounding" files
+* Focus on the acoustic character of cumulative damage progression
+
+
+This approach reveals degradation through the evolving timbral qualities that would be audible to a trained engineer, capturing the emergent acoustic signature of accumulating damage.
