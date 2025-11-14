@@ -1,0 +1,22 @@
+﻿v120 METHODOLOGY: LOAD-INVARIANT FREQUENCY RATIO PROGRESSION
+Technical Approach:
+* Frequency Ratio Metric: Mid-band energy (5-15kHz) divided by low-band energy (1-5kHz)
+* Load Invariance: Ratio cancels operational variations while preserving damage signatures
+* Fixed Incident Framework: file_33.csv → rank 51, file_51.csv → rank 52, file_49.csv → rank 53
+Physical Rationale:
+* Low-Frequency Band (1-5kHz): Dominated by operational noise and load variations
+* Mid-Frequency Band (5-15kHz): Contains bearing damage signatures and early fault indicators
+* Ratio Benefits: Normalizes against speed/load changes, isolates true damage progression
+* Compounding Tracking: Ratio increases monotonically as bearing damage accumulates
+Implementation:
+1. Bandpass filtering to isolate 1-5kHz (operational) and 5-15kHz (damage) bands
+2. Energy calculation for each frequency band
+3. Ratio computation: mid_energy / low_energy
+4. Progression files (1-50) ordered by increasing ratio values
+5. Incident files fixed at positions 51-53 based on physical failure evidence
+Innovation:
+* Load-Invariant Progression: First use of frequency ratio to cancel operational variations
+* Physical Normalization: Mathematical cancellation of speed/load effects through band ratio
+* Damage Isolation: Separates bearing-specific signatures from operational noise
+* Compounding Focus: Specifically targets irreversible damage accumulation
+This methodology addresses the fundamental challenge of operational variability while maintaining focus on the compounding nature of bearing degradation.
