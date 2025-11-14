@@ -1,0 +1,32 @@
+﻿v116 METHODOLOGY: TINY BEARING ULTRASONIC PROGRESSION WITH LATE-STAGE DEGRADATION OPTIMIZATION
+Technical Approach:
+* Fixed Incident Framework: file_51.csv → rank 52 (ultrasonic energy peak - failure detection) + file_49.csv → rank 53 (impact peak - catastrophic failure)
+* Late-Stage Optimization: file_33.csv placed at rank 51 as final progression file based on cumulative degradation evidence
+* Ultrasonic Progression: Remaining 50 files ordered by 35-45kHz energy accumulation
+* Multi-Domain Validation: Periodicity analysis confirms file_33 bearing degradation signature
+Physical Rationale:
+* Single Failure Assumption: Only one tiny bearing caused failure, limiting final failure zone to 2-3 files
+* Cumulative Damage Evidence: file_33 shows highest periodicity (1.400) and sustained energy characteristics
+* Statistical Reality: Hybrid sampling explains multiple high-energy files in failure region
+* Monotonic Progression: Ultrasonic energy increases irreversibly with bearing wear
+Key Innovation:
+* Diagnostic-Driven Positioning: First use of autocorrelation periodicity to validate file placement
+* Operational Timeline Integration: File ordering reflects physical failure sequence rather than statistical spacing
+* Tiny Bearing Specific: Methodology optimized for sub-component failure detection in operational noise
+* Hybrid Sampling Adaptation: Approach accounts for deliberate oversampling in failure region
+Implementation:
+1. file_33.csv placed at rank 51 (final progression file - severe degradation state)
+2. file_51.csv placed at rank 52 (ultrasonic energy maximum - failure detection)
+3. file_49.csv placed at rank 53 (micro-impact maximum - catastrophic failure)
+4. Remaining 50 files ordered by 35-45kHz ultrasonic energy (monotonic progression)
+5. Progression represents tiny bearing damage accumulation timeline
+Validation:
+* Periodicity analysis confirms bearing fault signatures in late-stage files
+* Operational context (ZCT data) shows stable conditions during degradation
+* Multi-method consistency across ultrasonic energy, envelope analysis, and transient detection
+* Physical progression maintained: healthy → degraded → file_33 → file_51 → file_49
+Results:
+* Physics-based incident identification via ultrasonic and periodicity analysis
+* Statistically informed file placement respecting sampling constraints
+* Optimized for actual tiny bearing failure characteristics
+* Maintains monotonic progression through high-frequency energy tracking
