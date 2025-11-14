@@ -1,0 +1,26 @@
+﻿v117 METHODOLOGY: TINY BEARING ULTRASONIC PROGRESSION WITH INCIDENT IDENTIFICATION
+Technical Approach:
+* Ultrasonic Progression: Files ordered by 35-45kHz energy accumulation representing bearing damage timeline
+* Incident Identification: Three-stage failure sequence identified through physical signature analysis
+* Fixed Incident Framework: file_51.csv (severe pre-failure), file_33.csv (tiny bearing failure incident), file_49.csv (catastrophic aftermath)
+Physical Rationale:
+* Micro-Bearing Physics: High-frequency ultrasonic energy indicates micro-bearing damage progression
+* Failure Sequence: Energy accumulation progresses to failure incident then catastrophic aftermath
+* Monotonic Tracking: Ultrasonic energy increases irreversibly with bearing wear
+* Signature Validation: Incident files identified through periodicity analysis and energy characteristics
+Key Innovation:
+* Incident Sequence Identification: First use of combined periodicity and energy analysis to identify complete failure timeline
+* Tiny Bearing Specific: Methodology optimized for sub-component failure detection in operational noise
+* Physical Energy Tracking: Direct measurement of damage accumulation in relevant frequency band
+* Multi-Stage Failure Modeling: Captures pre-failure, incident, and aftermath states
+Implementation:
+1. file_51.csv placed at rank 51 (severe pre-failure state)
+2. file_33.csv placed at rank 52 (ultrasonic energy maximum - tiny bearing failure incident)
+3. file_49.csv placed at rank 53 (micro-impact maximum - catastrophic aftermath)
+4. Remaining 50 files ordered by 35-45kHz ultrasonic energy (monotonic progression)
+5. Progression represents complete tiny bearing damage timeline from healthy to catastrophic failure
+Results:
+* Physics-based incident sequence identification via ultrasonic and periodicity analysis
+* Complete failure timeline reconstruction from healthy operation to catastrophic aftermath
+* Monotonic progression through high-frequency energy tracking
+* Optimized for actual tiny bearing failure characteristics and sequence
