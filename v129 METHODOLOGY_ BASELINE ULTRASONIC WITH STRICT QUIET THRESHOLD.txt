@@ -1,0 +1,25 @@
+﻿v129 METHODOLOGY: BASELINE ULTRASONIC WITH STRICT QUIET THRESHOLD
+Technical Approach:
+* Fixed Incident Framework: file_33.csv → rank 51, file_51.csv → rank 52, file_49.csv → rank 53
+* Strict Quiet Threshold: 5th percentile of rolling RMS (only the quietest 5% of signal analyzed)
+* Baseline Ultrasonic Metric: 35-45kHz energy measured exclusively during extremely calm operational moments
+* Monotonic Progression: 50 files ordered by baseline ultrasonic ascending (low→high = healthy→degraded)
+Physical Rationale:
+* Strictest Noise Floor: Using only the 5% quietest segments isolates the most persistent structural damage signatures
+* Operational Immunity: Extreme quiet periods minimize transient operational effects, maximizing degradation signal purity
+* Persistent Damage: Even in the calmest moments, bearing damage creates measurable ultrasonic background that healthy bearings lack
+Key Difference from v127:
+* v127 used 10th percentile quiet threshold
+* v129 uses 5th percentile (half as much data, twice as strict)
+* Hypothesis: Stricter threshold may better isolate true structural signatures from residual operational noise
+Implementation:
+1. Calculate rolling RMS (1000-sample windows)
+2. Identify 5th percentile threshold (strictest quiet segments)
+3. Fallback to 10th percentile if insufficient samples
+4. Apply 35-45kHz bandpass filter to quiet segments
+5. Calculate baseline ultrasonic energy
+6. Sort files ascending by baseline
+7. Assign ranks 1-50, incident files at 51-53
+Results:
+* Stricter quiet threshold captures only the most operationally-stable moments
+* Expected to enhance separation between healthy and degraded files
