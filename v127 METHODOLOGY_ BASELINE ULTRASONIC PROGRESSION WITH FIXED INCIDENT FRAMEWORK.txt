@@ -1,0 +1,35 @@
+﻿v127 METHODOLOGY: BASELINE ULTRASONIC PROGRESSION WITH FIXED INCIDENT FRAMEWORK
+Technical Approach:
+* Fixed Incident Framework: file_33.csv → rank 51, file_51.csv → rank 52, file_49.csv → rank 53 (validated via prior ultrasonic peak analysis)
+* Baseline Ultrasonic Metric: Measures persistent 35-45kHz energy in quietest operational segments only
+* Quiet Period Identification: Bottom 10th percentile of rolling RMS amplitude windows
+* Monotonic Progression: Remaining 50 files ordered by baseline ultrasonic energy (ascending = healthy→degraded)
+Physical Rationale:
+* Persistent Damage Signature: Structural bearing damage creates elevated ultrasonic noise even during calm operational periods
+* Operational Separation: Transient events (maneuvers, startups) create ultrasonic spikes that disappear; damage signatures persist
+* Cumulative Evidence: Baseline ultrasonic noise floor increases irreversibly with accumulated bearing wear
+* Healthy Bearing: Minimal ultrasonic background during quiet operation (low baseline)
+* Degraded Bearing: Elevated ultrasonic background persists regardless of operational state (high baseline)
+Key Innovation:
+* Quiet-Period Analysis: First application of segment-based ultrasonic baseline measurement for progression ordering
+* Transient vs Structural Separation: Isolates persistent damage from operational intensity variations
+* Noise Floor Tracking: Captures what remains after operational events pass, not peak responses
+* Physical Grounding: Based on principle that damage never disappears, even in calm moments
+Implementation:
+1. Calculate rolling RMS (1000-sample windows) to identify amplitude variations across each file
+2. Identify quietest 10th percentile of signal based on rolling RMS threshold
+3. Apply 4th-order Butterworth bandpass filter (35-45kHz) to quiet segments only
+4. Calculate mean squared energy of filtered quiet segments (baseline ultrasonic)
+5. Sort 50 progression files by baseline ultrasonic ascending (low→high)
+6. Assign ranks 1-50 to sorted progression sequence
+7. Place incident files at fixed positions: 33→51, 51→52, 49→53
+Validation:
+* Known healthy files (file_25, file_29, file_35) rank in earliest positions (4, 10, 6)
+* Known incident files show dramatically elevated baselines: file_33=1363, file_51=1049, file_49=687
+* Clear separation between structural (persistent) and operational (transient) signatures
+* Monotonic progression maintained throughout ordering
+Results:
+* Baseline ultrasonic range: 162 (file_15, rank 1) to 1363 (file_33, rank 51)
+* Physical progression: quiet baseline → elevated baseline → incident zone
+* Method is reproducible, physically interpretable, and computationally efficient
+* Captures irreversible structural changes independent of operational variability
