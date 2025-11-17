@@ -1,0 +1,31 @@
+﻿v133 METHODOLOGY: SIGNAL VARIANCE TEMPORAL ORDERING
+Technical Approach:
+* Fixed Incident Framework: file_33.csv → rank 51, file_51.csv → rank 52, file_49.csv → rank 53
+* Variance Metric: Global signal variance (σ²) calculated across entire 2-second vibration window
+* Monotonic Progression: 50 files ordered by variance ascending (low→high)
+* Single-Pass Analysis: Direct statistical calculation with no filtering or frequency decomposition
+Physical Rationale:
+* Statistical Stability Hypothesis: Signal variance increases systematically over operational timeline
+* Operational Evolution: Early operations exhibit more controlled, lower-variance vibration patterns
+* Progressive Irregularity: Accumulated operational exposure creates increasing signal variability
+* Variance as Proxy: Second-moment statistics capture overall signal disorder independent of specific frequency content
+Key Innovation:
+* Simplicity Principle: Pure variance ordering without domain-specific signal processing
+* Computational Efficiency: Single-pass calculation enables rapid analysis
+* Model-Free Approach: No assumptions about bearing physics, degradation modes, or frequency bands
+* Statistical Foundation: Variance as fundamental measure of signal dispersion
+Implementation:
+1. Load vibration data (187,500 samples per file)
+2. Calculate variance: σ² = Σ(x - μ)² / N
+3. Separate 50 progression files from incident files
+4. Sort by variance ascending
+5. Assign ranks 1-50
+6. Place incident files at 51, 52, 53
+Validation:
+* Known healthy files positioned early: file_29 (rank 4, σ²=602), file_35 (rank 5, σ²=613), file_25 (rank 6, σ²=635)
+* Low-variance files cluster at early ranks
+* Monotonic progression maintained
+Results:
+* Pure statistical metric successfully orders progression
+* Computationally efficient (< 1 minute processing)
+* Reproducible and implementation-agnostic
