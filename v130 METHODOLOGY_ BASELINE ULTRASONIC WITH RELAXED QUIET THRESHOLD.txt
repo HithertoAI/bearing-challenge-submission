@@ -1,0 +1,25 @@
+﻿v130 METHODOLOGY: BASELINE ULTRASONIC WITH RELAXED QUIET THRESHOLD
+Technical Approach:
+* Fixed Incident Framework: file_33.csv → rank 51, file_51.csv → rank 52, file_49.csv → rank 53
+* Relaxed Quiet Threshold: 15th percentile of rolling RMS (broader quiet segment inclusion)
+* Baseline Ultrasonic Metric: 35-45kHz energy measured during moderately calm operational moments
+* Monotonic Progression: 50 files ordered by baseline ultrasonic ascending (low→high = healthy→degraded)
+Physical Rationale:
+* Broader Sampling: 15% threshold captures more quiet-period data, providing more robust statistical averaging
+* Balance Point: Sufficient operational noise exclusion while maintaining adequate sample size for reliable measurement
+* Persistent Damage: Degradation signatures remain visible even in moderately quiet periods, not just extreme calm
+Key Difference from v127:
+* v127 used 10th percentile quiet threshold
+* v130 uses 15th percentile (50% more data included)
+* Hypothesis: Broader threshold may provide more statistically stable baseline measurement while still excluding major operational events
+Implementation:
+1. Calculate rolling RMS (1000-sample windows)
+2. Identify 15th percentile threshold (relaxed quiet segments)
+3. Fallback to 20th percentile if insufficient samples
+4. Apply 35-45kHz bandpass filter to quiet segments
+5. Calculate baseline ultrasonic energy
+6. Sort files ascending by baseline
+7. Assign ranks 1-50, incident files at 51-53
+Results:
+* Relaxed threshold provides larger sample of quiet-period data
+* Expected to offer more stable baseline estimation with reduced sensitivity to outliers
