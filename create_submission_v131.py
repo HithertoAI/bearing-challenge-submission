@@ -1,59 +1,36 @@
 import pandas as pd
 import numpy as np
 import os
+import zlib
 
 data_dir = "E:/order_reconstruction_challenge_data/files/"
 output_file = "E:/bearing-challenge/submission.csv"
 
-def calculate_zero_crossing_frequency(signal_data, fs=93750):
+def calculate_compression_ratio(vibration_data):
     """
-    Calculate dominant frequency from zero-crossing rate.
-    
-    Zero-crossing rate relates to frequency:
-    frequency ≈ (number of zero crossings / 2) / time_duration
+    Calculate compression ratio using zlib.
+    Lower ratio = more complex/disordered signal.
     """
-    # Count zero crossings
-    zero_crossings = np.where(np.diff(np.sign(signal_data)))[0]
-    num_crossings = len(zero_crossings)
+    # Convert to bytes
+    data_bytes = vibration_data.tobytes()
     
-    # Time duration
-    duration = len(signal_data) / fs  # seconds
+    # Compress
+    compressed = zlib.compress(data_bytes, level=9)  # Maximum compression
     
-    # Estimate frequency (half-cycles per second)
-    frequency = (num_crossings / 2.0) / duration
+    # Calculate ratio
+    original_size = len(data_bytes)
+    compressed_size = len(compressed)
+    ratio = original_size / compressed_size
     
-    return frequency
-
-def calculate_damage_parameter(frequencies):
-    """
-    Calculate CDM damage parameter D = 1 - (f_current / f_0)²
-    
-    Where:
-    - f_0 = reference frequency (healthiest/highest stiffness)
-    - f_current = current frequency (decreases with damage)
-    - D ranges from 0 (undamaged) to 1 (failure)
-    """
-    # Reference frequency = maximum (highest stiffness = healthiest)
-    f_0 = np.max(frequencies)
-    
-    # Calculate damage parameter for each file
-    damage_params = []
-    for f_current in frequencies:
-        D = 1.0 - (f_current / f_0)**2
-        damage_params.append(D)
-    
-    return np.array(damage_params), f_0
+    return ratio, original_size, compressed_size
 
 print("="*80)
-print("v131: CDM Damage Parameter via Frequency Shift")
+print("v131: Compression-Based Temporal Ordering")
 print("="*80)
-print("\nTheoretical basis:")
-print("  D = 1 - (f_current / f_0)²")
-print("  where f = natural frequency from zero-crossing rate")
-print("  Stiffness degradation → frequency decrease → damage increase")
+print("\nHypothesis: Signal compressibility changes over operational timeline")
+print("Approach: Order 50 progression files by compression ratio")
+print("Note: Lower compression ratio = more complex = later in timeline (potentially)")
 print("="*80)
-
-print("\nCalculating zero-crossing frequencies...")
 
 results = []
 
@@ -62,40 +39,76 @@ for i in range(1, 54):
     df = pd.read_csv(filepath)
     vibration = df.iloc[:, 0].values
     
-    # Calculate frequency from zero-crossing rate
-    frequency = calculate_zero_crossing_frequency(vibration)
+    ratio, orig_size, comp_size = calculate_compression_ratio(vibration)
     
     results.append({
         'file_num': i,
-        'frequency': frequency
+        'compression_ratio': ratio,
+        'original_size': orig_size,
+        'compressed_size': comp_size
     })
     
     if i % 10 == 0:
-        print(f"  Processed {i}/53 files...")
+        print(f"Processed {i}/53 files...")
 
 results_df = pd.DataFrame(results)
-print("  Complete!")
+print("Complete!")
 
-# Calculate damage parameter
-print("\nCalculating damage parameter D = 1 - (f/f₀)²...")
-damage_params, f_0 = calculate_damage_parameter(results_df['frequency'].values)
-results_df['damage_D'] = damage_params
+print(f"\nCompression ratio range: {results_df['compression_ratio'].min():.4f} to {results_df['compression_ratio'].max():.4f}")
 
-print(f"\nReference frequency f₀ (healthiest): {f_0:.2f} Hz")
-print(f"Frequency range: {results_df['frequency'].min():.2f} to {results_df['frequency'].max():.2f} Hz")
-print(f"Damage parameter D range: {results_df['damage_D'].min():.6f} to {results_df['damage_D'].max():.6f}")
-
-# Identify healthiest file (D closest to 0)
-healthiest_file = results_df.loc[results_df['damage_D'].idxmin(), 'file_num']
-print(f"Healthiest file (lowest D): file_{int(healthiest_file):02d}.csv (D={results_df['damage_D'].min():.6f})")
-
-# Separate incident files
+# Separate incident files (ranks 51, 52, 53)
 incident_files = [33, 49, 51]
 progression_df = results_df[~results_df['file_num'].isin(incident_files)].copy()
 
-# Sort by damage parameter (ascending = healthy → degraded)
-progression_df = progression_df.sort_values('damage_D', ascending=True)
-progression_df['rank'] = range(1, 51)
+print(f"\nProgression files: {len(progression_df)} (ordering for ranks 1-50)")
+
+# Sort by compression ratio - TRY BOTH DIRECTIONS
+# Ascending: low ratio (complex) → high ratio (simple)
+progression_df_asc = progression_df.sort_values('compression_ratio', ascending=True).copy()
+progression_df_asc['rank_asc'] = range(1, 51)
+
+# Descending: high ratio (simple) → low ratio (complex)
+progression_df_desc = progression_df.sort_values('compression_ratio', ascending=False).copy()
+progression_df_desc['rank_desc'] = range(1, 51)
+
+print("\n" + "="*80)
+print("CHECKING BOTH ORDERINGS")
+print("="*80)
+
+print("\nKnown healthy files - ASCENDING order (complex→simple):")
+for file_num in [25, 29, 35]:
+    row = progression_df_asc[progression_df_asc['file_num'] == file_num].iloc[0]
+    print(f"  file_{file_num:02d}.csv: rank {int(row['rank_asc']):2d} | ratio={row['compression_ratio']:.4f}")
+
+print("\nKnown healthy files - DESCENDING order (simple→complex):")
+for file_num in [25, 29, 35]:
+    row = progression_df_desc[progression_df_desc['file_num'] == file_num].iloc[0]
+    print(f"  file_{file_num:02d}.csv: rank {int(row['rank_desc']):2d} | ratio={row['compression_ratio']:.4f}")
+
+print("\n" + "="*80)
+print("Which ordering puts healthy files earlier?")
+print("We'll use that direction for submission.")
+print("="*80)
+
+# Check which puts healthy files earlier on average
+avg_rank_asc = progression_df_asc[progression_df_asc['file_num'].isin([25, 29, 35])]['rank_asc'].mean()
+avg_rank_desc = progression_df_desc[progression_df_desc['file_num'].isin([25, 29, 35])]['rank_desc'].mean()
+
+print(f"\nHealthy files average rank - ascending: {avg_rank_asc:.1f}")
+print(f"Healthy files average rank - descending: {avg_rank_desc:.1f}")
+
+if avg_rank_asc < avg_rank_desc:
+    print("\n✓ Using ASCENDING order (complex→simple)")
+    progression_df = progression_df_asc
+    direction = "ascending"
+else:
+    print("\n✓ Using DESCENDING order (simple→complex)")
+    progression_df = progression_df_desc
+    progression_df['rank'] = progression_df['rank_desc']
+    direction = "descending"
+
+if 'rank' not in progression_df.columns:
+    progression_df['rank'] = progression_df['rank_asc']
 
 # Create final ranking
 file_ranks = {}
@@ -110,32 +123,6 @@ file_ranks[49] = 53
 submission = pd.DataFrame({'prediction': [file_ranks[i] for i in range(1, 54)]})
 submission.to_csv(output_file, index=False)
 
-print(f"\nSubmission saved to: {output_file}")
-
-# Show known healthy files
-print("\nKnown healthy files:")
-for file_num in [25, 29, 35]:
-    row = results_df[results_df['file_num'] == file_num].iloc[0]
-    rank = file_ranks[file_num]
-    print(f"  file_{file_num:02d}.csv: rank {rank:2d} | "
-          f"freq={row['frequency']:.2f} Hz | "
-          f"D={row['damage_D']:.6f}")
-
-print("\nIncident files:")
-for file_num in [33, 49, 51]:
-    row = results_df[results_df['file_num'] == file_num].iloc[0]
-    print(f"  file_{file_num:02d}.csv: freq={row['frequency']:.2f} Hz | D={row['damage_D']:.6f}")
-
-print("\nFirst 5 files (healthiest):")
-for _, row in progression_df.head(5).iterrows():
-    print(f"  Rank {int(row['rank']):2d}: file_{int(row['file_num']):02d}.csv | "
-          f"freq={row['frequency']:.2f} Hz | D={row['damage_D']:.6f}")
-
-print("\nLast 5 files (most degraded):")
-for _, row in progression_df.tail(5).iterrows():
-    print(f"  Rank {int(row['rank']):2d}: file_{int(row['file_num']):02d}.csv | "
-          f"freq={row['frequency']:.2f} Hz | D={row['damage_D']:.6f}")
-
+print(f"\nSubmission saved: {output_file}")
+print(f"Direction used: {direction}")
 print("\n" + "="*80)
-print("v131 complete - CDM damage parameter from frequency shift")
-print("="*80)
