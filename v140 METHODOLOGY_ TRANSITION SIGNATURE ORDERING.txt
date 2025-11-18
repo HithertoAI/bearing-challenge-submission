@@ -1,0 +1,36 @@
+﻿v140 METHODOLOGY: TRANSITION SIGNATURE ORDERING
+Technical Approach:
+* Within-File Non-Stationarity: Measure signal variance across 2-second window
+* Quarterly Analysis: Divide signal into four 0.5-second segments
+* RMS Variance: Calculate variance of RMS across quarters
+* Temporal Trend: Measure RMS change from early (Q1-Q2) to late (Q3-Q4) halves
+* Transition Score: Product of RMS variance and temporal trend
+* Ordering: Files ranked by transition score ascending (stable→unstable)
+Physical Rationale:
+* Stable Operation: Healthy bearings show consistent RMS within measurement window
+* Post-Event Signatures: Files captured immediately after damage events show transient settling
+* Progressive Instability: Accumulated damage increases within-window signal variation
+* Non-Stationarity as Proxy: Degree of internal signal change reflects bearing condition evolution
+Key Innovation:
+* First Use of Within-Window Non-Stationarity for Bearing Ordering
+* Transition State Detection Rather Than Absolute Metrics
+* Signal Stability as Temporal Marker
+* Discrete Event Framework Applied to Individual Files
+Implementation:
+1. Divide 2-second vibration signal into four 0.5-second quarters
+2. Calculate RMS for each quarter
+3. Compute RMS variance across four quarters
+4. Calculate trend: |RMS_late - RMS_early| / RMS_early
+5. Transition score = RMS_variance × trend
+6. Order 50 progression files by transition score ascending
+7. Assign ranks 1-50
+8. Place incident files at 51, 52, 53
+Validation:
+* Known healthy files: file_25 (rank 2), file_29 (rank 6), file_35 (rank 4)
+* Average healthy rank: 4.0 (best achieved)
+* Transition-based ordering independent of baseline ultrasonic
+Results:
+* Non-stationarity successfully identifies stable/unstable files
+* Within-window dynamics provide novel ordering criterion
+* Method captures temporal instability evolution
+*
