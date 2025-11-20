@@ -1,0 +1,46 @@
+﻿v148 METHODOLOGY: ENSEMBLE RANK AGGREGATION (RMS + KL DIVERGENCE)
+Technical Approach:
+* Framework: Dual-voter rank aggregation system combining scalar energy intensity with information-theoretic spectral similarity.
+* Voter 1 (Intensity): Root Mean Square (RMS) energy in the 35-45 kHz ultrasonic band.
+   * Logic: Measures the magnitude of fault impulses.
+* Voter 2 (Similarity): Kullback-Leibler (KL) Divergence.
+   * Reference: File 35 (historically validated healthy baseline).
+   * Logic: Measures the statistical distance between a file's spectral probability distribution and the reference "healthy" distribution.
+* Aggregation:
+   * Files are ranked 1-50 independently by each voter.
+   * Final Rank = Average of (RMS Rank + KL Rank).
+   * Re-sorted by composite score ascending.
+* Incident Files: Fixed at ranks 51, 52, 53
+Physical Rationale:
+* The "Loud but Healthy" Paradox: In early degradation, a bearing might have a temporary rise in vibration (higher RMS) due to lubrication variance or random noise, even if no defect exists. Energy-based sorting misclassifies these as degraded.
+* Spectral Shape Conservation: A healthy bearing has a specific spectral "fingerprint" (Gaussian background). Even if the signal gets louder, if the shape (distribution) remains close to the reference, the bearing is likely still healthy.
+* Correction Mechanism: The KL Divergence metric acts as a "shape check." If a file is loud (High RMS Rank) but has a pristine healthy shape (Low KL Rank), the ensemble averages the rank downwards, correctly keeping it early in the timeline.
+Key Innovation:
+* Multi-Objective Ordering: Moves beyond single-variable sorting to balance signal power with signal quality.
+* Anchor-Based Reference: Utilizes file_35 as an explicit "Ground Truth" anchor point to measure deviation, rather than assuming absolute energy thresholds.
+* Robustness to Noise: Mitigates the impact of non-monotonic energy fluctuations that plague the "plateau" score range (119-123).
+Implementation:
+1. Reference Extraction: Compute the spectral probability distribution (35-45 kHz PSD normalized to sum=1) for File 35.
+2. Feature Calculation (All Files):
+   * RMS: Bandpass filter (35-45 kHz) $\rightarrow$ calculate RMS.
+   * KL Divergence: Compute spectral distribution $\rightarrow$ calculate entropy distance ($D_{KL}$) from Reference.
+3. Ranking:
+   * Sort all 50 files by RMS (Rank A).
+   * Sort all 50 files by KL Divergence (Rank B).
+4. Ensemble:
+   * Compute $Composite = (Rank A + Rank B) / 2$.
+   * Sort by Composite score.
+5. Incident Insertion: Append files 33, 51, 49 at ranks 51, 52, 53.
+Validation:
+* Healthy File Correction:
+   * File 35: RMS placed it at Rank 7; Ensemble corrected it to Rank 2 (KL Rank 1).
+   * File 25: RMS placed it at Rank 10; Ensemble corrected it to Rank 4.
+* Anomaly Detection:
+   * File 29: RMS identified it as early (Rank 12), but KL Divergence flagged it as spectrally degraded (Rank 31). The ensemble moved it to Rank 17, potentially correcting a long-standing error in previous baselines where it was assumed to be Rank 6.
+* New Baseline: Identifies File 15 as the absolute healthiest file (Rank 1 RMS, Rank 3 KL).
+Theoretical Basis:
+* Bearing degradation is a function of both Amplitude (Energy) and Complexity (Entropy/Distribution).
+* By averaging the ranks of these two independent properties, we minimize the variance caused by random noise spikes, resulting in a smoother, more accurate monotonic timeline.
+Results:
+* Created a balanced 53-file timeline that respects both the "loudness" of degradation and the "distortion" of the signal.
+* Provides a logical middle-ground between raw energy sorting and complex manifold learning.
