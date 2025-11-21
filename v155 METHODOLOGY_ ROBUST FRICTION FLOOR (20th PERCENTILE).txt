@@ -1,0 +1,27 @@
+﻿v155 METHODOLOGY: ROBUST FRICTION FLOOR (20th PERCENTILE)
+Technical Approach:
+* Feature: 20th Percentile of Rolling RMS Energy ($P_{20}$).
+* Frequency Band: 35-45 kHz (Ultrasonic).
+* Windowing: 1000 samples (~10ms).
+* Ranking: Monotonic ascending sort of the sustained friction floor.
+* Incident Files: Fixed at ranks 51, 52, 531.
+Physical Rationale:
+* Sustained vs. Transient Friction: Stage 1 degradation is characterized by asperity contact (rubbing) that breaks the lubrication film2.
+* The Percentile Pivot:
+   * Lower Percentiles (5th/10th): Measure the "silence between the rubs." While effective, this can be fooled by sensor dropouts or momentary decoupling, creating false positives for health (e.g., placing damaged files too early).
+   * 20th Percentile: Measures the density of the friction events. It represents the "base load" of the noise floor. A file must be quiet for a significant portion of time (80%) to rank highly, effectively filtering out "lucky silence."
+Key Innovation:
+* Dropout Rejection: By shifting the statistical threshold up to the 20th percentile, the methodology creates a "High-Pass Confidence Filter," ensuring that files ranked early are genuinely healthy rather than just suffering from signal loss.
+* Validation of the New Genesis: Confirms file_15 as the absolute baseline (Score 12.60), establishing it as the true $t=0$ anchor point over the historical (and now disproven) assumption of file_25 (Score 14.92).
+Implementation:
+1. Signal Processing: Apply 4th-order Butterworth bandpass filter (35-45 kHz) to raw vibration data.
+2. Energy Profiling: Compute Rolling RMS (Window=1000).
+3. Feature Extraction: Calculate $P_{20}$ (20th Percentile) for each file.
+4. Ordering: Sort all 50 files by $P_{20}$ ascending.
+5. Final Assembly: Append incident files 33, 51, 493.
+Validation:
+* Correction of the "Hard Anchor" Error: Previous attempts to force file_25 and file_35 to the top (v154) degraded performance (Score 126). This method allows the natural energy hierarchy to prevail, placing file_15, file_37, and file_26 at the true start.
+* Natural Clustering: The known healthy files (25, 35) settle naturally at Ranks 5 and 6, confirming they are early-stage but not the absolute start.
+Results:
+* Generated a 53-file timeline that orders files by the density of their frictional noise.
+* Provides a robust alternative to v135 by reducing sensitivity to transient signal dropouts.
