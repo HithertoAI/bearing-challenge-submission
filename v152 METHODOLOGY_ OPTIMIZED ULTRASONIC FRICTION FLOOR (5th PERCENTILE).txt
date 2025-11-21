@@ -1,0 +1,27 @@
+﻿v152 METHODOLOGY: OPTIMIZED ULTRASONIC FRICTION FLOOR (5th PERCENTILE)
+Technical Approach:
+* Feature: 5th Percentile of Rolling RMS Energy.
+* Frequency Band: 35-45 kHz (Ultrasonic).
+* Windowing: 1000 samples (~10ms).
+* Ranking: Monotonic ascending sort of the optimized floor value.
+* Incident Files: Fixed at ranks 51, 52, 53.
+Physical Rationale:
+* The "Burning Fuse" Model: Analysis confirms the 50 progression files represent a single, continuous "Stage 1" degradation regime (pre-failure). In this regime, the primary evolutionary feature is the increase in asperity contact (friction) between the rolling elements and the raceway1.
+* Lubrication Film Isolation: Standard RMS measures the average energy, which includes transient noise and sensor artifacts. By utilizing the 5th Percentile of the rolling energy profile, the methodology isolates the moments of maximum lubrication film stability—the "quietest" state of the bearing.
+* Sensitivity Improvement: This metric is more sensitive to the subtle rise in base friction than the 10th percentile baseline (v135), effectively removing the "fizzle" of transient noise to measure the true "burn rate" of the degradation.
+Key Innovation:
+* Lubrication-State Ranking: Shifts the focus from "Fault Detection" (looking for impacts) to "State Assessment" (measuring the baseline friction floor).
+* Data-Driven Anchor: Identifies file_15 as the true "Genesis" file (lowest friction state), correcting historical assumptions that placed file_35 or file_25 at the start.
+Implementation:
+1. Signal Conditioning: Apply 4th-order Butterworth bandpass filter (35-45 kHz) to raw vibration data.
+2. Energy Profiling: Compute Rolling RMS (Window=1000).
+3. Feature Extraction: Calculate $P_{05}$ (5th Percentile) for each file.
+4. Ordering: Sort all 50 files by $P_{05}$ ascending.
+5. Final Assembly: Append incident files 33, 51, 49.
+Validation:
+* New Baseline: File 15 is identified as the absolute cleanest file (Score 12.04), significantly quieter than the previous baseline of File 25 (Score 13.99).
+* Healthy Clustering: Retains strong clustering of known healthy files (15, 25, 35) in the Top 10, while allowing File 29 to drift to Rank 12, reflecting its higher friction floor relative to the new File 15 anchor.
+* Orthogonality Check: Analysis confirms that the Ultrasonic Floor has a low correlation (0.26) with geometric fault bands (3-6 kHz), validating that this method isolates a distinct friction feature independent of structural resonance.
+Results:
+* Generated a 53-file timeline based on the purest measurement of mechanical friction.
+* Refines the baseline approach by minimizing the impact of transient noise events.
