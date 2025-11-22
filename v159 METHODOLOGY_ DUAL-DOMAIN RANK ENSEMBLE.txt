@@ -1,0 +1,38 @@
+﻿v159 METHODOLOGY: DUAL-DOMAIN RANK ENSEMBLE
+Technical Approach:
+* Framework: Rank Aggregation Ensemble combining two independent signal processing algorithms.
+* Algorithm A (Ultrasonic Friction):
+   * Feature: 10th Percentile of Rolling RMS.
+   * Bandwidth: Bandpass Filtered 35-45 kHz (Ultrasonic).
+   * Role: High sensitivity to early-stage surface friction (asperity contact) while rejecting low-frequency noise.
+* Algorithm B (Broadband Composite):
+   * Feature: $RMS \times (Kurtosis + 1)$.
+   * Bandwidth: Raw Broadband (Time Domain).
+   * Role: High sensitivity to late-stage structural failure (smearing/impacts) that manifests across the full spectrum.
+* Fusion Logic: Arithmetic Mean of Ranks: $R_{final} = \frac{R_{A} + R_{B}}{2}$.
+* Ordering: Monotonic Ascending Sort.
+* Incident Files: Fixed at ranks 51, 52, 53.
+Physical Rationale:
+* The Bandwidth Split: Bearing degradation signatures shift across the frequency spectrum over the failure lifecycle.
+   * Early Degradation (Regime A): Manifests as subtle frictional noise primarily in the ultrasonic band, requiring narrow-band filtering to isolate from shaft harmonics.
+   * Late Degradation (Regime B): Manifests as high-energy grinding and impacts that span the audible and ultrasonic ranges. Band-limiting this regime causes information loss regarding impact severity.
+* Error Cancellation: Single-domain metrics often fail because they optimize for one regime at the expense of the other.
+   * Ultrasonic metrics can be "blind" to low-frequency smearing (under-ranking late failures).
+   * Broadband metrics can be "tricked" by sensor noise (over-ranking early healthy files).
+* Ensemble Stability: By averaging the ranks, the method utilizes the "cleanest" sensor logic for each regime, ensuring a robust monotonic curve from $t=0$ to $t=End$.
+Key Innovation:
+* Regime-Specific Optimization: Acknowledges that no single scalar feature is monotonic across the entire P-F (Potential-Functional) failure interval.
+* Dual-Domain Fusion: Integrates a narrow-band high-frequency feature (Friction) with a wide-band statistical feature (Impulse/Energy) to capture the full physics of degradation without manual intervention or arbitrary thresholding.
+Implementation:
+1. Parallel Processing:
+   * Stream A: Apply 35-45 kHz Bandpass $\rightarrow$ Compute 10th % RMS $\rightarrow$ Assign Rank $R_A$.
+   * Stream B: Load Raw Data $\rightarrow$ Compute $RMS \cdot (Kurtosis + 1)$ $\rightarrow$ Assign Rank $R_B$.
+2. Rank Fusion: Compute average rank for each file.
+3. Sorting: Order files by composite rank.
+4. Assembly: Append confirmed incident files at the end of the sequence.
+Validation:
+* Start-State Accuracy: The Ultrasonic component correctly identifies low-friction files (e.g., Files 15, 37) as the healthy baseline, filtering out broadband noise artifacts.
+* End-State Accuracy: The Broadband component correctly identifies high-impact/high-energy files (e.g., File 33, File 09) as late-stage failures, correcting for the "smearing" effect that lowers ultrasonic transmissibility in final failure stages.
+Results:
+* Generated a balanced 53-file timeline that leverages ultrasonic sensitivity for the initiation phase and broadband robustness for the terminal phase.
+* Creates a mathematically stable ordering that resolves conflicts between energy-based and impulse-based sorting methods.
