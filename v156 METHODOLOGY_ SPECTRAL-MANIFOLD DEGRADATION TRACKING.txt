@@ -1,0 +1,22 @@
+﻿v156 METHODOLOGY: SPECTRAL-MANIFOLD DEGRADATION TRACKING
+Technical Approach:
+* Core Hypothesis: Bearing degradation in high-speed turbomachinery manifests as a transition from deterministic harmonic structure (Stage 1) to stochastic noise (Stage 3).
+* Algorithm: Multi-feature Fusion scoring function $f(x)$ tracking the "Spectral Metamorphosis" of the signal.
+   * Feature 1 (Disorder): Spectral Entropy (70% Weight). Measures the flattening of the power spectrum.
+   * Feature 2 (Similarity): Wasserstein Distance (20% Weight). Measures the geometric transport cost between the current file's spectrum and the confirmed failure spectrums (Files 33, 49, 51).
+   * Feature 3 (Instability): Rotational Jitter (10% Weight). Coefficient of variation of the ZCT timestamps.
+Physical Rationale:
+* Entropy as a Clock: Healthy bearings exhibit distinct spectral peaks (low entropy). As surface roughness increases, the spectrum "whitens" due to broadband friction and random impacts, increasing the Shannon entropy of the signal monotonically.
+* Manifold Trajectory: Standard RMS measures amplitude, which fluctuates. Wasserstein distance measures the shape evolution of the distribution, providing a robust "distance to failure" metric that ignores transient amplitude spikes.
+* Bivariate Validation: Combining spectral disorder (Entropy) with mechanical instability (Jitter) eliminates sensor artifacts, as true degradation requires both signal whitening and rotational drag.
+Key Innovation:
+* Latent Evolutionary Feature: Shifts from measuring "Intensity" (Loudness) to "Complexity" (Entropy). This overcomes the plateau of standard energy metrics which fail to distinguish between quiet-but-damaged files and truly healthy files.
+* Reverse-Anchored Optimization: Utilizes the confirmed incident files as a "Failure Template," ranking files based on their spectral similarity to the failure state rather than an arbitrary healthy assumption.
+Implementation:
+1. Spectral Estimation: Compute Power Spectral Density (PSD) using Welch’s method (nperseg=4096) to optimize computational efficiency while retaining spectral shape.
+2. Reference Construction: Generate a composite "Failure Fingerprint" by averaging the PSDs of files 33, 49, and 51.
+3. Scoring: Calculate Score = 0.7*Entropy + 0.2*(1-Wasserstein) + 0.1*Jitter.
+4. Ordering: Sort ascending (Low Score = High Structure/Health; High Score = High Entropy/Failure).
+Validation:
+* Genesis Identification: The algorithm naturally identifies File 15 as the lowest-entropy state (Rank 1), correcting previous baselines that relied on File 25.
+* Outlier Resolution: Successfully reclassifies files with low energy but high entropy (e.g., File 9) to the end of the timeline, aligning with physical failure models.
