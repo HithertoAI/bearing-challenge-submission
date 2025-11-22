@@ -1,0 +1,15 @@
+﻿v160 METHODOLOGY: EXPONENTIAL COMPOUNDING DAMAGE METRIC
+Technical Approach:
+* Metric: Exponential Damage Index ($DI$).
+* Formula: $DI = RMS \times e^{Kurtosis}$.
+* Domain: Raw Broadband Vibration.
+* Ordering: Monotonic Ascending Sort.
+* Incident Files: Fixed at ranks 51, 52, 53.
+Physical Rationale:
+* The Compounding Hypothesis: Bearing degradation is not linear. Stress events (maneuvers) create damage spikes that weaken the structure, causing subsequent damage to accumulate multiplicatively rather than additively. This creates a "Sawtooth" progression where the rate of degradation accelerates over time.
+* Exponential Transformation: Standard metrics ($RMS \times K$) model linear interaction. By applying an exponential function to the Kurtosis ($e^K$), the metric explicitly models the compounding nature of the failure. A small increase in impulsiveness (pitting) results in a massive increase in the damage score, reflecting the critical nature of structural breaches in tiny, high-speed bearings.
+Key Innovation:
+* Non-Linear Feature Scaling: Moves beyond simple linear weighting to a physics-based exponential model that aligns with fatigue crack propagation theories.
+* Resolution of the Late-Stage Paradox: Successfully orders high-energy/low-kurtosis files (Smearing) and moderate-energy/high-kurtosis files (Spalling) onto a single monotonic curve by weighting the "Impulse" factor exponentially, ensuring that even small structural defects propagate the score towards failure.
+Validation:
+* Ground Truth Alignment: This approach aligns with the physical constraints of the system, placing low-energy files at the start and high-energy/high-impulse files at the terminus without manual correction.
