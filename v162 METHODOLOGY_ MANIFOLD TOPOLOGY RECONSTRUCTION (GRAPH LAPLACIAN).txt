@@ -1,0 +1,19 @@
+﻿v162 METHODOLOGY: MANIFOLD TOPOLOGY RECONSTRUCTION (GRAPH LAPLACIAN)
+Technical Approach:
+* Framework: Semi-Supervised Manifold Learning (Graph Laplacian Regularization).
+* Coordinates: Files are mapped into a 2D feature space defined by the Virtual Load components derived in v161:
+   * $X$: Ultrasonic Friction (RMS of 35-45 kHz).
+   * $Y$: Broadband Structural Impact (Kurtosis of Raw Signal).
+* Governing Equation: Solves the discrete Laplace equation ($\Delta T = 0$) on the data manifold, effectively treating "Time" as a potential field diffusing through the dataset.
+* Boundary Conditions:
+   * Dirichlet ($t=0$): File 15 (Confirmed Healthy/Lowest Entropy).
+   * Dirichlet ($t=1$): Files 33, 49, 51 (Confirmed Incident/Failure).
+Physical Rationale:
+* The Continuity of Degradation: Physical wear processes are continuous. While raw sensor metrics (RMS/Kurtosis) may fluctuate due to noise, the "State of Health" must evolve smoothly from neighbor to neighbor in the feature space.
+* Mesh Regularization: By linking each file to its nearest neighbors ($k=8$) in the Virtual Load space, the algorithm creates a "stiffness matrix" that resists outlier movement. If a late-stage file has a momentarily low RMS (drop-out), the tension from its high-damage neighbors prevents it from jumping to the start of the timeline.
+Key Innovation:
+* Field-Based Solver: Replaces discrete sorting (which is sensitive to local noise) with a global field solution. This minimizes the total variation of the timeline relative to the underlying damage topology.
+* Topology-Driven Correction: Automatically resolves the "Quiet but Damaged" paradox (e.g., File 09) by recognizing that while its amplitude is low, its position in the feature manifold is surrounded by late-stage failures, compelling the solver to assign it a late timestamp.
+Results:
+* Generated a mathematically smooth 53-file timeline that minimizes local variance while strictly adhering to the Start/End boundary constraints.
+* Validates the "Bridge" files (14, 24, 8) as the immediate precursors to failure based on topological proximity to the incident cluster.
