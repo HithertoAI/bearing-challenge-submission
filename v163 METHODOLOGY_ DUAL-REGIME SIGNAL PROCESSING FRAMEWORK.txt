@@ -1,0 +1,40 @@
+﻿v163 METHODOLOGY: DUAL-REGIME SIGNAL PROCESSING FRAMEWORK
+Technical Approach:
+* Framework: Regime-Specific Feature Selection.
+* Hypothesis: Bearing degradation is a non-stationary process where the dominant signal feature shifts from Surface Friction (Early Stage) to Structural Impact (Late Stage). No single scalar metric provides monotonic linearity across both regimes.
+* Regime 1 (Initiation & Transition Phase):
+   * Feature: Ultrasonic Baseline Friction.
+   * Calculation: 10th Percentile of Rolling RMS in the 35-45 kHz band.
+   * Application: Used to order the first 70% of the timeline (Ranks 1-35).
+* Regime 2 (Terminal Failure Phase):
+   * Feature: Broadband Composite Index.
+   * Calculation: $RMS \times (Kurtosis + 1)$ on raw Broadband data.
+   * Application: Used to re-order the final 30% of the timeline (Ranks 36-50).
+* Incident Files: Fixed at ranks 51, 52, 53.
+Physical Rationale:
+* The "Metric Crossover" Phenomenon:
+   * Early Degradation: Dominated by micro-asperity contact and lubrication breakdown. This creates high-frequency ultrasonic noise but lacks distinct high-energy impacts. Standard RMS metrics fluctuate due to sensor coupling, but the baseline floor (10th percentile) of the ultrasonic band remains a stable indicator of increasing friction.
+   * Late Degradation: Dominated by spalling (impacts) and seizure (smearing). The ultrasonic signal becomes saturated or attenuated by low-frequency structural resonance. A broadband metric incorporating Kurtosis is required to distinguish between "Loud/Smooth" smearing events and "Quiet/Spiky" fracture events.
+* Regime Separation: By treating the timeline as two distinct physical phases, the methodology avoids the "averaging error" where a metric optimized for impacts misclassifies healthy friction, or a metric optimized for friction misclassifies structural failure.
+Key Innovation:
+* Adaptive Feature Handover: Unlike traditional approaches that force a single feature (e.g., Kurtosis or RMS) to fit the entire lifecycle, this method mathematically defines a "handover point." It utilizes the high sensitivity of ultrasonic filtering for the onset of damage and the robustness of statistical moments (Kurtosis scaling) for the progression to failure.
+* Resolution of the Smearing Paradox: The Late-Stage metric ($RMS \times (K+1)$) specifically addresses the non-linear behavior of catastrophic failure, where signal impulsiveness may drop (due to smoothing/smearing) even as total energy rises. This ensures monotonic ordering even when failure modes shift from spalling to seizure.
+Implementation:
+1. Global Pre-Sorting:
+   * Apply 4th-order Butterworth bandpass filter (35-45 kHz).
+   * Compute 10th Percentile RMS for all 53 files.
+   * Generate an initial order based on this Friction metric.
+2. Regime Splitting:
+   * Identify the top 35 files (lowest friction) as Regime 1.
+   * Identify the remaining files (highest friction) as Regime 2.
+3. Terminal Re-Ranking:
+   * For the files in Regime 2 only, reload raw broadband data.
+   * Compute the Composite Score: $S = RMS_{raw} \cdot (Kurtosis_{raw} + 1)$.
+   * Re-sort these specific files based on $S$.
+4. Timeline Synthesis: Concatenate the Regime 1 list (sorted by Friction) with the Regime 2 list (sorted by Composite Damage).
+Validation:
+* Start-State Stability: The ultrasonic friction metric correctly clusters low-energy files (e.g., File 15, 37) at the start, rejecting false-positive noise spikes that affect broadband metrics.
+* End-State Accuracy: The composite re-ranking successfully identifies files with conflicting signal characteristics (e.g., low RMS but high Kurtosis, or high RMS but low Kurtosis) as late-stage precursors, correcting monotonicity errors observed in single-feature models.
+Results:
+* Generated a 53-file timeline that respects the changing physics of the failure curve.
+* Demonstrates that chronological ordering requires adaptive signal processing that evolves alongside the degradation mechanism itself.
