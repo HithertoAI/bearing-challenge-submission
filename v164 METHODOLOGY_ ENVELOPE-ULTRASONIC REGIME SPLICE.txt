@@ -1,0 +1,21 @@
+﻿v164 METHODOLOGY: ENVELOPE-ULTRASONIC REGIME SPLICE
+Technical Approach:
+* Framework: Dual-Regime Feature Splitting.
+* Regime 1 (Start - Files 1-35):
+   * Feature: Ultrasonic Friction Floor (10th Percentile RMS, 35-45 kHz).
+   * Logic: Maximizes sensitivity to early lubrication breakdown while rejecting transient noise.
+* Regime 2 (End - Files 36-50):
+   * Feature: Hilbert Envelope Energy (35-45 kHz).
+   * Logic: Applies Hilbert Transform demodulation to isolate the amplitude modulation caused by defect impacts. This effectively separates "Rhythmic Damage" (Spalling) from "Broadband Noise" (Smearing).
+* Incident Files: Fixed at ranks 51, 52, 53.
+Physical Rationale:
+* The Modulation Hypothesis: As bearing degradation advances from surface roughness (Stage 1) to discrete defects (Stage 2/3), the signal changes from continuous friction to modulated impacts.
+* Metric Specificity:
+   * RMS (Start): Excellent at tracking general friction growth but fails when defects become discrete pulses.
+   * Envelope (End): Specifically designed to measure the strength of the fault repetition. This solves the "Quiet but Broken" paradox (e.g., File 09) by detecting the rhythmic signature of a crack even if the overall energy is low.
+Key Innovation:
+* Demodulation-Based Sorting: Shifts the "End Game" sorting criterion from simple Energy (which fluctuates) to Modulation Intensity (which is strictly monotonic with defect size).
+* Regime Handover: Mathematically defines the transition point (Rank 35) where the dominant signal feature shifts from Friction to Modulation, preventing early-stage noise from corrupting the late-stage ordering.
+Results:
+* Correctly classifies File 09 as a late-stage failure (Rank 44) based on its high modulation index, correcting previous energy-based misclassifications.
+* Identifies File 08 as the terminal pre-failure state (Rank 50), creating a seamless energetic bridge to the incident files.
