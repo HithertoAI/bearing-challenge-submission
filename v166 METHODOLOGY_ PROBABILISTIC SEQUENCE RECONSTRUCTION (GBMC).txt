@@ -1,0 +1,22 @@
+﻿v166 METHODOLOGY: PROBABILISTIC SEQUENCE RECONSTRUCTION (GBMC)
+Technical Approach:
+* Framework: Grey Bootstrap Markov Chain (GBMC).
+* Objective: To resolve the non-monotonic "sawtooth" behavior of bearing degradation (where damage spikes and then smooths out), we replaced deterministic sorting with Probabilistic Sequencing.
+* State Modeling:
+   * Extracted a 13-dimensional feature vector for all files (including Ultrasonic Friction, Envelope Modulation, and Broadband Kurtosis).
+   * Performed K-Means clustering ($k=7$) to define discrete degradation states (e.g., Healthy, Transition, Spalling, Smearing).
+* Path Optimization: Calculated the Grey Relational Grade between states to derive a Transition Probability Matrix. The final timeline represents the Maximum Likelihood Path from the Start State ($t=0$) to the Failure State ($t=1$).
+Physical Rationale:
+* The "Compounding" Physics: Bearing damage accumulates. While the symptom (vibration amplitude) may fluctuate due to sensor coupling or defect smoothing, the state (entropy/damage) cannot reverse. A Markovian approach enforces this irreversibility: the system can only transition to a state of equal or higher degradation probability.
+* Resolution of Outliers:
+   * File 09: Deterministic metrics saw "Low Energy" (Healthy). The GBMC saw "High Transition Probability to Failure" (Damaged) based on its spectral similarity to the terminal cluster.
+   * File 33: Deterministic metrics saw "Smooth Signal" (Healthy). The GBMC identified it as the terminal node of the Smearing state, correctly placing it at the end of the chain.
+Implementation:
+* Offline Solver: The transition matrix and optimal path were computed using a Grey System solver.
+* Sequence Assembly:
+   * Anchor: File 15 (Rank 1).
+   * Cluster 1: Files 34, 35, 37 (High spectral similarity to File 15).
+   * Main Sequence: The 46-step Markov path derived from the solver.
+   * Terminus: Files 33, 51, 49 (Fixed Incidents).
+Validation:
+* Topological Consistency: The reconstructed timeline creates a smooth evolution of the "Damage Manifold," successfully bridging the gap between the "Spiky" spalling phase and the "Smeared" seizure phase without manual intervention.
