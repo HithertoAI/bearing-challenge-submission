@@ -1,0 +1,24 @@
+﻿v170 METHODOLOGY: GAMMA REGIME TRAJECTORY
+Technical Approach:
+This methodology addresses the "Sawtooth" ordering problem by rejecting the assumption of linear degradation. Instead, it models the bearing lifecycle as a Gamma ($\Gamma$) Trajectory in the Signal Space, where the physics of failure evolves from Friction (Leg 1) to Spalling (Leg 2) to Smearing (Leg 3).
+Hypothesis:
+Degradation is a loop, not a line.
+* Early Wear: Signal energy rises, but impulsiveness is low.
+* Failure Onset: Impulsiveness (Kurtosis) spikes dramatically as pits form.
+* Terminal Failure: Impulsiveness drops as pits smear into general roughness, even as energy (RMS) peaks.
+* Conclusion: A linear sort conflates the "Spiky" (mid-failure) and "Smeared" (late-failure) phases. We must unwrap this loop by sorting the transition phase by Descending Impulsiveness.
+Phase 1: The Friction Leg (Files 1–32)
+* Dominant Physics: Lubrication Breakdown.
+* Metric: v135 (Ultrasonic Friction Floor).
+* Sorting Logic: Ascending.
+* Rationale: In the absence of macroscopic defects, the only reliable clock is the rising floor of ultrasonic friction. We isolate the bottom 60% of the dataset (lowest friction) and order them linearly.
+Phase 2: The Spalling Leg (Files 33–50)
+* Dominant Physics: Pitting $\to$ Spalling $\to$ Pre-Smearing.
+* Metric: Kurtosis (Fisher).
+* Sorting Logic: Descending.
+* Rationale: This is the breakthrough correction. In this high-damage regime, the timeline moves from Sharp Impacts (High Kurtosis) to Blunt Rumble (Low Kurtosis). By sorting this block by Descending Kurtosis, we correctly place the violent "Spike" files (e.g., File 14, 24) before the damage smooths out, respecting the irreversible physical decay of the fault signature.
+Phase 3: The Smearing Leg (Files 51–53)
+* Dominant Physics: Geometric Collapse.
+* Files: 33, 49, 51.
+* Sorting Logic: RMS (Ascending).
+* Rationale: These files represent the final state where the bearing raceway is destroyed. They are locked to the end, representing the asymptotic limit of the failure curve (Maximum Energy, Low Kurtosis).
