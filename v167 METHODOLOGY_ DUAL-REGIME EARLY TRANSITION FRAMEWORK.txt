@@ -1,0 +1,20 @@
+﻿v167 METHODOLOGY: DUAL-REGIME EARLY TRANSITION FRAMEWORK
+Technical Approach:
+* Framework: Adaptive Regime-Based Ordering.
+* Regime 1 (Lubrication Dominance):
+   * Files: Ranks 1-12.
+   * Metric: Ultrasonic Friction Floor (10th Percentile RMS, 35-45 kHz).
+* Regime 2 (Defect Dominance):
+   * Files: Ranks 13-50.
+   * Metric: Broadband Composite Index ($RMS \times (Kurtosis + 1)$).
+* Ordering: Sequential concatenation of Regime 1 (sorted by Friction) and Regime 2 (sorted by Composite Index).
+* Incident Files: Fixed at ranks 51, 52, 53.
+Physical Rationale:
+* The "Stealth Defect" Phenomenon: Diagnostic analysis reveals a subset of files (e.g., early transition phase) that exhibit low ultrasonic friction energy but elevated broadband impulsiveness. Standard energy-based sorting misclassifies these as "healthy" due to their low RMS amplitude.
+* Early Handover: By shifting the regime transition point earlier (Rank 12), the methodology engages the impulse-sensitive metric sooner. This allows the timeline to distinguish between "Quiet/Healthy" files (Regime 1) and "Quiet/Damaged" files (Regime 2), ensuring that bearings with incipient pitting are correctly ordered after the healthy baseline.
+* Composite Robustness: The Regime 2 metric accounts for both "Spiky" (Pitting) and "Smeared" (Seizure) failure modes, creating a monotonic trajectory for the latter 75% of the dataset where simple friction metrics become unreliable.
+Key Innovation:
+* Transition Point Optimization: Identifies the specific chronological horizon where the dominant degradation signature shifts from surface roughness to structural integrity loss.
+* Blind Spot Correction: Specifically addresses the sorting error where low-energy defects remain hidden in the top-tier rankings of friction-based models.
+Results:
+* Generated a 53-file timeline that preserves the high-precision ordering of the healthy start while accurately resolving the complex signal interactions of the transition and failure phases.
