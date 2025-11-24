@@ -1,0 +1,11 @@
+﻿v168 METHODOLOGY: RHYTHM-FRICTION HYBRID
+Technical Approach:
+* Concept: Integrates the high-sensitivity Ultrasonic Friction metric for the early "wear" phase with the robust Envelope Rhythm metric for the late "damage" phase.
+* Regime 1 (Ranks 1-35): Ordered by 10th Percentile RMS (35-45 kHz). This regime is dominated by surface friction, where rhythm is weak and energy is the reliable clock.
+* Regime 2 (Ranks 36-50): Ordered by Targeted Envelope Spectrum (BPFI/BPFO Amplitude). This regime is dominated by discrete defects. The envelope metric correctly identifies that files like File 14 and File 24 are the final precursors to failure, overriding the energy metric which gets confused by smearing.
+* Incident Files: Fixed at ranks 51, 52, 53.
+Physical Rationale:
+* Signal Evolution: Bearing degradation evolves from chaotic friction (best measured by RMS) to rhythmic impacts (best measured by Envelope Analysis).
+* Hybrid Order: By splicing the timelines, the methodology respects the physics of both regimes, ensuring a monotonic transition from lubrication breakdown to structural fracture.
+Results:
+* Generated a 53-file timeline that leverages the "Silence" of the start and the "Heartbeat" of the end.
