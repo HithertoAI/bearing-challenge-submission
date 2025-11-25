@@ -1,0 +1,25 @@
+﻿v173 METHODOLOGY: TARGETED ZCT BAND-STOP
+Technical Philosophy:
+This methodology reconstructs the chronological timeline of bearing degradation by distinguishing between Structural Failure (Compounding Damage) and Operational Transients (Maneuvers). It posits that while high vibration energy is a symptom of failure, it is not unique to failure; turbine spin-up events ("maneuvers") also generate high energy. To resolve this, the model uses Torsional Stability (from Zero-Crossing Time data) as a filter to reject false positives.
+Regime 1: Lubrication Breakdown (Start Phase)
+* Dominant Physics: Micro-pitting and lubricant loss.
+* Metric: Ultrasonic Friction Floor ($v_{135}$).
+* Formula: Bandpass RMS (35-45 kHz).
+* Rationale: In the early lifecycle, macroscopic defects are absent. The only reliable "clock" is the linear increase in asperity contact friction. This metric is selected because it is sensitive to surface roughness but insensitive to low-frequency maneuver noise. We isolate the 35 files with the lowest ultrasonic friction to establish the healthy baseline.
+Regime 2: Structural Transition (End Phase)
+* Dominant Physics: Macroscopic Spalling vs. Operational Maneuvers.
+* Base Metric: Structural Intensity ($v_{157}$).
+   * $Score = RMS_{broadband} \times (1 + Kurtosis_{fisher})$.
+   * This metric promotes files that are both Loud (High Energy) and Spiky (High Impulsiveness), which is the signature of pitting and spalling.
+* Correction Filter: ZCT Band-Stop Penalty.
+   * Observation: True terminal failure (severe wobble) creates Moderate Instability ($\sigma_{RPM} \approx 6.0$). Operational maneuvers (spin-up) create Extreme Instability ($\sigma_{RPM} > 8.5$).
+   * Algorithm:
+      1. Calculate RPM Instability ($\sigma_{RPM}$) from the 5-second Tachometer signal.
+      2. Safe Zone ($\sigma_{RPM} < 8.5$): No penalty. Files exhibiting "Terminal Wobble" (characteristic of severe damage) are preserved.
+      3. Kill Zone ($\sigma_{RPM} > 8.5$): 50% Score Penalty. Files exhibiting "Extreme Chaos" are classified as operational transients and demoted in the timeline.
+* Result: This creates a timeline where "Stable Damage" (High Energy, Moderate Jitter) takes precedence over "Unstable Maneuvers" (High Energy, Extreme Jitter).
+Regime 3: Terminal Collapse (End Points)
+* Files: 33, 51, 49.
+* Rationale: These files represent the empirically confirmed terminal sequence where the bearing raceway geometry has completely collapsed. They are locked to the final positions of the timeline.
+Summary:
+The approach fuses Ultrasonic Friction (for early wear detection) with a Stability-Filtered Intensity Model (for late damage). This ensures that the reconstructed order respects both the compounding nature of fatigue and the operational reality of the test platform.
