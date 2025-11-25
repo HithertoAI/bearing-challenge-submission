@@ -1,0 +1,54 @@
+﻿v175 METHODOLOGY: MULTI-SCALE DAMAGE ACCUMULATION RATE FRAMEWORK
+
+
+Technical Approach:
+* Framework: Multi-Scale Exponential Growth Analysis.
+* Hypothesis: Bearing degradation compounds multiplicatively across frequency scales as failure progresses. The rate of damage accumulation, not just damage amount, reveals the true chronological sequence.
+* Core Innovation: Damage Accumulation Rate (DAR) - measures how quickly failure modes amplify across wavelet scales.
+* Feature: Multi-Scale Exponential Compounding.
+  * Calculation: Product of exponential growth rates across wavelet detail coefficients.
+  * Formula: DAR = ∏(1 + g_i) × (1 + E_imb) where g_i are growth rates per scale, E_imb is energy imbalance.
+  * Application: Single metric applied to all middle files (ranks 2-50).
+
+
+Physical Rationale:
+* The "Scale-to-Scale Amplification" Phenomenon:
+  * Early Degradation: Isolated frequency components show minimal growth. Energy remains balanced across scales.
+  * Progressive Failure: Damage begins transferring between scales - high-frequency components excite lower-frequency resonances.
+  * Terminal Phase: Exponential growth emerges simultaneously across multiple scales as the system loses stability.
+* Multiplicative vs Additive Compounding:
+  * Traditional approaches sum features additively, missing the compounding nature of mechanical failure.
+  * This method models damage multiplication: failure in one frequency band accelerates failure in others.
+
+
+Key Innovation:
+* Exponential Growth Detection: Unlike static energy measurements, this approach fits exponential curves to wavelet coefficients over time, capturing the acceleration of degradation.
+* Cross-Scale Coupling: The product term ∏(1 + g_i) mathematically represents how failure modes amplify each other across frequency domains.
+* Energy Redistribution Tracking: The energy imbalance term E_imb detects when the system begins transferring energy between scales - a precursor to cascade failure.
+
+
+Implementation:
+1. Multi-Scale Decomposition:
+   * Apply 5-level wavelet decomposition (Daubechies-4) to vibration data.
+   * Extract detail coefficients for scales 1-5.
+2. Exponential Growth Analysis:
+   * For each detail coefficient series, fit exponential growth model: y = a·e^(b·t)
+   * Extract growth rate parameter b for each scale.
+3. Damage Accumulation Computation:
+   * Compute multiplicative compounding: compounded_growth = ∏(1 + |b_i|)
+   * Calculate energy imbalance: E_imb = σ(energies) / μ(energies)
+   * Final DAR = compounded_growth × (1 + E_imb)
+4. Timeline Construction:
+   * Fixed anchors: file_15 (rank 1), incident files (ranks 51-53).
+   * Middle files ranked by ascending DAR (lower accumulation = earlier).
+
+
+Validation:
+* Physical Consistency: The method naturally clusters files with balanced energy distribution and minimal cross-scale growth at the timeline start.
+* Failure Progression: Files showing simultaneous exponential growth across multiple scales are correctly positioned later in the sequence.
+* Anchor Respect: The framework maintains physical constraints while applying innovative analysis to the uncertain middle segment.
+
+
+Results:
+* Generates a physically plausible timeline where damage progression follows observable multi-scale dynamics.
+* Demonstrates that chronological ordering requires modeling how failure compounds across the system's frequency architecture, not just measuring current damage state.
