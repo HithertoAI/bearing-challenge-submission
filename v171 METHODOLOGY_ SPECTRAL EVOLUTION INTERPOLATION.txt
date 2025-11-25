@@ -1,0 +1,22 @@
+﻿v171 METHODOLOGY: SPECTRAL EVOLUTION INTERPOLATION
+Technical Concept:
+This methodology distinguishes between Transient Magnitude (amplitude spikes caused by maneuvers) and Evolutionary State (compounding structural changes). It asserts that simple degradation metrics (RMS, Kurtosis) yield false positives during high-load events. Instead, the timeline is reconstructed by tracking the Morphological Evolution of the signal's frequency spectrum, which remains scale-invariant.
+Boundary Conditions (The Prongs):
+The timeline is anchored by two isolated states, treated as fixed boundary conditions:
+* Genesis State ($S_0$): File 15. Represents the spectral signature of the healthy bearing.
+* Terminal State ($S_1$): Files 33, 49, 51 (Ranked 51–53). The averaged spectral signature of these files represents the "fully evolved" failure state.
+Algorithm: Spectral Shape Similarity
+The "Pool" (Files 2–50) is ordered based on the structural similarity of their vibration signatures to the boundary states.
+1. Feature Extraction: For every file, the Power Spectral Density (PSD) is computed and normalized to a unit vector. This normalization removes amplitude information (volume), isolating the Spectral Shape (DNA).
+2. Similarity Measurement: We calculate the Cosine Similarity between each file's vector and the two Anchor Vectors ($S_0$ and $S_1$).
+   * Cosine Similarity measures the angle between vectors, making it robust to the "Maneuver Spikes" that confuse RMS-based models. A "Loud Healthy" file remains mathematically similar to a "Quiet Healthy" file.
+3. Evolution Index:
+$$Index = Similarity(File, S_1) - Similarity(File, S_0)$$
+   * This metric tracks the net migration of the signal structure from the "Genesis" shape to the "Terminal" shape.
+Sequence Assembly:
+The final timeline is a direct interpolation of the evolutionary state:
+   1. Rank 1: Genesis Prong (15).
+   2. Ranks 2–50: The Pool, ordered by ascending Evolution Index.
+   3. Ranks 51–53: The Terminal Prong (33, 51, 49), locked to the confirmed end-of-life sequence.
+Why this addresses the "Compounding" problem:
+Compounding damage alters the fundamental resonant frequencies and noise floor structure of the bearing (Spectral Evolution). By tracking this shape change rather than signal power, the model correctly identifies advanced wear states even if they occur during low-load (quiet) operational phases, and correctly identifies early states even if they occur during high-load (loud) maneuvers.
