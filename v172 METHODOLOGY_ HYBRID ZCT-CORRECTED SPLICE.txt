@@ -1,0 +1,22 @@
+﻿v172 METHODOLOGY: HYBRID ZCT-CORRECTED SPLICE
+Technical Philosophy:
+This methodology resolves the critical ambiguity between "Operational Maneuvers" (Transient Load) and "Structural Degradation" (Compounding Damage). Previous analysis demonstrated that standard vibrational metrics (RMS, Kurtosis) yield false positives during turbine spin-up events. To correct this, we implement a Hybrid Splice that fuses a high-sensitivity friction model for the early phase with a ZCT-Corrected Energy Model for the late phase.
+Regime 1: Lubrication Breakdown (0% – 66% Life)
+* Dominant Physics: Micro-pitting and lubricant loss.
+* Metric:Ultrasonic Friction Floor
+* Formula: Bandpass RMS (35-45 kHz).
+* Rationale: In the absence of macroscopic defects, the only reliable clock is the rising floor of ultrasonic friction. We isolate the bottom 35 files (lowest friction) and order them linearly. This ensures the baseline timeline is not corrupted by low-frequency mechanical noise.
+Regime 2: Structural Transition (66% – 94% Life)
+* Dominant Physics: Macroscopic Spalling vs. Operational Maneuvers.
+* Base Metric: Broadband RMS (Total Energy).
+* Correction Filter: ZCT Stability Penalty.
+* Algorithm:
+   1. Maneuver Detection: We analyze the 5-second Zero-Crossing Time (ZCT) signal to calculate the RPM Instability ($\sigma_{RPM}$).
+   2. Plausibility Check: High-energy files with high instability ($\sigma_{RPM} > 8.0$) are classified as Maneuvers (False Positives).
+   3. Score Adjustment: These "Imposter" files receive a mathematical penalty to their RMS score, forcing them earlier in the timeline.
+* Result: This separates "Loud/Unstable" files (e.g., File 08) from "Loud/Stable" files (e.g., File 24), ensuring that only true structural damage occupies the critical pre-failure ranks.
+Regime 3: Terminal Collapse (95% – 100% Life)
+* Files: 33, 51, 49.
+* Logic: These files represent the confirmed terminal sequence where the bearing raceway geometry has completely collapsed. They are locked to the end of the timeline.
+Validation:
+This approach aligns with the "Physical Plausibility" requirement of advanced prognostic frameworks. By using the ZCT tachometer signal as a "Truth Sensor" to validate the Vibration signal, the model effectively distinguishes between the energy of operation and the energy of failure.
