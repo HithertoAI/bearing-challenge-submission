@@ -1,0 +1,31 @@
+﻿v177 METHODOLOGY: OPERATIONALLY-INVARIANT CREST FACTOR ORDERING
+Technical Approach:
+* Feature Selection: Crest factor (peak amplitude / RMS) as primary ordering metric
+* Operational Independence: Crest factor shows r=0.005 correlation with RMS, compared to r=0.873 for baseline ultrasonic
+* Ordering Logic: Files ranked by crest factor ascending (low = healthy, high = degraded)
+* Incident Files: file_33 → rank 51, file_51 → rank 52, file_49 → rank 53 (fixed per challenge protocol)
+Physical Rationale:
+* Crest factor measures signal "spikiness" - the ratio of peak amplitude to RMS
+* Healthy bearings produce smooth, uniform vibration patterns (low crest factor ~3.7)
+* Damaged bearings create discrete impact spikes from surface defects (high crest factor ~5.0)
+* This structural property is invariant to operational intensity - a spike is a spike regardless of maneuver state
+* Unlike energy-based metrics, crest factor captures SHAPE rather than MAGNITUDE of the signal
+Key Innovation:
+* First application of operationally-invariant metrics to bearing timeline reconstruction
+* Discovery that baseline ultrasonic (r=0.873 with RMS) conflates operational events with damage signatures
+* Crest factor isolates structural damage from operational variability
+* Addresses fundamental limitation of energy-based prognostic features
+Implementation:
+1. Load vibration data (column A) for each progression file
+2. Calculate RMS: sqrt(mean(data²))
+3. Calculate crest factor: max(|data|) / RMS
+4. Order 50 progression files by crest factor ascending
+5. Assign ranks 1-50
+6. Place incident files at fixed ranks 51, 52, 53
+Validation:
+* Anchor file_15: rank 1 (lowest crest factor = 3.689) ✓
+* Crest factor range: 3.689 (healthiest) to 4.956 (most degraded)
+* Operational independence confirmed: correlation with RMS = 0.005
+* Incident file_51 has highest crest factor (5.081) of entire dataset, confirming catastrophic failure signature
+* Progression from file_33 (3.884) → file_49 (4.648) → file_51 (5.081) shows increasing structural damage
+Results:
