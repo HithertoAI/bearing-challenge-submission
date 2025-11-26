@@ -1,0 +1,33 @@
+﻿v179 METHODOLOGY: SIMILARITY-BASED SERIATION ORDERING
+Technical Approach:
+* Fixed Incident Framework: file_33.csv → rank 51, file_51.csv → rank 52, file_49.csv → rank 53
+* Anchor Start: file_15.csv → rank 1 (greedy TSP starting point)
+* Seriation Method: 49 middle files ordered by minimizing consecutive-file dissimilarity
+* Multi-Feature Distance: 13 normalized features define pairwise file distances
+Physical Rationale:
+* Narrow Time Window: Files from ~1-2 hour final window, not 150 hours
+* Temporal Continuity: Adjacent files in true order should be similar (gradual system evolution)
+* Path Smoothness: Chronological order = path through feature space with minimal jumps
+* Regime Consistency: Similar operational states cluster together temporally
+Key Innovation:
+* Paradigm Shift: From "rank by damage level" to "find smoothest temporal path"
+* Traveling Salesman Formulation: File ordering as optimization problem
+* Multi-Domain Features: Time domain (RMS, kurtosis, crest) + frequency bands (0-46kHz)
+* 2-opt Refinement: Local search improves greedy solution quality
+Implementation:
+1. Extract 13 features per file: RMS, std, kurtosis, skewness, crest, 7 frequency bands, centroid
+2. Normalize features to [0,1] range
+3. Calculate Euclidean distance matrix (50x50)
+4. Greedy TSP from file_15: always visit nearest unvisited neighbor
+5. 2-opt improvement: iteratively swap path segments to reduce total distance
+6. Append incident files at ranks 51-53
+Validation:
+* Partial agreement with baseline on late-stage files (8, 14, 50)
+* Spearman ρ = 0.24 with baseline (not orthogonal, not identical)
+* Path distance optimization converged (27.78 total normalized distance)
+* Physically grounded in temporal continuity assumption
+Results:
+* Novel seriation approach for bearing timeline reconstruction
+* Treats ordering as path optimization rather than feature ranking
+* Applicable to any time-series reconstruction with temporal continuity
+* Independent convergence potential (standard technique, deterministic result)
