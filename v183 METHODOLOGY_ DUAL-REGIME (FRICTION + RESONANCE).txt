@@ -1,0 +1,20 @@
+﻿v183 METHODOLOGY: DUAL-REGIME (FRICTION + RESONANCE)
+Technical Approach: Framework: Phase-Adaptive Feature Selection.
+Hypothesis: Standard degradation metrics fail because the signal physics change fundamentally at the "smearing" point (late stage).
+1. Early Stage: Characterized by increasing friction (hiss).
+2. Late Stage: Characterized by structural looseness and resonance (rumble), even if impacts are smeared.
+Implementation: The timeline is constructed using a "Handover" approach between two distinct frequency bands.
+Phase 1: Friction Regime (Ranks 2–35)
+* Feature: Ultrasonic Baseline Friction.
+* Calculation: 10th Percentile of Rolling RMS in the 35–45 kHz band.
+* Rationale: The ultrasonic noise floor tracks the breakdown of lubrication and onset of micro-asperity contact. It is robust to sensor transients but saturates in the terminal phase.
+Phase 2: Resonance Regime (Ranks 36–50)
+* Feature: Low-Frequency Structural Rumble.
+* Calculation: RMS Energy in the 0.1–50 Hz band.
+* Rationale: As damage accumulates, the bearing assembly loses structural stiffness, exciting low-frequency resonances. This "rumble" metric increases monotonically in the terminal phase, solving the monotonicity issues of impact-based metrics (Kurtosis) during smearing events.
+Process Flow:
+1. Global Sort: All files are ordered by Ultrasonic Friction to establish the primary timeline.
+2. Tail Isolation: The "loudest" 15 files (highest friction) are isolated as the terminal candidates.
+3. Tail Re-Sort: These specific candidates are re-ordered based on their Low-Frequency RMS (0.1–50 Hz) to resolve the final degradation sequence.
+Results:
+* This hybrid approach combines the sensitivity of ultrasonic analysis for early detection with the robustness of low-frequency structural dynamics for terminal failure ranking.
