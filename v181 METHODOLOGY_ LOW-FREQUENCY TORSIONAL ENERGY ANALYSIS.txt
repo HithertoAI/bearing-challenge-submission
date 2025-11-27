@@ -1,0 +1,29 @@
+﻿v181 METHODOLOGY: LOW-FREQUENCY TORSIONAL ENERGY ANALYSIS
+Technical Approach:
+Framework: Torsional Vibration & Instantaneous Speed Modulation.
+Hypothesis: Bearing degradation introduces varying friction loads (stick-slip) on the drivetrain. While traditional vibrational amplitude (RMS) saturates or fluctuates due to sensor resonance, the regularity of the shaft rotation decays monotonically. This decay manifests as low-frequency energy in the intervals between zero-crossings.
+Feature: Zero-Crossing Interval Energy (0–5 Hz).
+Calculation: 1. Extract time intervals ($\Delta t$) between consecutive zero-crossing events (~530 events per file).
+2. Compute Fast Fourier Transform (FFT) of the interval series.
+3. Sum the spectral energy in the 0–5 Hz bandwidth.
+Physical Rationale:
+The "Hidden Timestamp" Phenomenon:
+* Stationary vs. Non-Stationary: Standard vibration features (RMS, Kurtosis) are sensitive to transient impacts which can be erratic (healing phenomena, rolling over debris).
+* Torsional Drag: As a bearing degrades, the friction coefficient rises and modulates due to surface roughness and debris. This creates a micro-braking effect on the shaft.
+* Low-Frequency Modulation: This drag is not constant; it pulses at very low frequencies determined by the defect evolution rate. By isolating the 0–5 Hz band of the time intervals (rather than the vibration amplitude), we measure the structural resistance of the bearing, which accumulates irreversibly over the 150-hour test.
+Implementation:
+1. Anchor Isolation:
+* Files 15, 33, 51, and 49 are locked as ground-truth anchors (Start vs. End) and excluded from calculation to prevent bias.
+2. Zero-Crossing Transformation:
+* For the 49 target files, the zero-crossing column (representing ~5 seconds of rotation) is extracted.
+* The raw timestamp data is converted into an Interval Series (Instantaneous Period), representing the delta time between shaft rotations.
+3. Spectral Integration:
+* A Fourier Transform is applied to the interval series to analyze the periodicity of speed fluctuations.
+* Metric Extraction: Total Energy is calculated strictly within the 0–5 Hz band. This rejects high-frequency jitter (sensor noise) and focuses on the macroscopic stability of the rotation.
+4. Timeline Synthesis:
+* Files are sorted in ascending order of 0–5 Hz Energy.
+* Assumption: Lower Energy = Smoother Rotation (Early Life); Higher Energy = Irregular Rotation (Late Life).
+* The sorted list is merged with the fixed anchors to produce the final 53-file timeline.
+Results:
+* The resulting metric demonstrates a clear order-of-magnitude shift (from ~0.0015 to ~0.0133) across the dataset.
+* This method bypasses amplitude saturation issues common in broadband vibration analysis by focusing purely on the time-domain stability of the shaft.
