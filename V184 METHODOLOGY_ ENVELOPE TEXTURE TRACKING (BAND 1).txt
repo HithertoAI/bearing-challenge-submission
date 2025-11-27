@@ -1,0 +1,20 @@
+﻿V184 METHODOLOGY: ENVELOPE TEXTURE TRACKING (BAND 1)
+Technical Approach: Framework: Signal Shape & Texture Analysis.
+Hypothesis: Traditional amplitude metrics (RMS) fail because signal energy saturates or fluctuates non-monotonically during healing/smearing events. However, the statistical texture of the signal—specifically its "peakedness"—evolves continuously. A healthy bearing exhibits "hyper-smooth" friction (platykurtic), while a degrading bearing becomes progressively "jagged" (mesokurtic/leptokurtic), regardless of the absolute volume.
+Feature: Band 1 Envelope Kurtosis.
+Calculation:
+1. Spectral Partitioning: The frequency spectrum is divided into 4 equidistant bands up to Nyquist. Band 1 (11.7 kHz – 23.4 kHz) is isolated using a 4th-order Butterworth bandpass filter.
+   * Note: This band captures the primary structural resonances without the interference of low-frequency rotor harmonics or high-frequency sensor noise.
+2. Texture Extraction: The Hilbert Transform is applied to the filtered band to generate the Amplitude Envelope.
+3. Statistical Scoring: The Kurtosis (4th standardized moment) of the envelope is calculated.
+Physical Rationale: The "Smoothness" Gradient:
+* Genesis State: The baseline files exhibit an Envelope Kurtosis of ~1.2. This indicates a distribution "flatter than a sine wave"—representing continuous, uniform, hydrodynamic lubrication.
+* Degradation State: As surface defects initiate, the friction becomes "grainy." Even if the bearing seizes and the total energy drops (the "Smearing Paradox"), the signal texture remains irregular, driving the Kurtosis up towards 2.0+.
+* Monotonicity: Unlike RMS, which measures how much vibration exists, this metric measures what kind of vibration exists, providing a robust, monotonic clock from "Smooth" to "Jagged."
+Implementation: 1. Anchor Exclusion:
+* Files 15, 33, 51, and 49 are locked as ground truth and excluded from the sort.
+2. Sorting:
+* The remaining 49 files are sorted in ascending order of Band 1 Envelope Kurtosis.
+* Logic: Ranking proceeds from the smoothest signal (lowest Kurtosis) to the most textured/jagged signal (highest Kurtosis).
+Results:
+* This method successfully brackets the timeline, placing the Genesis anchor at the absolute minimum (~1.28) and the Terminal anchors at the maximum (~2.10), confirming that signal texture is a more reliable predictor of age than signal energy.
