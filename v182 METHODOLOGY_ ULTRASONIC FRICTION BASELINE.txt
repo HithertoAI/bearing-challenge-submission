@@ -1,0 +1,19 @@
+﻿v182 METHODOLOGY: ULTRASONIC FRICTION BASELINE
+Technical Approach: Framework: High-Frequency Noise Floor Tracking.
+Hypothesis: Bearing degradation operates in two regimes: surface friction (early) and structural impact (late). Impact-based metrics (RMS, Kurtosis) fail because they rely on discrete events which may disappear ("heal") or saturate. However, the coefficient of friction monotonically increases due to surface roughness and lubrication breakdown. This manifests not as spikes, but as a rising "hiss" in the ultrasonic spectrum.
+Feature: Ultrasonic Baseline Friction (10th Percentile).
+Calculation:
+1. Spectral Isolation: Apply a 4th-order Butterworth bandpass filter to the raw vibration signal, isolating the 35–45 kHz band. This range contains friction-generated white noise while excluding low-frequency structural resonance.
+2. Envelope Detection: Compute the Rolling RMS (10ms window) of the filtered signal to generate an energy envelope.
+3. Baseline Extraction: Calculate the 10th Percentile of the rolling envelope.
+   * Rationale: The 10th percentile rejects the transient spikes (impacts) and measures the stable "floor" of the signal—the constant sound of friction.
+Physical Rationale: The Smearing Paradox Solution:
+* Late-stage failure often involves "smearing" where discrete spalls are smoothed over, causing Kurtosis and Peak Energy to drop (a false positive for health).
+* However, the surface roughness remains high, keeping the ultrasonic noise floor elevated. By tracking this floor (10th percentile) rather than the peaks, the metric remains monotonic through the terminal phase.
+Implementation: 1. Anchor Exclusion:
+* Files 15, 33, 51, and 49 are excluded from calculation.
+2. Sorting:
+* The remaining 49 files are sorted in ascending order of their Ultrasonic Baseline value.
+* Validation: The metric correctly identifies "quiet" files (e.g., File 37) as early-stage, consistent with start-state physical models.
+Results:
+* This method provides a robust "Clock" that tracks accumulated wear (friction) rather than transient load events, solving the non-monotonicity observed in broadband metrics.
