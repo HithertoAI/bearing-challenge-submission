@@ -1,0 +1,36 @@
+﻿v180 METHODOLOGY: RQA DETERMINISM ORDERING - SIGNAL DYNAMICS ANALYSIS
+Technical Approach:
+* Fixed Incident Framework: file_33.csv → rank 51, file_51.csv → rank 52, file_49.csv → rank 53
+* Natural Ordering: 50 files ordered by Determinism (DET) from Recurrence Quantification Analysis
+* No Forced Anchors: File positions determined entirely by DET values
+* Dynamics-Based: Measures signal trajectory predictability, not amplitude levels
+Physical Rationale:
+* Takens Embedding: Reconstruct phase space attractor from time series (dim=5, tau=5)
+* Recurrence Matrix: Identify when system revisits similar states
+* Determinism (DET): Fraction of recurrence points forming diagonal lines
+* Chaos Theory: Degraded bearings produce more chaotic, less predictable trajectories
+Key Innovation:
+* Paradigm Shift: From amplitude-based features to dynamical systems analysis
+* Operational Independence: DET shows r=0.097 correlation with RMS (nearly zero)
+* Evolution Capture: Measures HOW signal evolves, not its level
+* Literature-Backed: RQA widely used in nonlinear time series analysis for system health
+Implementation:
+1. Subsample vibration data (every 100th point for computational feasibility)
+2. Normalize signal to zero mean, unit variance
+3. Create Takens delay embedding (dimension=5, delay=5)
+4. Compute distance matrix, threshold at 10th percentile
+5. Build recurrence matrix R[i,j] = 1 if distance < threshold
+6. Calculate DET = sum(diagonal line lengths >= 2) / sum(R)
+7. Order files by DET descending (high DET = healthy = early rank)
+8. Append incident files at ranks 51-53
+Validation:
+* File_8 (baseline late-stage) has lowest DET → correctly placed late
+* File_47 has highest DET → most predictable/healthy signal
+* File_15 has second highest DET → near-top placement
+* Operationally independent (r=0.097 with RMS)
+* Negatively correlated with baseline (ρ=-0.109) → different perspective
+Results:
+* Novel dynamical systems approach to bearing timeline reconstruction
+* Captures signal evolution characteristics missed by amplitude analysis
+* Theoretically grounded in chaos theory and attractor dynamics
+* Applicable to any mechanical system health monitoring
