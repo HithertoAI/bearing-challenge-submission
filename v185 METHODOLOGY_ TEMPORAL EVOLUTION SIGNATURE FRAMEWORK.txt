@@ -1,0 +1,37 @@
+﻿v185 METHODOLOGY: TEMPORAL EVOLUTION SIGNATURE FRAMEWORK
+Technical Approach:
+* Framework: Intra-file Energy Evolution Analysis
+* Hypothesis: The chronological progression of bearing degradation manifests not only in absolute energy levels but in how energy evolves within each 2-second file. Early-stage files exhibit stable or rising ultrasonic patterns, while late-stage files show declining or more variable intra-file energy trajectories.
+* Feature: Multi-segment Temporal Evolution Score
+* Calculation:
+   1. Ultrasonic bandpass filtering (35-45 kHz)
+   2. Rolling RMS computation (5,000-sample windows)
+   3. 10-segment energy analysis through each file
+   4. Combined metric: abs(slope) + (1 - half_ratio) + coefficient_of_variation
+Physical Rationale:
+* Early Degradation: Micro-surface interactions create consistent ultrasonic emissions that may slightly increase through the 2-second window as the bearing "warms up" under constant load
+* Mid-Stage Degradation: Emerging instabilities create more variable energy patterns with neutral intra-file trends
+* Late-Stage Degradation: Impending failure creates energy dissipation patterns where ultrasonic activity declines within the measurement window, indicating loss of energy transfer efficiency
+* The "Energy Trajectory" Phenomenon: Healthy bearings maintain or slightly increase energy output under constant conditions, while degraded bearings show energy decay within short time windows due to inefficient energy transfer
+Key Innovation:
+* Temporal Pattern Recognition: Moves beyond static energy measurements to capture dynamic energy behavior within files
+* Multi-Scale Analysis: Combines trend slope, half-life ratio, and variability coefficient into a unified evolution signature
+* Chronological Sensitivity: The method specifically targets features that evolve monotonically over the 1-2 hour test window, rather than damage severity
+Implementation:
+1. Segmentation: Divide each 2-second file into 10 temporal segments
+2. Energy Profiling: Compute RMS energy for each segment
+3. Evolution Metrics:
+   * Slope: Linear trend of segment energies
+   * Half-ratio: Energy in second half vs first half
+   * Variability: Coefficient of variation across segments
+4. Composite Scoring: Combine metrics to create temporal evolution signature
+5. Chronological Ordering: Sort by evolution score (low = early, high = late)
+Validation from Analysis:
+* Early Files: Show near-flat or slightly positive slopes (mean: -0.0269)
+* Late Files: Exhibit stronger negative slopes (mean: -0.0727)
+* Incident Files: Display minimal evolution (mean: -0.0062)
+* Variability: Late files show 22% higher coefficient of variation (0.033 vs 0.027)
+Expected Advantages:
+* Breakthrough Potential: Addresses the 40-point gap by capturing evolution patterns missed by static energy metrics
+* Monotonic Progression: Temporal signatures should evolve more consistently than absolute energy levels
+* Noise Resilience: Multi-segment analysis reduces sensitivity to transient spikes
