@@ -1,0 +1,43 @@
+﻿v187 METHODOLOGY: SIMPLE ZCT INTERVAL VARIANCE CHRONOLOGY
+Technical Approach:
+* Framework: Minimalist Rotational Timing Analysis
+* Hypothesis: The most fundamental chronological signature lies in the increasing irregularity of rotational timing as the bearing progresses toward failure. Early-stage bearings under constant load maintain near-perfect rotational consistency, while degradation introduces micro-variations in zero-crossing intervals that evolve monotonically over time.
+* Feature: Raw variance of valid zero-crossing time intervals
+* Calculation:
+   1. Extract zero-crossing timestamps from Column B
+   2. Compute intervals between consecutive zero-crossings
+   3. Filter to valid physical range (0.0001-0.02 seconds)
+   4. Calculate simple variance: σ² = Σ(xᵢ - μ)² / (n-1)
+Physical Rationale:
+* Early Operation: Healthy bearings exhibit exceptional rotational consistency with minimal timing variation due to precise mechanical coupling and effective lubrication
+* Progressive Degradation: As surface roughness increases, lubrication breaks down, and micro-damage accumulates, the bearing develops slight rotational irregularities that manifest as increased timing variance
+* Constant RPM Context: In a controlled test at fixed RPM, timing variations directly reflect mechanical condition rather than operational changes
+* Direct Measurement: Zero-crossing intervals provide ground-truth temporal data, unlike derived vibration features
+Key Innovation:
+* Radical Simplicity: Uses a single, computationally trivial feature without transformations, combinations, or normalization
+* Temporal Primacy: Focuses on actual time measurements rather than vibration proxies
+* Anti-Complexity: Deliberately avoids the feature engineering and signal processing that has failed in previous attempts
+* Physical Intuition: Leverages the fundamental expectation that mechanical degradation increases rotational irregularity
+Implementation:
+1. Data Extraction: Direct reading of ZCT timestamp column
+2. Interval Computation: Simple differencing of consecutive timestamps
+3. Physical Filtering: Removal of non-physical intervals outside expected rotational bounds
+4. Variance Calculation: Standard statistical variance on valid intervals
+5. Direct Ordering: Sort by increasing variance (low = early, high = late)
+Methodological Distinction from Previous ZCT Approaches:
+* vs Complex ZCT: Replaces multi-feature combinations (skewness, kurtosis, entropy, Hurst) with single raw variance
+* vs Derived Metrics: Avoids computed scores (maneuver_score, steady_state_score) in favor of direct measurement
+* vs Normalized Features: Uses raw variance without standardization or transformation
+* vs Signal Processing: No filtering, no frequency analysis, no windowing - pure time-domain statistics
+Expected Chronological Progression:
+* Rank 1-15: Exceptionally low variance (0.1-1.0e-12) - pristine rotational consistency
+* Rank 16-35: Moderate variance (1.0e-12 to 1.0e-11) - early degradation signatures
+* Rank 36-50: High variance (>1.0e-11) - advanced timing irregularities
+* Incident Files: Fixed at positions 51-53 regardless of variance
+Validation Basis:
+* Genesis Alignment: Confirms file_15 appears at chronological beginning with minimal variance
+* Physical Plausibility: Increasing variance aligns with expected mechanical degradation trajectory
+* Monotonic Expectation: Timing irregularity should increase monotonically with bearing age
+* Simplicity Advantage: Single-feature approaches often outperform complex combinations in chronological ordering
+Strategic Rationale:
+This approach represents a fundamental shift from seeking "damage features" to measuring "temporal consistency." In a narrow 1-2 hour window of constant operation, the evolution of rotational timing regularity may provide the cleanest chronological signature, unobscured by the complex dynamics that have confounded vibration-based methods.
