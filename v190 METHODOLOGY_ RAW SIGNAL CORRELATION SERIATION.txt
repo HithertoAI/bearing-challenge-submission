@@ -1,0 +1,127 @@
+﻿v190 METHODOLOGY: RAW SIGNAL CORRELATION SERIATION
+
+
+================================================================================
+THEORETICAL FOUNDATION
+================================================================================
+
+
+This approach abandons domain-specific feature extraction in favor of a 
+first-principles assumption: temporally adjacent samples from a continuous 
+physical process should exhibit maximum mutual similarity. Rather than 
+imposing assumptions about degradation signatures, operational regimes, or 
+spectral evolution, we allow the raw signal structure to define proximity.
+
+
+================================================================================
+PHYSICAL BASIS
+================================================================================
+
+
+The helicopter turboshaft vibration signal represents the superposition of 
+multiple rotating components, structural resonances, and stochastic processes. 
+While the instantaneous amplitude varies with operational state, the underlying 
+signal morphology—the pattern of peaks, valleys, and phase relationships—evolves 
+gradually over time.
+
+
+Files extracted from nearby temporal positions share:
+- Similar operational context
+- Correlated phase relationships between harmonic components  
+- Common structural resonance patterns
+- Equivalent background noise characteristics
+
+
+This similarity degrades monotonically with temporal separation.
+
+
+================================================================================
+METHODOLOGY
+================================================================================
+
+
+1. SIGNAL NORMALIZATION
+   - Load complete vibration signal (187,500 samples) for each file
+   - Zero-mean and unit-variance normalization
+   - Removes amplitude bias while preserving waveform structure
+
+
+2. PAIRWISE SIMILARITY COMPUTATION
+   - Pearson correlation coefficient between all file pairs
+   - Correlation computed on representative sample (10,000 points)
+   - Yields 49×49 similarity matrix for middle files
+
+
+3. DISTANCE TRANSFORMATION
+   - Convert similarity to distance: D(i,j) = 1 - ρ(i,j)
+   - Higher correlation → lower distance → temporal proximity
+
+
+4. ANCHOR-SEEDED PATH CONSTRUCTION
+   - Identify file most correlated with anchor (file_15)
+   - Greedy nearest-neighbor traversal from seed point
+   - Each step selects unvisited file with minimum distance
+
+
+5. LOCAL OPTIMIZATION
+   - 2-opt refinement to eliminate path crossings
+   - Iterative improvement until no beneficial swaps remain
+
+
+6. RANKING ASSIGNMENT
+   - Anchor file_15 → Rank 1
+   - Ordered middle files → Ranks 2-50
+   - Incident files 33, 51, 49 → Ranks 51, 52, 53
+
+
+================================================================================
+MATHEMATICAL FORMULATION
+================================================================================
+
+
+For normalized signals x_i and x_j:
+
+
+    ρ(i,j) = Σ(x_i · x_j) / (n-1)
+
+
+Distance matrix:
+
+
+    D(i,j) = 1 - ρ(i,j)
+
+
+Objective: Find permutation π minimizing total path length:
+
+
+    L(π) = Σ D(π_k, π_{k+1})
+
+
+================================================================================
+INNOVATION CLAIM
+================================================================================
+
+
+This framework demonstrates that chronological ordering can emerge from 
+signal-level similarity without explicit feature engineering. The approach 
+is domain-agnostic—applicable to any sequential process where temporal 
+adjacency implies structural similarity.
+
+
+By treating the ordering problem as graph optimization rather than feature 
+ranking, we avoid assumptions about which signal characteristics encode 
+temporal information. The data speaks for itself.
+
+
+================================================================================
+IMPLEMENTATION DETAILS
+================================================================================
+
+
+- Sample size: 10,000 points (computational efficiency)
+- Optimization: Greedy TSP + 2-opt (4 improvement iterations)
+- Complexity: O(n² log n) for n files
+- Reproducibility: Deterministic given fixed random seed
+
+
+================================================================================
